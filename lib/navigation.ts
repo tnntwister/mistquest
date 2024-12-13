@@ -1,4 +1,3 @@
-import path from 'path'
 import matter from 'gray-matter'
 import { cache } from 'react'
 
@@ -15,9 +14,14 @@ type NavSection = {
 }
 
 const files = {
-  'ce-qui-change': ['regles.md', 'thematiques.md', 'enjeux.md', 'timeline.md'],
+  'ce-qui-change': [
+    'thematiques.md',
+    'enjeux.md',
+    'timeline.md',
+    'regles.md'
+  ],
   'factions': ['maraudeurs.md', 'traditions.md', 'wraiths.md', 'vampires.md', 'loups-garou.md'],
-  'concepts': ['realite.md', 'umbra.md']
+  'concepts': ['realite.md', 'umbra.md', 'outremonde.md']
 }
 
 export const getNavigation = cache(async (): Promise<NavSection[]> => {

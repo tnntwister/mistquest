@@ -6,6 +6,11 @@ import { PersonnageCard } from '@/components/PersonnageCard'
 import { HistoireCard } from '@/components/HistoireCard'
 import { TelechargementCard } from '@/components/TelechargementCard'
 import { aidesDeJeu, aventuresSolo, personnages, histoires, telechargements } from '@/lib/campagne-en-cours-data'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Campagne en cours'
+}
 
 export default function CampagneEnCours() {
   return (

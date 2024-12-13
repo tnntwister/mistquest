@@ -3,6 +3,11 @@ import { DocSidebar } from '@/components/doc-sidebar'
 import Link from 'next/link'
 import { getMarkdownContent, type MarkdownContent } from '@/lib/markdown'
 import { getNavigation } from '@/lib/navigation'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'The Missing 5th Edition - Ma version homebrew de Mage'
+}
 
 export default async function TheMissing5thEdition() {
   const { content, metadata }: MarkdownContent = await getMarkdownContent('the-missing-5th-edition/index.md')

@@ -2,6 +2,11 @@ import Layout from '@/components/layout'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Book, Users, Calendar } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Accueil'
+}
 
 export default function Home() {
   return (

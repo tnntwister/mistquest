@@ -2,6 +2,11 @@ import Layout from '@/components/layout'
 import { Clock, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 import { breves } from '@/lib/data'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Brèves du Monde des Ténèbres'
+}
 
 export default function BrevesduMdT() {
 return (
