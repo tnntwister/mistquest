@@ -8,7 +8,7 @@ import { cache } from 'react'
 export type MarkdownContent = {
   content: string
   metadata: {
-    [key: string]: any
+    [key: string]: unknown
   } & {
     title: string
     description?: string
