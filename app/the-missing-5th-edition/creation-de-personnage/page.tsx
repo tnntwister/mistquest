@@ -1,9 +1,9 @@
 import Layout from '@/components/layout'
 import { DocSidebar } from '@/components/doc-sidebar'
-import { getMarkdownContent } from '@/lib/markdown'
+import { getMarkdownContent, type MarkdownContent } from '@/lib/markdown'
 
-export default async function HumainsHunters() {
-  const { content, metadata } = await getMarkdownContent('the-missing-5th-edition/factions/humains-hunters.md')
+export default async function CreationDePersonnage() {
+  const { content, metadata }: MarkdownContent = await getMarkdownContent('the-missing-5th-edition/creation-de-personnage.md')
   
   return (
     <Layout>

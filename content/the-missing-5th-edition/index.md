@@ -1,17 +1,27 @@
+---
+title: "The Missing 5th Edition"
+description: "Ma version homebrew de la 5ème édition de Mage l'Ascension"
+---
+
 # The Missing 5th Edition
 
-Bienvenue dans "The Missing 5th Edition", notre interprétation de ce que pourrait être la 5ème édition de Mage l'Ascension. Cette version a été créée pour combler le vide laissé par l'absence d'une édition officielle, en nous basant sur les éditions précédentes et en y ajoutant nos propres innovations.
+Bienvenue dans ma version homebrew de la 5ème édition de Mage l'Ascension. Cette adaptation personnelle vise à moderniser le jeu tout en conservant son essence unique.
 
-## Qu'est-ce que The Missing 5th Edition ?
+## Pourquoi une 5ème édition ?
 
-The Missing 5th Edition est un projet ambitieux visant à moderniser et à rationaliser les règles de Mage l'Ascension, tout en conservant l'essence et la profondeur qui ont fait le succès du jeu. Notre objectif est de créer un système qui soit à la fois fidèle à l'esprit de Mage et accessible aux nouveaux joueurs.
+Mage l'Ascension est un jeu extraordinaire qui mérite d'évoluer avec son temps. Cette version propose une mise à jour des règles et des concepts pour les adapter aux sensibilités modernes, tout en préservant la richesse et la profondeur qui font la force du jeu.
 
-## Principales caractéristiques
+## Ce qui change
 
-- Nouvelles sphères magiques adaptées au monde moderne
-- Système de création de sorts révisé pour plus de flexibilité et de créativité
-- Règles de paradoxe modifiées pour refléter les défis du 21e siècle
-- Nouveaux avantages et handicaps pour des personnages plus diversifiés
-- Intégration des technologies modernes dans le cadre magique
+Cette édition apporte plusieurs modifications majeures :
 
-Explorez les différentes sections de cette documentation pour découvrir en détail les changements et les ajouts que nous avons apportés à Mage l'Ascension. Que vous soyez un vétéran de longue date ou un nouveau joueur, nous espérons que vous trouverez ici de quoi inspirer vos futures parties. 
+- Une refonte du système de magie pour plus de fluidité
+- Une modernisation des factions et de leurs enjeux
+- Une mise à jour de la timeline et du contexte
+- De nouvelles règles pour une meilleure expérience de jeu
+
+## Les sections principales
+
+- **Ce qui change** : Découvrez les modifications apportées au jeu
+- **Les factions** : Explorez les différents groupes et leurs motivations
+- **Les concepts** : Plongez dans les mécaniques fondamentales du jeu 

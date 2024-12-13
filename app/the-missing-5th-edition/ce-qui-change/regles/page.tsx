@@ -3,7 +3,7 @@ import { DocSidebar } from '@/components/doc-sidebar'
 import { getMarkdownContent } from '@/lib/markdown'
 
 export default async function Regles() {
-  const content = await getMarkdownContent('the-missing-5th-edition/ce-qui-change/regles.md')
+  const { content, metadata } = await getMarkdownContent('the-missing-5th-edition/ce-qui-change/regles.md')
   
   return (
     <Layout>
@@ -12,6 +12,10 @@ export default async function Regles() {
           <DocSidebar />
         </aside>
         <main className="flex-1 p-6 bg-[#1a1a1a]">
+          <h1 className="text-4xl font-bold mb-2 text-white">{metadata.title}</h1>
+          {metadata.description && (
+            <p className="text-gray-400 mb-6">{metadata.description}</p>
+          )}
           <div className="prose prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
         </main>
       </div>

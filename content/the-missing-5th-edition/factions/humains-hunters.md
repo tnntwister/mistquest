@@ -1,4 +1,7 @@
-# Humains & Hunters
+---
+title: "Humains & Hunters"
+description: "Les mortels face au surnaturel moderne"
+---
 
 Dans un monde où la technologie brouille les frontières entre ordinaire et extraordinaire, les humains et les chasseurs ont développé de nouvelles façons de percevoir et combattre le surnaturel.
 

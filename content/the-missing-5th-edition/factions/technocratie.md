@@ -1,4 +1,7 @@
-# La Technocratie
+---
+title: "La Technocratie"
+description: "L'évolution technologique du contrôle consensuel"
+---
 
 La Technocratie a évolué avec l'ère numérique, fusionnant technologie et contrôle social d'une manière plus subtile et omniprésente que jamais.
 

@@ -1,5 +1,12 @@
-import fs from 'fs/promises'
 import path from 'path'
+import matter from 'gray-matter'
+import { cache } from 'react'
+
+type NavItem = {
+  title: string
+  href: string
+  description?: string
+}
 
 type NavSection = {
   title: string
@@ -7,62 +14,41 @@ type NavSection = {
   items: NavItem[]
 }
 
-type NavItem = {
-  title: string
-  href: string
+const files = {
+  'ce-qui-change': ['regles.md', 'thematiques.md', 'enjeux.md', 'timeline.md'],
+  'factions': ['maraudeurs.md', 'traditions.md', 'wraiths.md', 'vampires.md', 'loups-garou.md'],
+  'concepts': ['realite.md', 'umbra.md']
 }
 
-const titleMap: Record<string, string> = {
-  'ce-qui-change': 'Ce qui change',
-  'factions': 'Les factions',
-  'concepts': 'Évolution des concepts',
-  'thematiques': 'Les thématiques',
-  'enjeux': 'Les enjeux',
-  'timeline': 'Nouvelle timeline',
-  'regles': 'Nouvelles règles',
-  'traditions': 'Les Traditions',
-  'technocratie': 'La Technocratie',
-  'nephandi': 'Les Nephandi',
-  'maraudeurs': 'Les Maraudeurs',
-  'humains-hunters': 'Humains & Hunters',
-  'vampires': 'Les vampires',
-  'loups-garou': 'Les loups-garou',
-  'wraiths': 'Wraiths et Revenants',
-  'realite': 'La Réalité',
-  'umbra': "L'Umbra",
-  'outremonde': "L'Outremonde"
-}
-
-export async function getNavigation(): Promise<NavSection[]> {
-  const basePath = path.join(process.cwd(), 'app/the-missing-5th-edition')
-  const sections = ['ce-qui-change', 'factions', 'concepts']
+export const getNavigation = cache(async (): Promise<NavSection[]> => {
   const navigation: NavSection[] = []
 
-  for (const section of sections) {
-    const sectionPath = path.join(basePath, section)
+  for (const [section, sectionFiles] of Object.entries(files)) {
     const items: NavItem[] = []
-
-    try {
-      const entries = await fs.readdir(sectionPath, { withFileTypes: true })
-      
-      for (const entry of entries) {
-        if (entry.isDirectory()) {
-          items.push({
-            title: titleMap[entry.name] || entry.name,
-            href: `/the-missing-5th-edition/${section}/${entry.name}`
-          })
-        }
+    
+    for (const file of sectionFiles) {
+      try {
+        const content = await import(`@/content/the-missing-5th-edition/${section}/${file}`)
+        const { data } = matter(content.default || content)
+        
+        items.push({
+          title: data.title,
+          href: `/the-missing-5th-edition/${section}/${file.replace('.md', '')}`,
+          description: data.description
+        })
+      } catch (error) {
+        console.warn(`Failed to load ${file} in ${section}:`, error)
       }
-
+    }
+    
+    if (items.length > 0) {
       navigation.push({
-        title: titleMap[section],
+        title: section.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
         slug: section,
-        items: items
+        items
       })
-    } catch (error) {
-      console.error(`Error reading directory ${sectionPath}:`, error)
     }
   }
-
+  
   return navigation
-} 
+}) 
