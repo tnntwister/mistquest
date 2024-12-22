@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollText, Sword, BookOpen, Compass, Sparkles } from "lucide-react";
+import { ScrollText, Sword, BookOpen, Compass, Sparkles, Flame, FlameKindling, Wind } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FeatureCard } from "../components/FeatureCard";
