@@ -1,7 +1,7 @@
 "use client";
 
 import { GothicCard } from "@/components/ui/gothic-card";
-import { Skull, Moon, Fire, Wind } from "lucide-react";
+import { Skull, Moon, Flame, Wind } from "lucide-react";
 
 const darkArts = [
   {
@@ -19,7 +19,7 @@ const darkArts = [
   {
     name: "Pyromagie Noire",
     description: "Contrôle des flammes maudites et du feu éternel",
-    icon: Fire,
+    icon: Flame,
     color: "from-red-500/20 to-red-900/10"
   },
   {
