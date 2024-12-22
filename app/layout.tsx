@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { Toaster } from "@/components/ui/toaster";
 import { Cinzel } from 'next/font/google';
+import { Footer } from "@/components/Footer"
 
 const cinzel = Cinzel({ subsets: ['latin'] });
 
@@ -21,12 +22,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cinzel.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="min-h-screen bg-[#0a0a0f]">
+          <div className="min-h-screen bg-[#0a0a0f] flex flex-col">
             <Navigation />
-            <main className="container mx-auto px-4 py-8">
+            <main className="flex-1">
               {children}
             </main>
             <Toaster />
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

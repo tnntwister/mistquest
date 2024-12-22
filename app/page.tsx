@@ -45,13 +45,14 @@ const features = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center space-y-12">
-      <div className="relative w-full h-[60vh]">
+    <>
+      {/* Hero section en dehors du container */}
+      <div className="relative w-screen h-[60vh] -mx-4 -mt-8">
         <Image
           src="/images/hero/main-hero.webp"
           alt="Façade moderne d'un musée"
           fill
-          className="object-cover brightness-90"
+          className="object-cover brightness-90 object-center"
           priority
         />
         {/* Overlay avec un dégradé subtil */}
@@ -59,58 +60,88 @@ export default function Home() {
         
         {/* Contenu superposé */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center space-y-4 p-6 max-w-4xl">
+          <div className="text-center space-y-6 p-6 max-w-4xl">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-text-light">
               Bienvenue sur Mist.Quest
             </h1>
             <p className="mx-auto max-w-[700px] text-text-light/90 md:text-xl">
               Votre portail vers des expériences de jeu de rôle immersives et des aventures mystiques.
+              Découvrez des récits riches, des ressources de jeu et des histoires communautaires.
             </p>
+            <div className="flex justify-center gap-4 pt-4">
+              <Button asChild size="lg">
+                <Link href="/fael">Commencer l'Exploration</Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/about">En Savoir Plus</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
-      <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          Bienvenue sur Mist.Quest
-        </h1>
-        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-          Votre portail vers des expériences de jeu de rôle immersives et des aventures mystiques.
-          Découvrez des récits riches, des ressources de jeu et des histoires communautaires.
-        </p>
-        <div className="flex justify-center gap-4">
-          <Button asChild size="lg">
-            <Link href="/fael">Commencer l'Exploration</Link>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/about">En Savoir Plus</Link>
-          </Button>
+      {/* Contenu principal dans le container */}
+      <div className="flex flex-col items-center">
+        <div className="space-y-12 w-full max-w-[1440px] px-4">
+          <section className="w-full max-w-5xl mx-auto">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature) => (
+                <FeatureCard
+                  key={feature.title}
+                  {...feature}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section className="w-full max-w-3xl mx-auto text-center space-y-4">
+            <h2 className="text-3xl font-bold">Dernières Mises à Jour</h2>
+            <Card>
+              <CardHeader>
+                <CardTitle>Nouvelle Entrée du Journal</CardTitle>
+                <CardDescription>Mis à jour il y a 2 jours</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>Dernière entrée dans le journal de Fael Bursandra, détaillant les récentes intrigues politiques dans les maisons nobles.</p>
+              </CardContent>
+            </Card>
+          </section>
+        </div>
+      </div>
+
+      {/* Section Discord CTA */}
+      <section className="w-full bg-deep-blue/50 mt-12 relative">
+        {/* Image de fond */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/backgrounds/discord-background.webp"
+            alt="Background Discord"
+            fill
+            className="object-cover brightness-50"
+          />
+        </div>
+
+        {/* Contenu avec overlay */}
+        <div className="relative z-10 max-w-[1440px] mx-auto px-4 py-16">
+          <div className="flex flex-col items-center text-center space-y-6">
+            <h2 className="text-3xl font-bold text-text-light">
+              Rejoignez la Communauté
+            </h2>
+            <p className="text-text-light/80 max-w-2xl">
+              Participez aux discussions sur Discord, partagez vos expériences de jeu et rencontrez d'autres passionnés de dark fantasy et de jeux de rôle narratifs.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-[#5865F2] hover:bg-[#4752C4] transition-colors"
+              asChild
+            >
+              <Link href="https://discord.gg/votre-lien" target="_blank" rel="noopener noreferrer">
+                Rejoindre le Discord
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
-
-      <section className="w-full max-w-5xl mx-auto">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <FeatureCard
-              key={feature.title}
-              {...feature}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="w-full max-w-3xl mx-auto text-center space-y-4">
-        <h2 className="text-3xl font-bold">Dernières Mises à Jour</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Nouvelle Entrée du Journal</CardTitle>
-            <CardDescription>Mis à jour il y a 2 jours</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Dernière entrée dans le journal de Fael Bursandra, détaillant les récentes intrigues politiques dans les maisons nobles.</p>
-          </CardContent>
-        </Card>
-      </section>
-    </div>
+    </>
   );
 }
