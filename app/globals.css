@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .glowing-border {
+    @apply border border-ice-blue shadow-border-glow;
+  }
+
+  .glowing-element {
+    @apply text-bright-blue shadow-glow;
+  }
+}
