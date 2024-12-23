@@ -2,7 +2,7 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "spellcheck/spell-checker": ["warn", {
-      "skipWords": ["supabase"]
+      "skipWords": ["supabase", "Grimoire"]
     }]
   }
 }

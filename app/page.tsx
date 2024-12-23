@@ -14,11 +14,11 @@ const features = [
     image: "/images/features/fael-hero.webp"
   },
   {
-    title: "Darkscape",
+    title: "Mage",
     description: "Explorez les mystères de la magie et des pouvoirs qui altèrent la réalité.",
     iconName: "✨",
-    href: "/darkscape",
-    image: "/images/features/darkscape-hero.webp"
+    href: "/mage",
+    image: "/images/features/mage-hero.webp"
   },
   {
     title: "LNS",
@@ -26,6 +26,13 @@ const features = [
     iconName: "📖",
     href: "/soleil-noir",
     image: "/images/features/lns-hero.webp"
+  },
+  {
+    title: "Tokyo:Otherscape",
+    description: "Explorez le mystère de Tokyo, une ville où les lignes entre le monde réel et le monde des esprits sont floues.",
+    iconName: "✨",
+    href: "/otherscape",
+    image: "/images/features/otherscape-hero.webp"
   },
   {
     title: "Ironsworn",

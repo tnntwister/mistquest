@@ -4,14 +4,11 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: { unoptimized: true },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        punycode: false,
-      };
-    }
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      punycode: false
+    };
     return config;
   },
 };

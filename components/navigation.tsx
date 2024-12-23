@@ -16,8 +16,12 @@ const navigation = [
     href: "/fael",
   },
   {
-    title: "Darkscape",
-    href: "/darkscape",
+    title: "Otherscape",
+    href: "/otherscape",
+  },
+  {
+    title: "Mage",
+    href: "/mage",
   },
   {
     title: "LNS",
