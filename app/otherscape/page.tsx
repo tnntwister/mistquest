@@ -11,14 +11,15 @@ export default function DarkscapePage() {
         title="Otherscape" 
         description="Explore the mysterious Otherscape, a realm where the boundaries between worlds blur, and the unknown awaits."
       />
-      <div className="container mx-auto">
-        <Suspense fallback={<LoadingSkeleton />}>
-          <DarkArts />
-        </Suspense>
-
-        <Suspense fallback={<LoadingSkeleton />}>
-          <Grimoire />
-        </Suspense>
+       <div className="container mx-auto">
+        <div className="p-8 text-center">
+          <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            En cours de rédaction
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400">
+            Le contenu de cette section est actuellement en développement.
+          </p>
+        </div>
       </div>
     </div>
   );
