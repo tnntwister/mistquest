@@ -31,7 +31,7 @@ export function HeroSection({
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/35 to-transparent" />
         
         <div className="relative space-y-6 p-8 md:p-12">
           <div className="flex items-center space-x-4">

@@ -98,6 +98,10 @@ const config: Config = {
         'glow': '0 0 15px rgb(126, 199, 255)',
         'border-glow': '0 0 5px rgb(176, 224, 255)',
       },
+      fontFamily: {
+        cinzel: ['var(--font-cinzel)'],
+        sans: ['var(--font-inter)'],
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

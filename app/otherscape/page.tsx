@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { PageHeader } from "./components/page-header";
 import { DarkArts } from "./components/dark-arts";
 import { Grimoire } from "./components/grimoire";
 import { LoadingSkeleton } from "./components/loading";

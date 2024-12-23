@@ -7,7 +7,7 @@ import { HeroSection } from "@/components/ui/hero-section";
 export default function MagePage() {
   return (
     <div className="space-y-8">
-      <HeroSection imagePrefix="darkscape" title="Mage: The Ascension" description="Explore the realms of reality-bending magic and philosophical conflict in the World of Darkness." />
+      <HeroSection imagePrefix="mage" title="Mage: The Ascension" description="Explore the realms of reality-bending magic and philosophical conflict in the World of Darkness." />
 
       <Suspense fallback={<Card className="h-64 animate-pulse" />}>
         <TraditionsGrid />
