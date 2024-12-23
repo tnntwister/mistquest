@@ -41,6 +41,33 @@ const characters = {
       title: "Prêtre de l'Église Universelle",
       description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
       relationship: "Mentor spirituel"
+    },
+    {
+      id: "victoria",
+      name: "Victoria Hawkwood",
+      title: "Diplomate",
+      description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
+      relationship: "Amie proche et conseillère politique"
+    },
+    {
+      id: "marcus",
+      name: "Père Marcus",
+      title: "Prêtre de l'Église Universelle",
+      description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
+      relationship: "Mentor spirituel"
+    }, {
+      id: "victoria",
+      name: "Victoria Hawkwood",
+      title: "Diplomate",
+      description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
+      relationship: "Amie proche et conseillère politique"
+    },
+    {
+      id: "marcus",
+      name: "Père Marcus",
+      title: "Prêtre de l'Église Universelle",
+      description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
+      relationship: "Mentor spirituel"
     }
   ],
   rivals: [
@@ -80,7 +107,8 @@ export default function FaelPage() {
 
         <CampaignLog sessions={sessions} />
 
-        <CharactersList allies={characters.allies} rivals={characters.rivals} />
+        <CharactersList title="Alliés" characters={characters.allies} />
+        <CharactersList title="Rivaux" characters={characters.rivals} />
       </div>
     </div>
   );
