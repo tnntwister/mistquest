@@ -1,7 +1,6 @@
 "use client";
 
-import { GothicCard } from "@/components/ui/gothic-card";
-import { GothicDivider } from "@/components/ui/gothic-divider";
+import { Card } from "@/components/ui/card";
 import { Book } from "lucide-react";
 
 export function Grimoire() {
@@ -12,9 +11,8 @@ export function Grimoire() {
         <h2 className="text-2xl font-semibold">Grimoire des Ombres</h2>
       </div>
 
-      <GothicCard 
+      <Card 
         className="overflow-hidden border-slate-800 bg-gradient-to-br from-slate-900/50 to-slate-800/30"
-        glowColor="from-indigo-500/20 to-indigo-900/10"
       >
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
@@ -26,7 +24,7 @@ export function Grimoire() {
             </p>
           </div>
 
-          <GothicDivider className="md:hidden" />
+          <hr className="border-slate-800 md:hidden" />
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-slate-200">Savoirs Interdits</h3>
@@ -37,7 +35,7 @@ export function Grimoire() {
             </p>
           </div>
         </div>
-      </GothicCard>
+      </Card>
     </section>
   );
 }

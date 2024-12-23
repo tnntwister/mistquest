@@ -3,23 +3,23 @@ import { CharacterProfile } from "./components/character-profile";
 import { JournalEntries } from "./components/journal-entries";
 import { PageHeader } from "./components/page-header";
 import { ProfileSkeleton, JournalSkeleton } from "./components/loading";
-import { GothicFrame } from "@/components/ui/gothic-frame";
-import { GothicDivider } from "@/components/ui/gothic-divider";
+import { Frame } from "lucide-react";
+
 
 export default function FaelPage() {
   return (
-    <GothicFrame className="space-y-8">
+    <Frame className="space-y-8">
       <PageHeader />
       
       <Suspense fallback={<ProfileSkeleton />}>
         <CharacterProfile />
       </Suspense>
 
-      <GothicDivider />
+      <hr className="border-slate-800 md:hidden" />
 
       <Suspense fallback={<JournalSkeleton />}>
         <JournalEntries />
       </Suspense>
-    </GothicFrame>
+    </Frame>
   );
 }

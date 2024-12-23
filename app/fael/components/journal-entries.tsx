@@ -1,7 +1,6 @@
 "use client";
 
-import { GothicCard } from "@/components/ui/gothic-card";
-
+import { Card } from "@/components/ui/card";
 const entries = [
   {
     title: "The Price of Honor",
@@ -23,16 +22,15 @@ export function JournalEntries() {
       <h2 className="text-2xl font-semibold">Journal Entries</h2>
       <div className="space-y-4">
         {entries.map((entry) => (
-          <GothicCard 
+          <Card 
             key={entry.title}
             title={entry.title}
-            glowColor={entry.color}
           >
             <div className="flex flex-col space-y-2">
               <span className="text-sm text-muted-foreground">{entry.date}</span>
               <p className="text-muted-foreground">{entry.excerpt}</p>
             </div>
-          </GothicCard>
+          </Card>
         ))}
       </div>
     </section>

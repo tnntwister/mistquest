@@ -3,11 +3,10 @@ import { PageHeader } from "./components/page-header";
 import { DarkArts } from "./components/dark-arts";
 import { Grimoire } from "./components/grimoire";
 import { LoadingSkeleton } from "./components/loading";
-import { GothicFrame } from "@/components/ui/gothic-frame";
-
+import { Frame } from "lucide-react";
 export default function DarkscapePage() {
   return (
-    <GothicFrame className="space-y-12 py-8">
+    <Frame className="space-y-12 py-8">
       <PageHeader />
       
       <Suspense fallback={<LoadingSkeleton />}>
@@ -17,6 +16,6 @@ export default function DarkscapePage() {
       <Suspense fallback={<LoadingSkeleton />}>
         <Grimoire />
       </Suspense>
-    </GothicFrame>
+    </Frame>
   );
 }

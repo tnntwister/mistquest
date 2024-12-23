@@ -1,6 +1,6 @@
 "use client";
 
-import { GothicCard } from "@/components/ui/gothic-card";
+import { Card } from "@/components/ui/card";
 import { Skull, Moon, Flame, Wind } from "lucide-react";
 
 const darkArts = [
@@ -37,16 +37,15 @@ export function DarkArts() {
       
       <div className="grid gap-6 md:grid-cols-2">
         {darkArts.map((art) => (
-          <GothicCard 
+          <Card 
             key={art.name}
-            title={art.name}
-            glowColor={art.color}
+            className={`bg-gradient-to-br ${art.color}`}
           >
             <div className="flex items-center space-x-3">
               <art.icon className="h-6 w-6 text-slate-400" />
               <p className="text-slate-400">{art.description}</p>
             </div>
-          </GothicCard>
+          </Card>
         ))}
       </div>
     </section>

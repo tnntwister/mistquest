@@ -1,6 +1,5 @@
 "use client";
-
-import { GothicCard } from "@/components/ui/gothic-card";
+import { Card } from "@/components/ui/card";
 import { Shield, Sword, Crown, Star } from "lucide-react";
 
 const traits = [
@@ -38,10 +37,9 @@ export function CharacterProfile() {
   return (
     <section className="grid gap-6 sm:grid-cols-2">
       {traits.map((trait) => (
-        <GothicCard 
+        <Card 
           key={trait.name}
           title={trait.name}
-          glowColor={trait.color}
         >
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
@@ -50,7 +48,7 @@ export function CharacterProfile() {
             </div>
             <p className="text-muted-foreground">{trait.description}</p>
           </div>
-        </GothicCard>
+        </Card>
       ))}
     </section>
   );
