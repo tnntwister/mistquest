@@ -24,7 +24,7 @@ const features = [
     title: "LNS",
     description: "Plongez dans la dark fantasy et les aventures épiques.",
     iconName: "📖",
-    href: "/soleil-noir",
+    href: "/nouveau-soleil",
     image: "/images/features/lns-hero.webp"
   },
   {

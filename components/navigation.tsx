@@ -25,7 +25,7 @@ const navigation = [
   },
   {
     title: "LNS",
-    href: "/soleil-noir",
+    href: "/nouveau-soleil",
   },
   {
     title: "Ironsworn",

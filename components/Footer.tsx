@@ -31,7 +31,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/soleil-noir" className="text-text-muted hover:text-text-light transition-colors">
+                <Link href="/nouveau-soleil" className="text-text-muted hover:text-text-light transition-colors">
                   LNS
                 </Link>
               </li>
