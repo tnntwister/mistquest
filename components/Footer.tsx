@@ -26,8 +26,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/darkscape" className="text-text-muted hover:text-text-light transition-colors">
-                  Darkscape
+                <Link href="/mage" className="text-text-muted hover:text-text-light transition-colors">
+                  Mage
                 </Link>
               </li>
               <li>
@@ -54,7 +54,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link 
-                  href="https://discord.gg/votre-lien" 
+                  href="https://discord.gg/VcXnZ6Mnzu" 
                   className="text-text-muted hover:text-text-light transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"

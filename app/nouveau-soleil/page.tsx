@@ -2,7 +2,7 @@ import { HeroSection } from "@/components/ui/hero-section";
 
 export default function SoleilNoirPage() {
   return (
-    <div className="relative space-y-12 py-8">
+    <div className="relative space-y-8">
       <HeroSection 
         imagePrefix="lns" 
         title="Légendes du Soleil Noir" 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface Session {
   id: string;
@@ -11,16 +11,17 @@ interface Session {
 }
 
 interface CampaignLogProps {
+  title?: string;
   sessions: Session[];
 }
 
-export function CampaignLog({ sessions }: CampaignLogProps) {
+export function CampaignLog({ title = "Journal de Campagne", sessions }: CampaignLogProps) {
   const [selectedSession, setSelectedSession] = useState<string>(sessions[0]?.id || "");
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Journal de Campagne</CardTitle>
+        <h4 className="text-xl font-semibold">{title}</h4>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

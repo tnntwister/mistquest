@@ -33,41 +33,16 @@ const characters = {
       name: "Victoria Hawkwood",
       title: "Diplomate",
       description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
-      relationship: "Amie proche et conseillère politique"
+      tags: ["Amie proche", "Conseillère politique", "Maison Hawkwood"],
+      imagePath: "/images/characters/victoria.webp"
     },
     {
       id: "marcus",
       name: "Père Marcus",
       title: "Prêtre de l'Église Universelle",
       description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
-      relationship: "Mentor spirituel"
-    },
-    {
-      id: "victoria",
-      name: "Victoria Hawkwood",
-      title: "Diplomate",
-      description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
-      relationship: "Amie proche et conseillère politique"
-    },
-    {
-      id: "marcus",
-      name: "Père Marcus",
-      title: "Prêtre de l'Église Universelle",
-      description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
-      relationship: "Mentor spirituel"
-    }, {
-      id: "victoria",
-      name: "Victoria Hawkwood",
-      title: "Diplomate",
-      description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
-      relationship: "Amie proche et conseillère politique"
-    },
-    {
-      id: "marcus",
-      name: "Père Marcus",
-      title: "Prêtre de l'Église Universelle",
-      description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
-      relationship: "Mentor spirituel"
+      tags: ["Mentor spirituel", "Église Universelle", "Confident"],
+      imagePath: "/images/characters/marcus.webp"
     }
   ],
   rivals: [
@@ -76,14 +51,16 @@ const characters = {
       name: "Comte Décados",
       title: "Rival politique",
       description: "Un noble manipulateur qui cherche à affaiblir l'influence des Hazat dans le secteur.",
-      relationship: "Ennemi juré"
+      tags: ["Ennemi juré", "Maison Décados", "Noble"],
+      imagePath: "/images/characters/decados.webp"
     },
     {
       id: "invisibles",
       name: "Les Invisibles",
       title: "Secte mystérieuse",
       description: "Un groupe occulte qui semble avoir des liens avec les technologies interdites.",
-      relationship: "Menace cachée"
+      tags: ["Menace cachée", "Secte", "Technologie interdite"],
+      imagePath: "/images/characters/invisibles.webp"
     }
   ]
 };

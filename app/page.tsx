@@ -142,7 +142,7 @@ export default function Home() {
               className="bg-[#5865F2] hover:bg-[#4752C4] transition-colors"
               asChild
             >
-              <Link href="https://discord.gg/votre-lien" target="_blank" rel="noopener noreferrer">
+              <Link href="https://discord.gg/VcXnZ6Mnzu" target="_blank" rel="noopener noreferrer">
                 Rejoindre le Discord
               </Link>
             </Button>
