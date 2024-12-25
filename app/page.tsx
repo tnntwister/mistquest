@@ -69,18 +69,18 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center space-y-6 p-6 max-w-4xl">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-text-light">
-              Bienvenue sur Mist.Quest
+              Zone de développement roliste
             </h1>
             <p className="mx-auto max-w-[700px] text-text-light/90 md:text-xl">
-              Votre portail vers des expériences de jeu de rôle immersives et des aventures mystiques.
-              Découvrez des récits riches, des ressources de jeu et des histoires communautaires.
+              Retrouvez mes notes et mes idées de PJ/MJ sur les univers qui me plaisent en ce moment.<br />
+              Pour les sujets les plus développés, j&apos;en fais des documents que je publie sur itch.io.
             </p>
             <div className="flex justify-center gap-4 pt-4">
               <Button asChild size="lg">
-                <Link href="/fael">Commencer l'Exploration</Link>
+                <Link href="https://discord.gg/VcXnZ6Mnzu" target="_blank">Rejoindre une partie</Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/about">En Savoir Plus</Link>
+                <Link href="https://fxguillois.itch.io/" target="_blank">Mes publications</Link>
               </Button>
             </div>
           </div>

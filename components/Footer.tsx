@@ -12,7 +12,13 @@ export function Footer() {
           <div className="md:col-span-2 space-y-4">
             <h3 className="text-xl font-bold text-text-light">Mist.Quest</h3>
             <p className="text-text-muted">
-              Votre portail vers des expériences de jeu de rôle immersives et des aventures mystiques.
+              Vieux joueur et MJ de jeu de rôle, je partage mes expériences et mes créations sur ce site. J&apos;essaie de poster sur ce site les évolutions et les détails de maîtrise, tandis que les ressources sont publiées sur ma page itch.io. 
+            </p>
+            <p className="text-text-muted">
+              Le domaine Mist.quest vient de mon penchant pour les univers mystérieux, la dark fantasy, le futur proche, mais aussi les paysages de campagne et de nature (je vis dans une petite ville en province).
+            </p>
+            <p className="text-text-muted">
+              Je vous souhaite une agréable lecture !
             </p>
           </div>
 
@@ -22,7 +28,12 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/fael" className="text-text-muted hover:text-text-light transition-colors">
-                  Fael Bursandra
+                  Fael Bursandra des Hazat
+                </Link>
+              </li>
+              <li>
+                <Link href="/otherscape" className="text-text-muted hover:text-text-light transition-colors">
+                  Otherscape
                 </Link>
               </li>
               <li>
@@ -74,7 +85,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="border-t border-text-muted/10 mt-8 pt-8 text-center text-text-muted">
           <div className="flex items-center justify-center gap-4 text-sm font-sans">
-            <p>© 2024 Mist.Quest. Tous droits réservés.</p>
+            <p>© 2024 François-Xavier Guillois. Tous droits réservés.</p>
             <span>•</span>
             <Link 
               href="/legal/mentions-legales" 
