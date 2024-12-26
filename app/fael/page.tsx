@@ -4,66 +4,10 @@ import { HeroSection } from "@/components/ui/hero-section";
 import { CharacterDescription } from "@/components/character-description";
 import { CampaignLog } from "@/components/campaign-log";
 import { CharactersList } from "@/components/characters-list";
-
-const sessions = [
-  {
-    id: "3",
-    title: "Intrigues à la Cour",
-    date: "2024-03-06",
-    summary: "Négociations tendues avec la Maison Li Halan..."
-  },
-  {
-    id: "2",
-    title: "Les Secrets du Temple",
-    date: "2024-03-13",
-    summary: "Exploration des ruines d'un ancien temple technologique..."
-  },
-  {
-    id: "1",
-    title: "La Trahison des Décados",
-    date: "2024-03-20",
-    summary: "Un complot se dévoile lors d'un bal masqué..."
-  }
-];
-
-const characters = {
-  allies: [
-    {
-      id: "victoria",
-      name: "Victoria Hawkwood",
-      title: "Diplomate",
-      description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
-      tags: ["Amie proche", "Conseillère politique", "Maison Hawkwood"],
-      imagePath: "/images/characters/victoria.webp"
-    },
-    {
-      id: "marcus",
-      name: "Père Marcus",
-      title: "Prêtre de l'Église Universelle",
-      description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
-      tags: ["Mentor spirituel", "Église Universelle", "Confident"],
-      imagePath: "/images/characters/marcus.webp"
-    }
-  ],
-  rivals: [
-    {
-      id: "decados",
-      name: "Comte Décados",
-      title: "Rival politique",
-      description: "Un noble manipulateur qui cherche à affaiblir l'influence des Hazat dans le secteur.",
-      tags: ["Ennemi juré", "Maison Décados", "Noble"],
-      imagePath: "/images/characters/decados.webp"
-    },
-    {
-      id: "invisibles",
-      name: "Les Invisibles",
-      title: "Secte mystérieuse",
-      description: "Un groupe occulte qui semble avoir des liens avec les technologies interdites.",
-      tags: ["Menace cachée", "Secte", "Technologie interdite"],
-      imagePath: "/images/characters/invisibles.webp"
-    }
-  ]
-};
+import { Timeline } from "@/components/timeline";
+import { sessions, characters, timelineEvents, recentEvents } from "@/data/fael";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function FaelPage() {
   return (
@@ -71,18 +15,31 @@ export default function FaelPage() {
       <HeroSection 
         imagePrefix="fael" 
         title="Fael Bursandra des Hazat" 
-        description="Un noble guerrier dans l'univers de Fading Suns, où le devoir et l'honneur s'entrechoquent avec les intrigues politiques."
+        description="&Eacute;duqué pour la guerre, face à l'horreur j'ai préféré rejoindre les ordres du Sanctuaire Aeon, avant d'être rappelé par mon destin"
       />
       
       <div className="container mx-auto space-y-8">
         <CharacterDescription
           name="Fael Bursandra"
-          description="Noble de la Maison Hazat, Fael est un maître d'armes dévoué aux traditions martiales de sa famille..."
+          description="Je suis un peu plus grand que la moyenne, mais il doit sa carrure à l'armure qu'il porte sous un surcot et une cape tenue par un jeu de spallières relié sur le torse dans un ouvrage métallique de grande facture. Les bottes de l'armure qui dépassent des vêtements sont également ouvragés. Une ceinture chargée d'une épée et d'un pistolet cinétique tient le surcot.
+
+Sous cette lourde tenue, ma tête paraît plus quelconque. Ma barbe entretenue couvre la mâchoire et le menton sans s'étendre sur les joues. Mes cheveux mi-longs, ondulés et un peu décoiffés, donnent une tonalité aventureuse. Quelques mèches encadrent mon visage et soulignent mon regard sérieux et contemplatif."
           imagePath="/images/hero/fael-hero.webp"
           characterSheetLink="/fael/fiche"
         />
 
         <CampaignLog sessions={sessions} />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Timeline 
+            title="Histoire"
+            events={timelineEvents} 
+          />
+          <Timeline 
+            title="Événements Récents (5020)"
+            events={recentEvents} 
+          />
+        </div>
 
         <CharactersList title="Alliés" characters={characters.allies} />
         <CharactersList title="Rivaux" characters={characters.rivals} />
