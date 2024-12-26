@@ -2,10 +2,19 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export default function QuetePage() {
+  const breadcrumbItems = [
+    { label: "Accueil", href: "/" },
+    { label: "Fael", href: "/fael" },
+    { label: "Éléments de ma Quête" }
+  ];
+
   return (
     <div className="container mx-auto py-8 space-y-8">
+      <Breadcrumbs items={breadcrumbItems} />
+
       <div className="prose dark:prose-invert max-w-none">
         <h1 className="text-4xl font-cinzel mb-8">Éléments de ma Quête</h1>
 

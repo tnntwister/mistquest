@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CharactersList } from "@/components/characters-list";
 import Image from "next/image";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export default function EquipagePage() {
   const ancienneUnite = [
@@ -32,8 +33,16 @@ export default function EquipagePage() {
     { id: "20", name: "Canonniers", title: "Canonniers", description: "Équipe d'artillerie expérimentée", tags: ["Personnel Militaire"], count: 7 }
   ];
 
+  const breadcrumbItems = [
+    { label: "Accueil", href: "/" },
+    { label: "Fael", href: "/fael" },
+    { label: "Équipage" }
+  ];
+
   return (
     <div className="container mx-auto py-8 space-y-8">
+      <Breadcrumbs items={breadcrumbItems} />
+      
       <div className="prose dark:prose-invert max-w-none">
         <h1 className="text-4xl font-cinzel mb-8">Mon Équipage</h1>
 
