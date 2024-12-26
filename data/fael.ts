@@ -1,59 +1,185 @@
 export const sessions = [
   {
-    id: "3",
-    title: "Intrigues à la Cour",
-    date: "2024-03-06",
-    summary: "Négociations tendues avec la Maison Li Halan..."
+    id: "9",
+    title: "Audience Impériale",
+    date: "2024-04-17",
+    summary: `Dépouilles du seigneur Questeur antinomiste et des deux hommes du rang incinérées.
+
+Un consul magistrat avec sa machine pensante + tabard blanc frappé du phoenix vient me chercher, accompagné du Caporal.
+
+Chambellans de l'empereur.
+
+Le consul prend congé à la sortie du palais.
+
+Ozu me briefe vaisseaux un peu plus rapides que le centurion.
+
+On enchaine les sauts tous les 15mn 4h au lieu de 11h. Neria aza (mecano et comm du vaisseau) je vais dans une petite cabine, l'image de Feriel Adame (légiste) : ce n'est pas Izaia qu'elle a autopsié. romanova. ni hawkwood, ni hazat. Possiblement les assassins al malik.
+
+Baron Ruis Moncada des Hazat antinomiste, était affecté au Tyr. hazat dominé par les familles Eduardo et Castenda.
+
+Baronne Meg Wei-To Li-Halan (après mon départ en mission sur Rempart, recherchée pour crimes de guerre, on l'a jamais retrouvé, la moitié de son équipe de reconnaissance).
+
+Rencontre avec l'empereur :
+- serment d'allégeance en direct : réitération de la formule + coupe de vin.
+
+Aylon
+désertique
+2 équipes. reconnaissance.`
   },
   {
-    id: "2",
-    title: "Les Secrets du Temple",
-    date: "2024-03-13",
-    summary: "Exploration des ruines d'un ancien temple technologique..."
+    id: "8",
+    title: "Combat contre le Chevalier Questeur",
+    date: "2024-04-10",
+    summary: `Yervani charge + poing enflammé sur le chevalier questeur, tentacule de fumée noire qui sort du chevalier questeur. = ombres mouvantes autour du rocher.
+
+Theodoros ne sert a rien mais sauve le game en arretant les tentacules avec la rapière du chevalier questeur.
+
+Hiram 9 de résistance, plastron + bouclier + drogues de combat. décapité.
+
+débarquement du contingent imperial + Zefraya Al Malik. l'antinomie ne peut pas être séparée du corps, c'est un choix de l'hôte. version officielle : on a arreté un traitre`
   },
   {
-    id: "1",
-    title: "La Trahison des Décados",
+    id: "7",
+    title: "Le Dîner de la Marquise",
+    date: "2024-04-03",
+    summary: `Corps central du batiment à l'étage, jardin en contrebas. 15x8m rideaux voilages. mosaïque. tableaux candélabres, 12aine serviteurs.<br /><br />
+
+Ordre d'annonce :<br /><br />
+
+- Marquise Yasmina Hallaschid al-Malik<br />
+- Baronne Zefraya Sinna al-Malik<br />
+- Illuminata Chartophylax Yervani Konstignos (en face de la marquise)<br />
+- Baron Fael Bursandra des Hazat (en face d'isodora, à côté de Yervani, absorbée par ses pensées)<br />
+- Commandeure Vanessa Bortchuk<br />
+- Commandeure Isadora Tanaka<br />
+- Lieutenant Théodoros Stefanescu (en face de la légiste, à coté de yervani)<br />
+- Surintendant Borzü Sinna al-Malik<br />
+- Maître es Stratégie Hisham Abbasah al-Malik<br />
+- Légiste Feriel Adameh (à côté de la marquise)<br /><br />
+
+2mn de retard pour la marquise. 1 serviteur assigné par personne. mélange de fruits légumes légumineuses.<br /><br />
+
+Légiste s'étouffe avec une gorgée de vin. coup d'oeil courroucé de la marquise. change la nappe.<br /><br />
+
+Légiste : possiblement pas le corps d'Izaia. Zefraya fait tomber un couvert.<br /><br />
+
+Machine pensante (lecteur d'ADN) récupérée par les avesti (mais pas détruite). Pas de piste sur l'id réelle de cette personne. Eskatonique (Illuminatus Tarek Afdine) à l'origine de la confiscation. Le baronnet (Sheeralam Sinna al-Malik) avait un confesseur (Tarek) qui a violé le secret de la confession et d'avertir le diacre avesti. Feriel le reproche publiquement. Est-ce que le confesseur voulait priver les al malik de la possibilité de vérifier l'identité des gens ?<br /><br />
+
+Machine pensante seule méthode pour l'identifier. Les 3 corps trouvés sur criticorum, à bord d'une capsule de sauvegarde avec un signal activé, pas très loin du portail.<br /><br />
+
+Dégâts artefact annunaki ? (ils se faisaient la guerre entre eux). portails ont les faces des deux peuples ennemis Annunaki.<br /><br />
+
+Homme inconnu habillé en livrée des serviteurs Hawkwood, izaia habillé en al malik.<br /><br />
+
+Capsule abandonnée à 1 UA du portail pour être assez rapidement trouvée par un vaisseau de passage.<br /><br />
+
+Hisham Abbasah al-Malik n'a pas l'air de croire qu'Izaia soit encore en vie.<br /><br />
+
+Fin de repas sous forme de buffet. theodoros va parler avec la marquise. Yervani parle à la légiste. visage remodelé, petites cicatrices à des endroits stratégiques. remodelage ou incisions. fait par qq'un qui fait les bonnes études ou un précepteur spécialisé (homme fortuné ou membre de la guilde). L'exilir se base sur qui vous êtes. chirurgie d'altération. disciplines reliées.<br /><br />
+
+Opérations sur Stigmata, Pandemonium, Nowhere. Phénomène étrange sur Nowhere au moment de l'action (mission suicide? pour reconquérir/l'impressionner/retrouver sa place de favorite auprès d'Alexus ?) de Theafana sur Stigmata derrière les lignes ennemies. Fichiers détenus par la Ligue.<br /><br />
+
+Theafana était en opération pour Alexius. les deux disparitions leur ont fait perdre les perspectives politiques du mariage.<br /><br />
+
+Temple eskatonique sur De Molley où theafana a laissé des choses peut être.<br /><br />
+
+Reves troublants. fatigue physique au réveil (déblocage d'un conditionnement ?) réveillé par une avalanche de pierres, un grondement sourd, et un froid m'envahit.<br /><br />
+
+"les morts reviennent sur Malignatius<br />
+l'eau s'empoisonne sur Cadavus<br />
+le prophète se creve les yeux sur Severus<br />
+les ombres complotent sur Cadiz<br />
+le mal règne sur Pandemonium,<br />
+un mort en sursis cherche sa fille qui lui a été arraché (anton malevik)<br />
+une duchesse pleure la perte de sa bien aimée (salandra)<br />
+un prêtre a trahi les siens et s'est détourné du pancreateur pour sombrer ... (Philosophus Tarek Afdine ?)"
+`
+  },
+  {
+    id: "6",
+    title: "Rencontre avec le Baron",
+    date: "2024-03-27",
+    summary: "Rencontre avec le Baron Zhijang Nijan Li Halan et un jeune magistrat associé."
+  },
+  {
+    id: "5",
+    title: "Les Mercenaires de Ligueheim",
     date: "2024-03-20",
-    summary: "Un complot se dévoile lors d'un bal masqué..."
+    summary: "Rencontre avec le caporal Mendez d'Aragon, Manuela Ortiz (franc tenancière de Ligueheim) et Anna Maria, une spécialiste en démolitions."
+  },
+  {
+    id: "4",
+    title: "Audience chez les Li Halan",
+    date: "2024-03-13",
+    summary: "Rencontre avec le clergé (Diacre Bertrand, Chanoine Philémon, Chanoine Firenz, et les novices Jaden, Karl et Hector) ainsi que le Baronnet Mao Nijan Li Halan et le Chevalier Xiong Nijan Li Halan. Présence notable de Zacharyya et Faraneh Ghanjid al-Malik, et du Marquis Miroslav Malevik Decados."
+  },
+  {
+    id: "3",
+    title: "Une Journée Diplomatique",
+    date: "2024-03-06",
+    summary: "Réunion matinale avec le baronnet Borzü Sinna al-Malik, accompagné du Capitaine de corvette Ernestine Hazenwald, l'Ingénieure Dariya Ma'Haifa, et la pilote Vanessa (commandeur et aurige), ainsi que leur équipage. L'après-midi, invitation au palais déliquescent et baroque de sa grâce Salendra Romanova Decados, suivie d'une réception du centurion en soirée."
   }
 ];
 
 export const characters = {
-  allies: [
+  famille: [
     {
-      id: "victoria",
-      name: "Victoria Hawkwood",
-      title: "Diplomate",
-      description: "Alliée de longue date de la Maison Hazat, Victoria excelle dans l'art de la négociation et des intrigues de cour.",
-      tags: ["Amie proche", "Conseillère politique", "Maison Hawkwood"],
-      imagePath: "/images/characters/victoria.webp"
-    },
-    {
-      id: "marcus",
-      name: "Père Marcus",
-      title: "Prêtre de l'Église Universelle",
-      description: "Un prêtre érudit qui guide Fael dans les questions spirituelles tout en gardant un œil sur les hérétiques.",
-      tags: ["Mentor spirituel", "Église Universelle", "Confident"],
-      imagePath: "/images/characters/marcus.webp"
+      id: "mere",
+      name: "Mère de Fael",
+      title: "Noble Hazat",
+      description: "Décédée en 5005. Son décès a profondément marqué Fael et influencé son parcours.",
+      tags: ["Famille", "Maison Hazat", "Décédée"],
+      imagePath: "/images/characters/mere-fael.webp"
     }
   ],
-  rivals: [
+  nobles: [
     {
-      id: "decados",
-      name: "Comte Décados",
-      title: "Rival politique",
-      description: "Un noble manipulateur qui cherche à affaiblir l'influence des Hazat dans le secteur.",
-      tags: ["Ennemi juré", "Maison Décados", "Noble"],
-      imagePath: "/images/characters/decados.webp"
+      id: "yasmina",
+      name: "Yasmina Hallaschid al-Malik",
+      title: "Marquise",
+      description: "Hôtesse du dîner diplomatique. Une figure importante de la Maison al-Malik, connue pour son influence politique.",
+      tags: ["Maison al-Malik", "Noble", "Diplomate"],
+      imagePath: "/images/characters/yasmina.webp"
     },
     {
-      id: "invisibles",
-      name: "Les Invisibles",
-      title: "Secte mystérieuse",
-      description: "Un groupe occulte qui semble avoir des liens avec les technologies interdites.",
-      tags: ["Menace cachée", "Secte", "Technologie interdite"],
-      imagePath: "/images/characters/invisibles.webp"
+      id: "zefraya",
+      name: "Zefraya Sinna al-Malik",
+      title: "Baronne",
+      description: "Membre de la famille Sinna, branche importante de la Maison al-Malik.",
+      tags: ["Maison al-Malik", "Noble"],
+      imagePath: "/images/characters/zefraya.webp"
+    },
+    {
+      id: "yervani",
+      name: "Yervani Konstignos",
+      title: "Illuminata Chartophylax",
+      description: "Une figure mystérieuse aux pouvoirs impressionnants, comme démontré lors du combat contre le Chevalier Questeur.",
+      tags: ["Illuminata", "Combattante"],
+      imagePath: "/images/characters/yervani.webp"
+    },
+    {
+      id: "borzu",
+      name: "Borzü Sinna al-Malik",
+      title: "Surintendant",
+      description: "Un membre influent de la famille Sinna, impliqué dans les affaires politiques courantes.",
+      tags: ["Maison al-Malik", "Noble", "Administrateur"],
+      imagePath: "/images/characters/borzu.webp"
+    },
+    {
+      id: "hisham",
+      name: "Hisham Abbasah al-Malik",
+      title: "Maître es Stratégie",
+      description: "Stratège respecté de la Maison al-Malik, sceptique quant à la survie d'Izaia.",
+      tags: ["Maison al-Malik", "Stratège", "Noble"],
+      imagePath: "/images/characters/hisham.webp"
+    },
+    {
+      id: "salendra",
+      name: "Salendra Romanova Decados",
+      title: "Sa Grâce",
+      description: "Noble Decados résidant dans un palais baroque et déliquescent, connue pour son style provocateur.",
+      tags: ["Maison Decados", "Noble"],
+      imagePath: "/images/characters/salendra.webp"
     }
   ]
 };

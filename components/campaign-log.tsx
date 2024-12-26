@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { nl2br } from "@/lib/utils";
 
 interface Session {
   id: string;
@@ -21,7 +22,7 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
   return (
     <Card>
       <CardHeader>
-        <h4 className="text-xl font-semibold">{title}</h4>
+        <h2 className="text-2xl font-cinzel">{title}</h2>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -40,7 +41,7 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
                   <div>
                     <h4 className="font-semibold">{session.title}</h4>
                     <time className="text-xs text-muted-foreground block mt-1">
-                      {new Date(session.date).toLocaleDateString()}
+                      {session.date}
                     </time>
                   </div>
                 </div>
@@ -51,11 +52,16 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
           {/* Contenu de la session (colonne droite) */}
           <div className="bg-secondary/30 rounded-lg p-6">
             {selectedSession ? (
-              <div className="prose prose-invert">
+              <div className="prose prose-invert prose-sm">
                 <h3 className="text-xl font-semibold mb-4">
                   {sessions.find(s => s.id === selectedSession)?.title}
                 </h3>
-                <p>{sessions.find(s => s.id === selectedSession)?.summary}</p>
+                <div 
+                  className="text-sm"
+                  dangerouslySetInnerHTML={{ 
+                    __html: nl2br(sessions.find(s => s.id === selectedSession)?.summary || "") 
+                  }}
+                />
               </div>
             ) : (
               <div className="text-center text-muted-foreground">
