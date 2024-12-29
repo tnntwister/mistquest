@@ -22,9 +22,7 @@ export default function FaelPage() {
       <div className="container mx-auto space-y-8">
         <CharacterDescription
           name="Fael Bursandra"
-          description="Je suis un peu plus grand que la moyenne, mais il doit sa carrure à l'armure qu'il porte sous un surcot et une cape tenue par un jeu de spallières relié sur le torse dans un ouvrage métallique de grande facture. Les bottes de l'armure qui dépassent des vêtements sont également ouvragés. Une ceinture chargée d'une épée et d'un pistolet cinétique tient le surcot.
-
-Sous cette lourde tenue, ma tête paraît plus quelconque. Ma barbe entretenue couvre la mâchoire et le menton sans s'étendre sur les joues. Mes cheveux mi-longs, ondulés et un peu décoiffés, donnent une tonalité aventureuse. Quelques mèches encadrent mon visage et soulignent mon regard sérieux et contemplatif."
+          description="Description à revoir"
           imagePath="/images/sections/fael.webp"
           characterSheetLink="/fael/fiche"
         />
