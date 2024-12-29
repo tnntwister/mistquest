@@ -608,16 +608,48 @@ Dans l’ordre, les morts sur le pont de commandement, ensuite un golem qui tue 
 export const characters = {
   famille: [
     {
-      id: "mere",
-      name: "Mère de Fael",
-      title: "Noble Hazat",
+      id: "1",
+      name: "Hazel Ma'haifa al-Malik",
+      title: "Mère",
       description: "Décédée en 5005. Son décès a profondément marqué Fael et influencé son parcours.",
-      tags: ["Famille", "Maison Hazat", "Décédée"],
+      tags: ["SRD", "Assassinée", "Décédée"],
+      imagePath: "/images/characters/mere-fael.webp"
+    },
+    {
+      id: "2",
+      name: "Bursandra des Hazat",
+      title: "Père",
+      description: "",
+      tags: ["Ennemi"],
+      imagePath: "/images/characters/mere-fael.webp"
+    },
+    {
+      id: "3",
+      name: "Guillermo Sanchez Bursandra des Hazat",
+      title: "Grand-père paternel",
+      description: "Décédé en 5020. Asssassiné par les Decados.",
+      tags: ["Titre", "Assassiné", "Décédé"],
+      imagePath: "/images/characters/mere-fael.webp"
+    },
+    {
+      id: "4",
+      name: "Ezra Ma'haifa al-Malik",
+      title: "Grand-père maternel",
+      description: ".",
+      tags: ["Pilote"],
+      imagePath: "/images/characters/mere-fael.webp"
+    },
+    {
+      id: "5",
+      name: "Maryaam Ma'haifa al-Malik",
+      title: "Grand-mère maternelle",
+      description: "Décédée vers 5020. Son caisson cryo a été endommagé par Bashir.",
+      tags: ["Aylon", "Décédée"],
       imagePath: "/images/characters/mere-fael.webp"
     }
   ],
   nobles: [
-    {
+     {
       id: "yasmina",
       name: "Yasmina Hallaschid al-Malik",
       title: "Marquise",
@@ -634,14 +666,6 @@ export const characters = {
       imagePath: "/images/characters/zefraya.webp"
     },
     {
-      id: "yervani",
-      name: "Yervani Konstignos",
-      title: "Illuminata Chartophylax",
-      description: "Une figure mystérieuse aux pouvoirs impressionnants, comme démontré lors du combat contre le Chevalier Questeur.",
-      tags: ["Illuminata", "Combattante"],
-      imagePath: "/images/characters/yervani.webp"
-    },
-    {
       id: "borzu",
       name: "Borzü Sinna al-Malik",
       title: "Surintendant",
@@ -650,20 +674,44 @@ export const characters = {
       imagePath: "/images/characters/borzu.webp"
     },
     {
-      id: "hisham",
-      name: "Hisham Abbasah al-Malik",
-      title: "Maître es Stratégie",
-      description: "Stratège respecté de la Maison al-Malik, sceptique quant à la survie d'Izaia.",
-      tags: ["Maison al-Malik", "Stratège", "Noble"],
-      imagePath: "/images/characters/hisham.webp"
+      id: "theafana",
+      name: "Theafana al-Malik",
+      title: "Maîtresse",
+      description: "Membre importante de la Fraternité d’Armes, disparue en mission derrière les lignes ennemies en 5013, déclarée morte en 5018.",
+      tags: ["Fraternité d'Armes", "Martyre"],
+      imagePath: "/images/characters/theafana.webp"
     },
     {
-      id: "salendra",
-      name: "Salendra Romanova Decados",
-      title: "Sa Grâce",
-      description: "Noble Decados résidant dans un palais baroque et déliquescent, connue pour son style provocateur.",
-      tags: ["Maison Decados", "Noble"],
-      imagePath: "/images/characters/salendra.webp"
+      id: "halatine",
+      name: "Halatine Kwon Chua",
+      title: "Maîtresse",
+      description: "Membre important de la Fraternité d’Armes.",
+      tags: ["Fraternité d'Armes"],
+      imagePath: "/images/characters/halatine.webp"
+    },
+    {
+      id: "zaccharyya",
+      name: "Zaccharyya Ghanghid al-Malik",
+      title: "L’homme à l’œil droit voilé par la cataracte",
+      description: "",
+      tags: ["Maison al-Malik"],
+      imagePath: "/images/characters/zaccharyya.webp"
+    },
+    {
+      id: "ahmid",
+      name: "Ahmid Sinna al-Malik",
+      title: "Baronnet",
+      description: "",
+      tags: ["Maison al-Malik"],
+      imagePath: "/images/characters/ahmid.webp"
+    },
+    {
+      id: "faraneh",
+      name: "Faraneh Ghanjid al-Malik",
+      title: "Rectrice",
+      description: "",
+      tags: ["Maison al-Malik"],
+      imagePath: "/images/characters/faraneh.webp"
     }
   ]
 };
@@ -742,7 +790,7 @@ export const timelineEvents = [
 ];
 
 export const recentEvents = [
-  {
+  /*{
     id: "1",
     date: "Janvier",
     description: "Arrivée sur Byzantium Secundus. Première audience à la cour impériale."
@@ -766,5 +814,5 @@ export const recentEvents = [
     id: "5",
     date: "Mai",
     description: "Confrontation avec les Invisibles et leurs technologies interdites."
-  }
+  }*/
 ]; 

@@ -53,28 +53,30 @@ export default function EquipagePage() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-cinzel">Le Pèlerin</h3>
-                <div className="grid grid-cols-2 gap-4 my-4">
+                <div className="grid grid-cols-3 gap-4 my-4">
                   <Image 
-                    src="/images/fael/pelerin-1.webp" 
+                    src="/images/sections/vaisseau1.webp" 
+                    alt="Le Pèlerin - Vue intérieure"
+                    width={800}
+                    height={400}
+                    className="rounded-lg col-span-2 w-full h-96 object-cover"
+                    style={{ objectPosition: 'top' }}
+                  />
+                  <Image 
+                    src="/images/sections/vaisseau2.webp" 
                     alt="Le Pèlerin - Vue extérieure"
                     width={400}
-                    height={300}
-                    className="rounded-lg"
-                  />
-                  <Image 
-                    src="/images/fael/pelerin-2.webp" 
-                    alt="Le Pèlerin - Vue intérieure"
-                    width={400}
-                    height={300}
-                    className="rounded-lg"
+                    height={400}
+                    className="rounded-lg w-full h-96 object-cover"
+                    style={{ objectPosition: 'bottom' }}
                   />
                 </div>
-                <p>Mon vaisseau personnel, le Pèlerin, est un navire de classe moyenne adapté aux missions diplomatiques et aux voyages interstellaires. Équipé de quartiers confortables et d'une salle de réunion, il reflète mon statut tout en restant fonctionnel pour les missions plus délicates.</p>
+                <p>Mon vaisseau personnel...</p>
               </div>
 
               <div>
-                <h3 className="text-xl font-cinzel">L'Indomptable</h3>
-                <p>L'Indomptable est un vaisseau de guerre de classe lourde, servant principalement de navire amiral pour les opérations militaires. Doté d'un armement conséquent et d'une capacité de transport de troupes importante, il est parfaitement adapté aux missions de combat et de soutien tactique.</p>
+                <h3 className="text-xl font-cinzel">L'autre vaisseau</h3>
+                <p>L'autre vaisseau.</p>
               </div>
             </div>
           </section>

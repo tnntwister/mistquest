@@ -34,7 +34,7 @@ export default function FaelCharacterSheet() {
             </CardHeader>
             <CardContent>
               <p><strong>STR :</strong> 5</p>
-              <p><strong>DEX :</strong> 6</p>
+              <p><strong>DEX :</strong> 8</p>
               <p><strong>END :</strong> 4</p>
             </CardContent>
           </Card>
@@ -44,7 +44,7 @@ export default function FaelCharacterSheet() {
               <h3 className="text-xl font-semibold">MIND</h3>
             </CardHeader>
             <CardContent>
-              <p><strong>WIT :</strong> 7</p>
+              <p><strong>WIT :</strong> 9</p>
               <p><strong>PER :</strong> 4</p>
               <p><strong>WIL :</strong> 5</p>
             </CardContent>
@@ -81,7 +81,7 @@ export default function FaelCharacterSheet() {
           </div>
           <div>
             <p><strong>Fight :</strong> 4</p>
-            <p><strong>Melee :</strong> 7</p>
+            <p><strong>Melee :</strong> 9</p>
             <p><strong>Shoot :</strong> 4</p>
             <p><strong>Vigor :</strong> 5</p>
             <p><strong>Drive :</strong> 3</p>
