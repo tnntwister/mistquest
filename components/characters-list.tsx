@@ -1,6 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useState } from "react";
 import Image from "next/image";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface Character {
   id: string;
@@ -23,7 +28,6 @@ export function CharactersList({
   tagTitle = "Tags"
 }: CharactersListProps) {
   const [selectedCharacter, setSelectedCharacter] = useState<string | null>(null);
-  const selectedChar = characters.find(c => c.id === selectedCharacter);
 
   return (
     <Card>
@@ -31,61 +35,64 @@ export function CharactersList({
         <h4 className="text-xl font-semibold">{title}</h4>
       </CardHeader>
       <CardContent>
-        <div className="relative">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {characters.map((char) => (
-              <button
-                key={char.id}
-                onClick={() => setSelectedCharacter(selectedCharacter === char.id ? null : char.id)}
-                className={`text-left p-3 rounded-lg transition-colors hover:bg-secondary/50
-                  ${selectedCharacter === char.id ? 'bg-primary/10' : 'bg-secondary/30'}
-                `}
-              >
-                <h4 className="font-medium block">{char.name}</h4>
-                <span className="text-sm text-muted-foreground">
-                  {char.title}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {/* Popover unique */}
-          {selectedChar && (
-            <div className="absolute z-10 left-0 right-0 mt-2 bg-card p-4 rounded-lg border shadow-lg">
-              <div className="flex flex-wrap gap-6">
-                <div className="flex-1 min-w-[280px] space-y-4">
-                  <p className="text-muted-foreground">
-                    {selectedChar.description}
-                  </p>
-                  {selectedChar.tags && (
-                    <div>
-                      <h5 className="text-sm font-medium mb-2">{tagTitle}</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedChar.tags.map((tag, index) => (
-                          <span 
-                            key={index}
-                            className="px-2 py-1 bg-secondary/50 rounded-full text-xs"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-                {selectedChar.imagePath && (
-                  <div className="relative w-[200px] h-[200px] rounded-lg overflow-hidden flex-shrink-0">
-                    <Image
-                      src={selectedChar.imagePath}
-                      alt={selectedChar.name}
-                      fill
-                      className="object-cover"
-                    />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {characters.map((char) => (
+            <Popover key={char.id}>
+              <PopoverTrigger asChild>
+                <button
+                  className={`text-left p-3 rounded-lg transition-colors hover:bg-secondary/50 w-full
+                    ${selectedCharacter === char.id ? 'bg-primary/10' : 'bg-secondary/30'}
+                  `}
+                  onClick={() => setSelectedCharacter(selectedCharacter === char.id ? null : char.id)}
+                >
+                  <h4 className="font-medium block">{char.name}</h4>
+                  <span className="text-sm text-muted-foreground">
+                    {char.title}
+                  </span>
+                </button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[calc(100vw-2rem)] max-w-[450px] mx-4">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-lg">{char.name}</h4>
+                    <p className="text-sm text-muted-foreground">{char.title}</p>
                   </div>
-                )}
-              </div>
-            </div>
-          )}
+                  <div className="flex flex-wrap gap-6">
+                    <div className="flex-1 min-w-[280px] space-y-4">
+                      <p className="text-muted-foreground">
+                        {char.description}
+                      </p>
+                      {char.tags && (
+                        <div>
+                          <h5 className="text-sm font-medium mb-2">{tagTitle}</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {char.tags.map((tag, index) => (
+                              <span 
+                                key={index}
+                                className="px-2 py-1 bg-secondary/50 rounded-full text-xs"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    {char.imagePath && (
+                      <div className="relative w-[200px] h-[200px] rounded-lg overflow-hidden flex-shrink-0">
+                        <Image
+                          src={char.imagePath}
+                          alt={char.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          ))}
         </div>
       </CardContent>
     </Card>

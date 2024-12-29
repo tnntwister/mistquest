@@ -15,26 +15,30 @@ export default function QuetePage() {
     <div className="container mx-auto py-8 space-y-8">
       <Breadcrumbs items={breadcrumbItems} />
 
-      <div className="prose dark:prose-invert max-w-none">
+      <div className="prose dark:prose-invert max-w-none text-sm">
         <h1 className="text-4xl font-cinzel mb-8">Éléments de ma Quête</h1>
 
-        <div className="grid grid-cols-2 gap-8">
-          <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <section className="bg-secondary/30 p-6 rounded-lg">
             <h2 className="text-2xl font-cinzel">Les Prophéties</h2>
-            <p className="italic">
-              "Prophétie initiale : Un grand mal se lèvera et les étoiles s'éteindront."<br />
-              "les morts reviennent sur Malignatius<br />
+            <q className="italic mb-2 block">
+              Tu seras celui par qui arrivera la disgrâce. Tu seras celui qui apportera la réconciliation. Tu sèmeras la mort dans les rangs des croyants et des hérétiques. Tu guideras les justes vers les tombeaux des secrets, car ta double hélice est ainsi faite. Mais dans ces tombeaux tu marcheras en aveugle. Tu es la torche et la clé, mais ni les yeux ni la main. Tu es l'ouvreur des chemins.
+            </q>
+            <p className="mb-2">- Relique annunaki, Seconde rencontre</p>
+            <q className="italic mb-2 block">
+              Un grand mal se lèvera et les étoiles s'éteindront.<br />
+              les morts reviennent sur Malignatius<br />
               l'eau s'empoisonne sur Cadavus<br />
               le prophète se creve les yeux sur Severus<br />
               les ombres complotent sur Cadiz<br />
               le mal règne sur Pandemonium<br />
-              un mort en sursis cherche sa fille qui lui a été arraché (anton malevik)<br />
-              une duchesse pleure la perte de sa bien aimée (salandra)<br />
-              un prêtre a trahi les siens et s'est détourné du pancreateur pour sombrer..."
-            </p>
+              un mort en sursis cherche sa fille qui lui a été arraché<br />
+              une duchesse pleure la perte de sa bien aimée<br />
+              un prêtre a trahi les siens et s'est détourné du pancreateur pour sombrer...
+            </q>
           </section>
 
-          <section>
+          <section className="bg-primary/10 p-6 rounded-lg">
             <h2 className="text-2xl font-cinzel">Le Club des 5</h2>
             <ul>
               <li>Yervani</li>
@@ -44,7 +48,7 @@ export default function QuetePage() {
             </ul>
           </section>
 
-          <section>
+          <section className="bg-secondary/30 p-6 rounded-lg">
             <h2 className="text-2xl font-cinzel">L'Intérêt des Al-Malik</h2>
             <ul>
               <li>Exposition à des reliques par Theafana et Izaïa</li>
@@ -53,7 +57,7 @@ export default function QuetePage() {
             </ul>
           </section>
 
-          <section>
+          <section className="bg-primary/10 p-6 rounded-lg">
             <h2 className="text-2xl font-cinzel">Histoires Familiales</h2>
             <ul>
               <li>Coup de foudre entre mes parents</li>
@@ -63,12 +67,12 @@ export default function QuetePage() {
             </ul>
           </section>
 
-          <section>
+          <section className="bg-secondary/30 p-6 rounded-lg">
             <h2 className="text-2xl font-cinzel">Les Races Avancées</h2>
             <p className="italic">Je dois poursuivre un mal, marcher sur les pas d'Izaïa.</p>
           </section>
 
-          <section>
+          <section className="bg-primary/10 p-6 rounded-lg">
             <h2 className="text-2xl font-cinzel">Sauver les Soleils</h2>
             <p className="italic">Pour l'instant, je n'ai pas d'informations.</p>
           </section>

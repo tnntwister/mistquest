@@ -1,8 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { nl2br } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface Session {
   id: string;
@@ -20,12 +25,36 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
   const [selectedSession, setSelectedSession] = useState<string>(sessions[0]?.id || "");
 
   return (
-    <Card>
-      <CardHeader>
-        <h2 className="text-2xl font-cinzel">{title}</h2>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <>
+      {/* Vue mobile en accordéon */}
+      <div className="md:hidden rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+        <h2 className="text-2xl font-cinzel mb-4">{title}</h2>
+        <Accordion type="single" collapsible>
+          {sessions.map((session) => (
+            <AccordionItem key={session.id} value={session.id} className="border-none">
+              <AccordionTrigger className="text-left hover:no-underline rounded-lg hover:bg-secondary/50 px-4 py-2 transition-colors">
+                <div className="flex items-start gap-3">
+                  <span className="text-lg font-semibold text-primary/80">#{session.id}</span>
+                  <div>
+                    <h4 className="font-semibold">{session.title}</h4>
+                    <time className="text-xs text-muted-foreground block mt-1">
+                      {session.date}
+                    </time>
+                  </div>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="mt-2 text-sm bg-secondary/30 p-4 rounded-lg" dangerouslySetInnerHTML={{ __html: nl2br(session.summary) }} />
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+
+      {/* Vue desktop en colonnes */}
+      <div className="hidden md:block rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+        <h2 className="text-2xl font-cinzel mb-4">{title}</h2>
+        <div className="grid grid-cols-2 gap-6">
           {/* Liste des sessions (colonne gauche) */}
           <div className="space-y-4">
             {sessions.map((session) => (
@@ -54,12 +83,12 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
             {selectedSession ? (
               <div className="prose prose-invert prose-sm">
                 <h3 className="text-xl font-semibold mb-4">
-                  {sessions.find(s => s.id === selectedSession)?.title}
+                  Détails de la session #{selectedSession} - {sessions.find(s => s.id === selectedSession)?.title}
                 </h3>
-                <div 
+                <div
                   className="text-sm"
-                  dangerouslySetInnerHTML={{ 
-                    __html: nl2br(sessions.find(s => s.id === selectedSession)?.summary || "") 
+                  dangerouslySetInnerHTML={{
+                    __html: nl2br(sessions.find(s => s.id === selectedSession)?.summary || "")
                   }}
                 />
               </div>
@@ -70,7 +99,7 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
             )}
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </>
   );
 } 
