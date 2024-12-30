@@ -11,7 +11,7 @@ interface AchievementsProps {
 
 export function Achievements({ achievements, title = "Réalisations" }: AchievementsProps) {
   return (
-    <div className="space-y-4  rounded-lg border bg-card">
+    <div className="space-y-4 rounded-lg border bg-card p-6">
       <h3 className="text-xl font-semibold flex items-center gap-2">
         {title}
       </h3>
