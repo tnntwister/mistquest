@@ -1,3 +1,4 @@
+
 export interface Price {
   [key: string]: number;
 }

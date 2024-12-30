@@ -1,11 +1,17 @@
 import { HeroSection } from "@/components/ui/hero-section";
-import { CampaignLog } from "@/components/campaign-log";
-import { CharactersList } from "@/components/characters-list";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileText, Download } from "lucide-react";
+import { FileText, Download, BookOpen } from "lucide-react";
 import Link from "next/link";
-import { campaignLogs, characters, stories, gameAids, pageInfo } from "@/data/mage";
+import Image from "next/image";
+import { stories, gameAids, pageInfo } from "@/data/mage";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../config';
+
+export const metadata: Metadata = {
+  title: `Chroniques de Mage l'Ascension - ${SITE_NAME}`,
+  description: "Découvrez les chroniques de Mage l'Ascension, entre mystère et magie dans un monde contemporain sombre et fascinant."
+};
 
 export default function MagePage() {
   return (
@@ -21,15 +27,60 @@ export default function MagePage() {
         <div className="space-y-8">
           <h2 className="text-2xl font-bold">Chroniques en Cours</h2>
           
-          <div className="space-y-8">
-            <CampaignLog 
-              title={campaignLogs.tobias.title}
-              sessions={campaignLogs.tobias.sessions}
-            />
-            <CampaignLog 
-              title={campaignLogs.moisson.title}
-              sessions={campaignLogs.moisson.sessions}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Tobias Capek */}
+            <Link href="/mage/tobias" className="group">
+              <Card className="h-full hover:bg-secondary/20 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/images/sections/tobias.webp"
+                    alt="Tobias Capek"
+                    fill
+                    className="object-cover rounded-t-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80" />
+                </div>
+                <CardHeader>
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Tobias Capek</h3>
+                  <p className="text-muted-foreground">
+                    Un jeune mage des Traditions qui découvre ses pouvoirs et le monde occulte de Prague.
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="outline" className="w-full">
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    Lire la chronique
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Le Temps des Moissons */}
+            <Link href="/mage/moisson" className="group">
+              <Card className="h-full hover:bg-secondary/20 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/images/sections/le_temps_des_moissons.webp"
+                    alt="Le Temps des Moissons"
+                    fill
+                    className="object-cover rounded-t-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80" />
+                </div>
+                <CardHeader>
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Le Temps des Moissons</h3>
+                  <p className="text-muted-foreground">
+                    Une chronique sur la lutte entre Traditions et Technocratie dans la France rurale.
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="outline" className="w-full">
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    Lire la chronique
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
 
@@ -91,22 +142,6 @@ export default function MagePage() {
             </Card>
           </div>
         </div>
-
-        {/* Personnages */}
-        <div className="space-y-8">
-          <h2 className="text-2xl font-bold">Personnages Importants</h2>
-          <div className="space-y-8">
-            <CharactersList 
-              title="Alliés et Mentors"
-              characters={characters.allies}
-            />
-            <CharactersList 
-              title="Antagonistes"
-              characters={characters.rivals}
-            />
-          </div>
-        </div>
-
       </div>
     </div>
   );
