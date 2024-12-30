@@ -1,54 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollText, Sword, BookOpen, Compass, Sparkles, Flame, FlameKindling, Wind } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FeatureCard } from "../components/FeatureCard";
-
-const features = [
-  {
-    title: "Fael Bursandra des Hazat",
-    description: "Suivez le voyage d'un noble guerrier dans un univers d'intrigues et d'honneur.",
-    iconName: "⚔️",
-    href: "/fael",
-    image: "/images/features/fael-hero.webp"
-  },
-  {
-    title: "Mage",
-    description: "Explorez les mystères de la magie et des pouvoirs qui altèrent la réalité.",
-    iconName: "✨",
-    href: "/mage",
-    image: "/images/features/mage-hero.webp"
-  },
-  {
-    title: "LNS",
-    description: "Plongez dans la dark fantasy et les aventures épiques.",
-    iconName: "📖",
-    href: "/nouveau-soleil",
-    image: "/images/features/lns-hero.webp"
-  },
-  {
-    title: "Tokyo:Otherscape",
-    description: "Explorez le mystère de Tokyo, une ville où les lignes entre le monde réel et le monde des esprits sont floues.",
-    iconName: "✨",
-    href: "/otherscape",
-    image: "/images/features/otherscape-hero.webp"
-  },
-  {
-    title: "Ironsworn",
-    description: "Forgez votre chemin à travers des terres dangereuses en solo ou en groupe.",
-    iconName: "🗡️",
-    href: "/ironsworn",
-    image: "/images/features/ironsworn-hero.webp"
-  },
-  {
-    title: "LitM",
-    description: "Créez vos propres récits dans un monde enveloppé de mystère.",
-    iconName: "📜",
-    href: "/legends",
-    image: "/images/features/litm-hero.webp"
-  }
-];
+import { Timeline } from "@/components/timeline";
+import { Achievements } from "@/components/Achievements";
+import homeData from "@/data/home.json";
 
 export default function Home() {
   return (
@@ -92,7 +48,7 @@ export default function Home() {
         <div className="space-y-12 w-full max-w-[1440px] px-4">
           <section className="w-full max-w-5xl mx-auto">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => (
+              {homeData.features.map((feature) => (
                 <FeatureCard
                   key={feature.title}
                   {...feature}
@@ -101,17 +57,27 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="w-full max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl font-bold">Dernières Mises à Jour</h2>
-            <Card>
-              <CardHeader>
-                <CardTitle>Nouvelle Entrée du Journal</CardTitle>
-                <CardDescription>Mis à jour il y a 2 jours</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Dernière entrée dans le journal de Fael Bursandra, détaillant les récentes intrigues politiques dans les maisons nobles.</p>
-              </CardContent>
-            </Card>
+          {/* Nouvelle section profil */}
+          <section className="w-full max-w-5xl mx-auto space-y-12">
+            {/* Profil */}
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold">Qui suis-je ?</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Passionné de jeux de rôle narratifs et de dark fantasy, je crée des hacks et des contenus pour enrichir vos parties. 
+                Mon objectif est de partager des outils qui facilitent l'immersion et la narration.
+              </p>
+            </div>
+
+            {/* Timeline et Achievements */}
+            <div className="grid gap-8 md:grid-cols-2">
+              <Timeline 
+                title="Parcours" 
+                events={homeData.timelineEvents} 
+              />
+              <Achievements 
+                achievements={homeData.achievements}
+              />
+            </div>
           </section>
         </div>
       </div>
