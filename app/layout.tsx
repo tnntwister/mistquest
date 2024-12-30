@@ -5,6 +5,8 @@ import { Navigation } from "@/components/navigation";
 import { Toaster } from "@/components/ui/toaster";
 import { Inter, Cinzel } from 'next/font/google';
 import { Footer } from "@/components/Footer"
+import { Providers } from './providers';
+import { SITE_NAME } from './config';
 
 const inter = Inter({ subsets: ['latin'] });
 const cinzel = Cinzel({
@@ -15,28 +17,33 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: 'Mist.Quest - RPG Resources',
-  description: 'A mystical repository of tabletop roleplaying game resources and stories',
+  title: {
+    default: SITE_NAME,
+    template: `%s - ${SITE_NAME}`,
+  },
+  description: 'Zone de développement roliste',
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} ${cinzel.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className={`min-h-screen bg-[#0a0a0f] flex flex-col`}>
-            <Navigation />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Toaster />
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <Providers>
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <div className={`min-h-screen bg-[#0a0a0f] flex flex-col`}>
+              <Navigation />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Toaster />
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

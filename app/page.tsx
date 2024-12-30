@@ -1,41 +1,43 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { FeatureCard } from "../components/FeatureCard";
+import { FeatureCard } from "@/components/FeatureCard";
 import { Timeline } from "@/components/timeline";
 import { Achievements } from "@/components/Achievements";
-import homeData from "@/data/home.json";
+import { homeSections, features, timelineEvents, achievements } from "@/data/home";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      {/* Hero section en dehors du container */}
-      <div className="relative w-screen h-[60vh] -mx-4 -mt-8">
-        <Image
-          src="/images/hero/main-hero.webp"
-          alt="Façade moderne d'un musée"
-          fill
-          className="object-cover brightness-90 object-center"
-          priority
-        />
-        {/* Overlay avec un dégradé subtil */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/80" />
-        
+      {/* Hero section */}
+      <div className="relative h-[60vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/main-hero.webp"
+            alt="Façade moderne d'un musée"
+            fill
+            className="object-cover brightness-90 object-center"
+            priority
+          />
+          {/* Overlay avec un dégradé subtil */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/80" />
+        </div>
+
         {/* Contenu superposé */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center space-y-6 p-6 max-w-4xl">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-text-light">
+        <div className="relative h-full container mx-auto flex items-center justify-center px-4">
+          <div className="text-center space-y-4 sm:space-y-6 w-full max-w-4xl min-h-[300px] py-12 flex flex-col justify-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-text-light">
               Zone de développement roliste
             </h1>
-            <p className="mx-auto max-w-[700px] text-text-light/90 md:text-xl">
-              Retrouvez mes notes et mes idées de PJ/MJ sur les univers qui me plaisent en ce moment.<br />
+            <p className="mx-auto max-w-[700px] text-sm sm:text-base md:text-lg lg:text-xl text-text-light/90">
+              Retrouvez mes notes et mes idées de PJ/MJ sur les univers qui me plaisent en ce moment.
               Pour les sujets les plus développés, j&apos;en fais des documents que je publie sur itch.io.
             </p>
-            <div className="flex justify-center gap-4 pt-4">
-              <Button asChild size="lg">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+              <Button asChild size="lg" className="w-full sm:w-auto">
                 <Link href="https://discord.gg/VcXnZ6Mnzu" target="_blank">Rejoindre une partie</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="w-full sm:w-auto">
                 <Link href="https://fxguillois.itch.io/" target="_blank">Mes publications</Link>
               </Button>
             </div>
@@ -48,7 +50,7 @@ export default function Home() {
         <div className="space-y-12 w-full max-w-[1440px] px-4">
           <section className="w-full max-w-5xl mx-auto">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {homeData.features.map((feature) => (
+              {features.map((feature) => (
                 <FeatureCard
                   key={feature.title}
                   {...feature}
@@ -56,6 +58,8 @@ export default function Home() {
               ))}
             </div>
           </section>
+
+         
 
           {/* Nouvelle section profil */}
           <section className="w-full max-w-5xl mx-auto space-y-12">
@@ -72,10 +76,10 @@ export default function Home() {
             <div className="grid gap-8 md:grid-cols-2">
               <Timeline 
                 title="Maîtrises" 
-                events={homeData.timelineEvents} 
+                events={timelineEvents} 
               />
               <Achievements 
-                achievements={homeData.achievements}
+                achievements={achievements}
                 title="Badges débloqués"
               />
             </div>

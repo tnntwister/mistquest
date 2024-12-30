@@ -1,4 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../../config';
+
+export const metadata: Metadata = {
+  title: `Conditions Générales d'Utilisation - ${SITE_NAME}`,
+  description: "Conditions générales d'utilisation du site Mist.Quest, définissant les règles d'utilisation et les responsabilités des utilisateurs."
+};
 
 export default function CGUPage() {
   return (

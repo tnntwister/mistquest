@@ -1,7 +1,12 @@
-"use client";
-
 import { HeroSection } from "@/components/ui/hero-section";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../config';
+
+export const metadata: Metadata = {
+  title: `Réflexions sur le Jeu de Rôle - ${SITE_NAME}`,
+  description: "Explorez mes réflexions sur la pratique du jeu de rôle, son impact sur le développement personnel et sa dimension sociopolitique."
+};
 
 export default function ReflexionsPage() {
   return (

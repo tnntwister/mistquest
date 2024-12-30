@@ -1,8 +1,12 @@
-import { Suspense } from "react";
-import { DarkArts } from "./components/dark-arts";
-import { Grimoire } from "./components/grimoire";
-import { LoadingSkeleton } from "./components/loading";
 import { HeroSection } from "@/components/ui/hero-section";
+import { SITE_NAME } from '../config';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: `Tokyo : Otherscape et le moteur Mist Engine - ${SITE_NAME}`,
+  description: "Découvrez les aventures de Tokyo : Otherscape, un jeu de rôle sur le moteur Mist Engine."
+};
+
 export default function DarkscapePage() {
   return (
     <div className="space-y-8">

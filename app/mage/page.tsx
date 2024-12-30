@@ -1,5 +1,3 @@
-"use client";
-
 import { HeroSection } from "@/components/ui/hero-section";
 import { CampaignLog } from "@/components/campaign-log";
 import { CharactersList } from "@/components/characters-list";
@@ -7,11 +5,9 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download } from "lucide-react";
 import Link from "next/link";
-import mageData from "@/data/mage.json";
+import { campaignLogs, characters, stories, gameAids, pageInfo } from "@/data/mage";
 
 export default function MagePage() {
-  const { campaignLogs, characters, stories, gameAids, pageInfo } = mageData;
-
   return (
     <div className="space-y-8">
       <HeroSection 

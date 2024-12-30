@@ -1,11 +1,16 @@
-"use client";
-
 import { HeroSection } from "@/components/ui/hero-section";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../config';
+
+export const metadata: Metadata = {
+  title: `Ironsworn : Pax Elfica & Archipels - ${SITE_NAME}`,
+  description: "Découvrez mes adaptations d'Ironsworn : Pax Elfica, un monde elfique mystérieux, et Archipels, une aventure maritime épique."
+};
 
 const paxElficaResources = [
   {

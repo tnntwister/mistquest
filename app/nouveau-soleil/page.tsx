@@ -1,4 +1,11 @@
 import { HeroSection } from "@/components/ui/hero-section";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../config';
+
+export const metadata: Metadata = {
+  title: `Légendes du Nouveau Soleil - ${SITE_NAME}`,
+  description: "Plongez dans l'univers des Légendes du Nouveau Soleil, un monde où la magie et la technologie se mêlent dans une quête épique."
+};
 
 export default function SoleilNoirPage() {
   return (

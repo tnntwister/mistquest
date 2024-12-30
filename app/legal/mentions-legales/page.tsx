@@ -1,4 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../../config';
+
+export const metadata: Metadata = {
+  title: `Mentions Légales - ${SITE_NAME}`,
+  description: "Mentions légales et informations juridiques concernant le site Mist.Quest."
+};
 
 export default function MentionsLegalesPage() {
   return (

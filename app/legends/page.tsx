@@ -1,5 +1,11 @@
-
 import { HeroSection } from "@/components/ui/hero-section";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../config';
+
+export const metadata: Metadata = {
+  title: `Legend in the Mist dans l'univers d'Obojima - ${SITE_NAME}`,
+  description: "Découvrez les légendes du monde d'Obojima, des esprits et des aventures humaines."
+};
 
 export default function LegendsPage() {
   return (

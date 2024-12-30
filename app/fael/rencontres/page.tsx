@@ -3,6 +3,13 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { Metadata } from 'next';
+import { SITE_NAME } from '../../config';
+
+export const metadata: Metadata = {
+  title: `Les Trois Rencontres de Fael - ${SITE_NAME}`,
+  description: "Découvrez les trois rencontres mystiques qui ont marqué le destin de Fael Bursandra et façonné son avenir."
+};
 
 export default function RencontresPage() {
   const breadcrumbItems = [

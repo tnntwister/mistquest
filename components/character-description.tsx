@@ -24,8 +24,7 @@ export function CharacterDescription({ name, description, imagePath, characterSh
           </Button>
         </div>
         <Link 
-          href={imagePath} 
-          target="_blank" 
+          href={characterSheetLink}
           className="relative h-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02]"
         >
           <Image
