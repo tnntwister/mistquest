@@ -76,6 +76,7 @@ export default function Home() {
               />
               <Achievements 
                 achievements={homeData.achievements}
+                title=""
               />
             </div>
           </section>
