@@ -71,12 +71,12 @@ export default function Home() {
             {/* Timeline et Achievements */}
             <div className="grid gap-8 md:grid-cols-2">
               <Timeline 
-                title="Parcours" 
+                title="Maîtrises" 
                 events={homeData.timelineEvents} 
               />
               <Achievements 
                 achievements={homeData.achievements}
-                title=""
+                title="Badges débloqués"
               />
             </div>
           </section>
