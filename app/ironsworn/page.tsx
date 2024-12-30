@@ -92,7 +92,7 @@ export default function IronswornPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <h2 className="text-2xl font-bold text-text-light mb-2">Archipels</h2>
-              <p className="text-text-light/80">Aventures dans les îles mouvantes dans Sundered Isles</p>
+              <p className="text-text-light/80">Aventures dans les îles mouvantes avec Sundered Isles</p>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function IronswornPage() {
         <section className="space-y-8">
           <div className="relative rounded-lg overflow-hidden h-[200px]">
             <Image
-              src="/images/settings/pax-elfica.webp"
+              src="/images/sections/pax-elfica-screen.webp"
               alt="Pax Elfica"
               fill
               className="object-cover"
@@ -142,7 +142,7 @@ export default function IronswornPage() {
         <section className="space-y-8">
           <div className="relative rounded-lg overflow-hidden h-[200px]">
             <Image
-              src="/images/settings/archipels.webp"
+              src="/images/sections/archipels-screen.webp"
               alt="Archipels"
               fill
               className="object-cover"

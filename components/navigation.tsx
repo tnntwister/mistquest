@@ -41,7 +41,7 @@ export function Navigation() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/30 backdrop-blur-md backdrop-saturate-150 before:absolute before:inset-0 before:z-[-1] before:bg-gradient-to-b before:from-background/80 before:to-background/20 before:backdrop-blur-[2px] supports-[backdrop-filter]:bg-background/30">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/20 backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-background/20 after:absolute after:inset-0 after:z-[-1] after:bg-gradient-to-b after:from-background/5 after:via-background/20 after:to-background/30 after:backdrop-blur-[2px]">
       <div className="container flex h-14 items-center justify-between relative z-10">
         <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2 ml-4">
