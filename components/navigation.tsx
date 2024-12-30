@@ -7,8 +7,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import { AuthButton } from "@/components/auth-button";
+import { Menu, User, ShoppingCart } from "lucide-react";
 
 const navigation = [
   {
@@ -42,10 +41,10 @@ export function Navigation() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/30 backdrop-blur-md backdrop-saturate-150 before:absolute before:inset-0 before:z-[-1] before:bg-gradient-to-b before:from-background/80 before:to-background/20 before:backdrop-blur-[2px] supports-[backdrop-filter]:bg-background/30">
+      <div className="container flex h-14 items-center justify-between relative z-10">
         <div className="flex items-center">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/" className="mr-6 flex items-center space-x-2 ml-4">
             <span className="font-bold">MIST.QUEST</span>
           </Link>
           <Sheet open={open} onOpenChange={setOpen}>
@@ -94,7 +93,14 @@ export function Navigation() {
               </Link>
             ))}
           </div>
-          <AuthButton />
+          <div className="flex items-center space-x-4">
+            <Link href="/store" className="text-muted-foreground hover:text-primary">
+              <ShoppingCart className="h-5 w-5" />
+            </Link>
+            <Link href="/login" className="text-muted-foreground hover:text-primary">
+              <User className="h-5 w-5" />
+            </Link>
+          </div>
         </nav>
       </div>
     </header>
