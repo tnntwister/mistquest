@@ -93,11 +93,6 @@ export function Footer() {
                   MJ dans Obojima 
                 </Link>
               </li>
-              <li>
-                <Link href="/reflexions" className="text-text-muted hover:text-text-light transition-colors">
-                  Réflexions sur le JdR
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -106,13 +101,13 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-text-light">Dernières mises à jour</h4>
             <ul className="space-y-2 text-sm">
               <li className="text-text-muted">
-                <span className="text-text-light">10/04/2024</span> - Combat contre le Chevalier Questeur
+                <span className="text-text-light">30/12/2024</span> - Description de Fael
               </li>
               <li className="text-text-muted">
-                <span className="text-text-light">03/04/2024</span> - Le Dîner de la Marquise
+                <span className="text-text-light">28/12/2024</span> - Journal de campagne de Fael
               </li>
               <li className="text-text-muted">
-                <span className="text-text-light">27/03/2024</span> - Création du site
+                <span className="text-text-light">01/12/2024</span> - Création du site
               </li>
             </ul>
           </div>
