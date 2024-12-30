@@ -110,47 +110,47 @@
   },
   "stories": [
     {
-      "id": "1",
-      "title": "L'Éveil de Tobias",
-      "description": "Une nouvelle sur la découverte de la magie par un jeune scientifique.",
+      "id": "3",
+      "title": "Un soir au coin de feu",
+      "description": "Deux loups-garous racontent à P'yo la purge de Pittsfied, en 2004.",
       "link": "/stories/eveil-tobias.pdf"
     },
     {
       "id": "2",
-      "title": "Les Rituels de Paul",
-      "description": "Un récit détaillé des premières expériences magiques de Paul.",
+      "title": "L'antre des espoirs",
+      "description": "La rencontre entre Vera et Paul.",
       "link": "/stories/rituels-paul.pdf"
     },
     {
-      "id": "3",
-      "title": "Le Cercle des Moissons",
-      "description": "L'histoire de la formation du cercle et de leurs premiers rituels.",
+      "id": "1",
+      "title": "Volonté de puissance",
+      "description": "Rencontre entre Eddie et Paul.",
       "link": "/stories/cercle-moissons.pdf"
     }
   ],
   "gameAids": [
     {
       "id": "1",
-      "title": "Fiche de Tradition",
-      "description": "Template pour créer votre propre mage avec les spécificités de sa tradition.",
+      "title": "Fiche de personnage",
+      "description": "une version pdf de la fiche de personnage, remplissable.",
       "link": "/aids/fiche-tradition.pdf"
     },
     {
       "id": "2",
-      "title": "Guide des Sphères",
-      "description": "Résumé des effets et correspondances pour chaque niveau de sphère.",
+      "title": "Résumé de création de personnage",
+      "description": "Les différentes étapes de la création d'un personnage.",
       "link": "/aids/guide-spheres.pdf"
     },
     {
       "id": "3",
-      "title": "Aide de jeu Paradigmes",
-      "description": "Comment créer et utiliser les paradigmes magiques dans vos parties.",
-      "link": "/aids/paradigmes.pdf"
+      "title": "Descriptif des sphères",
+      "description": "Un descriptif des différentes sphères et leurs effets.",
+      "link": "/aids/descriptif-spheres.pdf"
     }
   ],
   "pageInfo": {
-    "title": "Mage: The Ascension",
-    "description": "Explore the realms of reality-bending magic and philosophical conflict in the World of Darkness.",
+    "title": "Mage: l'Ascension",
+    "description": "Explorez le Monde des Ténèbres et imposez votre volonté à la Réalité... si les autres vous laissent faire.",
     "imagePrefix": "mage"
   }
 }
