@@ -35,7 +35,7 @@ export default function FaelPage() {
             <p class='mb-2'>Sous ses airs calmes et réfléchis, Fael est un stratège, un esprit aiguisé par des années d'entraînement et d'observation. Il possède cette rare capacité de s'adapter à toute situation, guidé par une foi profonde dans sa mission et une fidélité indéfectible à sa maison. Pourtant, derrière cette façade de chevalier impeccable se cache un homme en quête de sens, tiraillé entre son devoir envers les Hazat et ses propres aspirations d'humanité et de justice.</p>
             <p class='mb-2'>Chaque mouvement de Fael, chaque regard, trahit une grâce innée et une autorité naturelle. Il est l'incarnation du jeune noble idéal : courageux, compétent et profondément ancré dans un monde où la survie dépend autant de la maîtrise des armes que de la compréhension des subtilités politiques et humaines.</p>"
             imagePath="/images/sections/fael.webp"
-            characterSheetLink="/fael/fiche"
+            characterSheetLink="/personnages/fael/fiche"
           />
 
           <CampaignLog sessions={sessions} />
@@ -55,7 +55,7 @@ export default function FaelPage() {
           <CharactersList title="Nobles Rencontrés" characters={characters.nobles} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Link href="/fael/rencontres" className="block">
+            <Link href="/personnages/fael/rencontres" className="block">
               <Card className="h-full hover:bg-secondary/50 transition-colors">
                 <CardHeader>
                   <h3 className="text-xl font-cinzel">Les Trois Rencontres</h3>
@@ -66,7 +66,7 @@ export default function FaelPage() {
               </Card>
             </Link>
 
-            <Link href="/fael/equipage" className="block">
+            <Link href="/personnages/fael/equipage" className="block">
               <Card className="h-full hover:bg-secondary/50 transition-colors">
                 <CardHeader>
                   <h3 className="text-xl font-cinzel">Mon Équipage</h3>
@@ -77,7 +77,7 @@ export default function FaelPage() {
               </Card>
             </Link>
 
-            <Link href="/fael/quete" className="block">
+            <Link href="/personnages/fael/quete" className="block">
               <Card className="h-full hover:bg-secondary/50 transition-colors">
                 <CardHeader>
                   <h3 className="text-xl font-cinzel">Éléments de ma Quête</h3>

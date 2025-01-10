@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Timeline } from "@/components/timeline";
 import { Achievements } from "@/components/Achievements";
-import { homeSections, features, timelineEvents, achievements } from "@/data/home";
+import { features, timelineEvents, achievements } from "@/data/home";
 
 export default function HomePage() {
   return (

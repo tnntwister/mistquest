@@ -58,15 +58,15 @@ export const features: Feature[] = [
     "title": "Fael Bursandra des Hazat",
     "description": "Guerrier-prêtre de l'Empereur, mon destin est d'empêcher l'extinction des Soleils.",
     "iconName": "⚔️",
-    "href": "/fael",
+    "href": "/personnages/fael",
     "image": "/images/features/fael-hero.webp"
   },
   {
     "title": "Archipels",
     "description": "Avec Ironsworn, repartez dans les Archipels pour de l'aventure, du fun et des poncifs d&desques.",
     "iconName": "✨",
-    "href": "/mage",
-    "image": "/images/features/mage-hero.webp"
+    "href": "/creations/archipels",
+    "image": "/images/hero/archipels-hero.webp"
   },
   {
     "title": "LNS",
@@ -79,7 +79,7 @@ export const features: Feature[] = [
     "title": "Tokyo:Otherscape",
     "description": "Explorez notre futur proche frappé par la colère de mythes oubliés.",
     "iconName": "✨",
-    "href": "/otherscape",
+    "href": "/univers/otherscape",
     "image": "/images/features/otherscape-hero.webp"
   },
   {
