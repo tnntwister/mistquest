@@ -82,37 +82,19 @@ export function Navigation() {
 
   // Composant pour le menu mobile
   const MobileMenuItem = ({ item }: { item: NavigationItem }) => {
-    const isActive = activeSubmenu === item.href;
-
     return (
       <div className="space-y-1">
         <div className="flex items-center justify-between">
-          <Link
-            href={item.href}
+          <span
             className={cn(
               "block px-2 py-1 text-sm",
               pathname === item.href && "text-primary"
             )}
-            onClick={() => setIsOpen(false)}
           >
             {item.title}
-          </Link>
-          {item.submenu && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setActiveSubmenu(isActive ? null : item.href)}
-            >
-              <ChevronDown
-                className={cn(
-                  "h-4 w-4 transition-transform",
-                  isActive && "rotate-180"
-                )}
-              />
-            </Button>
-          )}
+          </span>
         </div>
-        {item.submenu && isActive && (
+        {item.submenu && (
           <div className="ml-4 space-y-1">
             {item.submenu.map((subItem) => (
               <Link
