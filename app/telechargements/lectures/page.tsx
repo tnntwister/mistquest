@@ -8,8 +8,8 @@ import { Metadata } from 'next';
 import { SITE_NAME } from '../../config';
 
 export const metadata: Metadata = {
-  title: `Lectures - ${SITE_NAME}`,
-  description: "Je vous propose des fanfictions écrites dans les univers de jeu de rôle que je maîtrise."
+  title: `Lectures & Fanfictions de jeu de rôle- ${SITE_NAME}`,
+  description: "J'écris parfois des histoires pour compléter le background des PJs que je maîtrise. Voici quelques extraits."
 };
 
 export default function LecturesPage() {
@@ -18,7 +18,7 @@ export default function LecturesPage() {
       <HeroSection 
        imagePrefix="litm" 
        title="Lectures" 
-       description="Je vous propose des fanfictions écrites dans les univers de jeu de rôle que je maîtrise"
+       description="J'écris parfois des histoires pour compléter le background des PJs que je maîtrise. Voici quelques extraits"
       />
 
       <div className="container mx-auto space-y-12">
