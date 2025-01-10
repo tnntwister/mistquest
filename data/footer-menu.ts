@@ -11,37 +11,37 @@ interface FooterMenuItem {
 export const developmentZones: FooterMenuItem[] = [
   {
     title: "Fading Suns",
-    href: "/fael",
+    href: "/personnages/fael",
     icon: Sword,
     role: "PJ"
   },
   {
     title: "Tokyo:Otherscape",
-    href: "/otherscape",
+    href: "/univers/otherscape",
     icon: Compass,
     role: "MJ"
   },
   {
-    title: "Mage l'Ascension",
-    href: "/mage",
+    title: "Nativesworn",
+    href: "/creations/nativesworn",
     icon: BookOpen,
-    role: "MJ"
+    role: "PJ/MJ"
   },
   {
     title: "Légendes du Nouveau Soleil",
-    href: "/nouveau-soleil",
+    href: "/univers/lns",
     icon: BookOpen,
     role: "MJ"
   },
   {
-    title: "Archipels, Pax Elfica",
-    href: "/ironsworn",
+    title: "Archipels",
+    href: "/creations/archipels",
     icon: Compass,
-    role: "MJ"
+    role: "PJ/MJ"
   },
   {
     title: "Obojima",
-    href: "/obojima",
+    href: "/univers/obojima",
     icon: Compass,
     role: "MJ"
   }

@@ -78,13 +78,13 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-text-light">Dernières mises à jour</h4>
             <ul className="space-y-2 text-sm">
               <li className="text-text-muted">
+                <span className="text-text-light">10/01/2025</span> - Fiche de Nicole
+              </li>
+              <li className="text-text-muted">
+                <span className="text-text-light">04/01/2025</span> - Création de Nativesworn
+              </li>
+              <li className="text-text-muted">
                 <span className="text-text-light">30/12/2024</span> - Description de Fael
-              </li>
-              <li className="text-text-muted">
-                <span className="text-text-light">28/12/2024</span> - Journal de campagne de Fael
-              </li>
-              <li className="text-text-muted">
-                <span className="text-text-light">01/12/2024</span> - Création du site
               </li>
             </ul>
           </div>
