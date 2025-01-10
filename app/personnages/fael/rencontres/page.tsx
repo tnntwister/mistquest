@@ -34,7 +34,7 @@ export default function RencontresPage() {
         </div>
 
         <div className="flex justify-center mt-8">
-          <Link href="/fael">
+          <Link href="/personnages/fael">
             <Button variant="outline" size="lg">
               Retour à la page de Fael
             </Button>
