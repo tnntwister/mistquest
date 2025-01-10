@@ -81,7 +81,7 @@ export function CharactersList({
                       )}
                     </div>
                     {char.imagePath && (
-                      <div className="relative w-[200px] h-[200px] rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0">
                         <Image
                           src={char.imagePath}
                           alt={char.name}

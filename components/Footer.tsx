@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { ScrollText, Sword, BookOpen, Compass, Sparkles } from "lucide-react"
+import { developmentZones } from "@/data/footer-menu"
 
 export function Footer() {
   return (
@@ -60,39 +60,16 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-text-light">Navigation</h4>
+            <h4 className="text-lg font-semibold text-text-light">Zones en développement</h4>
             <ul className="space-y-2 text-sm">
-            
-              <li>
-                <Link href="/fael" className="text-text-muted hover:text-text-light transition-colors">
-                  PJ à Fading Suns
-                </Link>
-              </li>
-              <li>
-                <Link href="/otherscape" className="text-text-muted hover:text-text-light transition-colors">
-                  MJ à Tokyo:Otherscape
-                </Link>
-              </li>
-              <li>
-                <Link href="/mage" className="text-text-muted hover:text-text-light transition-colors">
-                  MJ à Mage l'Ascension
-                </Link>
-              </li>
-              <li>
-                <Link href="/nouveau-soleil" className="text-text-muted hover:text-text-light transition-colors">
-                  MJ à Légendes du Nouveau Soleil
-                </Link>
-              </li>
-              <li>
-                <Link href="/ironsworn" className="text-text-muted hover:text-text-light transition-colors">
-                  MJ à Archipels, Pax Elfica
-                </Link>
-              </li>
-              <li>
-                <Link href="/obojima" className="text-text-muted hover:text-text-light transition-colors">
-                  MJ dans Obojima 
-                </Link>
-              </li>
+              {developmentZones.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.href} className="text-text-muted hover:text-text-light transition-colors flex items-center gap-2">
+                    <item.icon className="w-4 h-4" />
+                    {item.role} à {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
