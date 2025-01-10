@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_NAME } from '../../config';
+import { SITE_NAME } from '../../../config';
 
 export const metadata: Metadata = {
   title: `Les Trois Rencontres - ${SITE_NAME}`,

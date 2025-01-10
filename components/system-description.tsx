@@ -37,10 +37,6 @@ export function SystemDescription({ name, description, imagePath, MoreLink }: Sy
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/images/fallback-image.jpg';
-                }}
               />
             </Link>
           ) : (
@@ -51,10 +47,6 @@ export function SystemDescription({ name, description, imagePath, MoreLink }: Sy
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/images/fallback-image.jpg';
-                }}
               />
             </div>
           )

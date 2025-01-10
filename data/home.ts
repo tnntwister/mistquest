@@ -55,46 +55,46 @@ export const homeSections: HomeSection[] = [
 
 export const features: Feature[] = [
   {
-    title: "Fael Bursandra des Hazat",
-    description: "Suivez le voyage d'un noble guerrier dans un univers d'intrigues et d'honneur.",
-    iconName: "⚔️",
-    href: "/fael",
-    image: "/images/features/fael-hero.webp"
+    "title": "Fael Bursandra des Hazat",
+    "description": "Guerrier-prêtre de l'Empereur, mon destin est d'empêcher l'extinction des Soleils.",
+    "iconName": "⚔️",
+    "href": "/fael",
+    "image": "/images/features/fael-hero.webp"
   },
   {
-    title: "Mage",
-    description: "Explorez les mystères de la magie et des pouvoirs qui altèrent la réalité.",
-    iconName: "✨",
-    href: "/mage",
-    image: "/images/features/mage-hero.webp"
+    "title": "Archipels",
+    "description": "Avec Ironsworn, repartez dans les Archipels pour de l'aventure, du fun et des poncifs d&desques.",
+    "iconName": "✨",
+    "href": "/mage",
+    "image": "/images/features/mage-hero.webp"
   },
   {
-    title: "LNS",
-    description: "Plongez dans la dark fantasy et les aventures épiques.",
-    iconName: "📖",
-    href: "/nouveau-soleil",
-    image: "/images/features/lns-hero.webp"
+    "title": "LNS",
+    "description": "Entrez dans les pas des aventures de Gene Wolfe et de ses cycles de romans.",
+    "iconName": "📖",
+    "href": "/univers/lns",
+    "image": "/images/features/lns-hero.webp"
   },
   {
-    title: "Tokyo:Otherscape",
-    description: "Explorez le mystère de Tokyo, une ville où les lignes entre le monde réel et le monde des esprits sont floues.",
-    iconName: "✨",
-    href: "/otherscape",
-    image: "/images/features/otherscape-hero.webp"
+    "title": "Tokyo:Otherscape",
+    "description": "Explorez notre futur proche frappé par la colère de mythes oubliés.",
+    "iconName": "✨",
+    "href": "/otherscape",
+    "image": "/images/features/otherscape-hero.webp"
   },
   {
-    title: "Ironsworn",
-    description: "Forgez votre chemin à travers des terres dangereuses en solo ou en groupe.",
-    iconName: "🗡️",
-    href: "/ironsworn",
-    image: "/images/features/ironsworn-hero.webp"
+    "title": "Nativesworn",
+    "description": "Incarnez un amérindien menacé sur vos terres ancestrales par d'expansionnisme européen.",
+    "iconName": "🌲",
+    "href": "/creations/nativesworn",
+    "image": "/images/hero/nativesworn-hero.webp"
   },
   {
-    title: "LitM",
-    description: "Créez vos propres récits dans un monde enveloppé de mystère.",
-    iconName: "📜",
-    href: "/legends",
-    image: "/images/features/litm-hero.webp"
+    "title": "Obojima",
+    "description": "Explorez l'île d'Obojima, inspirée des films Ghibli et de Zelda.",
+    "iconName": "📜",
+    "href": "/univers/obojima",
+    "image": "/images/features/litm-hero.webp"
   }
 ];
 

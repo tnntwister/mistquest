@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_NAME } from '../../config';
+import { SITE_NAME } from '../../../config';
 
 export const metadata: Metadata = {
   title: `La Quête de Fael - ${SITE_NAME}`,
