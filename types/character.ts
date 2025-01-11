@@ -14,13 +14,23 @@ export type Resource = {
   description?: string;
 };
 
-export type Asset = {
+export interface Asset {
+  id: string;
   name: string;
-  type: 'combat' | 'ritual' | 'companion' | 'path';
+  type: string;
   description: string;
-  abilities: string[];
-  enabled: boolean;
-};
+  abilities: {
+    id: string;
+    description: string;
+    enabled: boolean;
+    requiresInput?: boolean;
+    inputValue?: string;
+    requiresTrack?: boolean;
+    trackValue?: number;
+    trackMax?: number;
+  }[];
+  experience: number;
+}
 
 export type Quest = {
   title: string;

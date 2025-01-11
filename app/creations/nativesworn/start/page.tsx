@@ -158,10 +158,21 @@ export default function StartPage() {
     }));
   };
 
-  const handleAssetAdd = (asset: Asset) => {
+  const handleAssetAdd = (assetTemplate: Asset) => {
+    const newAsset: Character['assets'][number] = {
+      ...assetTemplate,
+      id: crypto.randomUUID(),
+      experience: 0,
+      abilities: assetTemplate.abilities.map((ability, index) => ({
+        ...ability,
+        enabled: index === 0,
+        trackValue: ability.requiresTrack ? 0 : undefined
+      }))
+    };
+
     setCharacter(prev => ({
       ...prev,
-      assets: [...prev.assets, asset]
+      assets: [...prev.assets, newAsset]
     }));
   };
 
