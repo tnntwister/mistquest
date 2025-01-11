@@ -1,16 +1,39 @@
+"use client";
+
 import { HeroSection } from "@/components/ui/hero-section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { SITE_NAME } from '../config';
-import type { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: `Mon Profil - ${SITE_NAME}`,
-  description: "Gérez votre profil et vos préférences personnelles.",
-};
+import { useAuth } from "@/hooks/use-auth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ProfilePage() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto py-8">
+        <div className="max-w-[800px] mx-auto">
+          <Card className="p-6">
+            <CardContent>Chargement...</CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null; // Ne rien afficher pendant la redirection
+  }
+
   return (
     <div className="space-y-8">
       <HeroSection 
@@ -32,7 +55,7 @@ export default function ProfilePage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <h3 className="font-medium">Email</h3>
-                <p className="text-muted-foreground">user@example.com</p>
+                <p className="text-muted-foreground">{user.email}</p>
               </div>
               <Button variant="outline" className="w-full">
                 Modifier le mot de passe

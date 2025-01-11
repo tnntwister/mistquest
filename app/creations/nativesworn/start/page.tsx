@@ -1,18 +1,162 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import IronswornSoloSystem from '@/components/game/ironsworn';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { HeroSection } from '@/components/ui/hero-section';
 import { Button } from '@/components/ui/button';
+import { StartingGuide } from '@/components/game/starting-guide';
+import { CharacterSheetIronsworn } from '@/components/game/character-sheet-ironsworn';
+import type { Character } from '@/types/character';
+import type { StartingGuide as StartingGuideType } from '@/types/task';
+import type { BasicAction } from '@/types/action';
+import { BasicActions } from '@/components/game/basic-actions';
+import { DEFAULT_CHARACTER_VALIDATION } from '@/types/character';
+import type { Quest } from '@/types/quest';
+import type { FulfillResult } from '@/types/quest';
 
 export default function StartPage() {
-  const breadcrumbItems = [
-    { label: "Accueil", href: "/" },
-    { label: "Nativesworn", href: "/creations/nativesworn" },
-    { label: "Nouvelle Aventure" }
+  const [character, setCharacter] = useState<Character>({
+    id: crypto.randomUUID(),
+    name: 'Nouveau Personnage',
+    userId: '',
+    background: '',
+    stats: {
+      edge: { name: 'Edge', value: 1, description: 'Rapidité et agilité' },
+      heart: { name: 'Heart', value: 2, description: 'Empathie et volonté' },
+      iron: { name: 'Iron', value: 2, description: 'Force et endurance' },
+      shadow: { name: 'Shadow', value: 1, description: 'Discrétion et ruse' },
+      wits: { name: 'Wits', value: 1, description: 'Intelligence et perception' }
+    },
+    resources: {
+      health: { name: 'Santé', current: 5, max: 5 },
+      spirit: { name: 'Esprit', current: 5, max: 5 },
+      supply: { name: 'Ressources', current: 5, max: 5 },
+      momentum: { name: 'Élan', current: 2, max: 10 }
+    },
+    assets: [],
+    quests: [],
+    validation: DEFAULT_CHARACTER_VALIDATION,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  });
+
+  const [startingTasks, setStartingTasks] = useState<StartingGuideType>({
+    title: "Guide de Démarrage",
+    description: "Bienvenue dans votre nouvelle aventure Nativesworn. Avant de commencer, prenez le temps de définir :",
+    tasks: [
+      {
+        id: "tribe",
+        label: "Votre tribu d'origine et ses traditions",
+        description: "Choisissez parmi les tribus disponibles ou créez la vôtre",
+        completed: false,
+        required: true
+      },
+      {
+        id: "role",
+        label: "Votre rôle au sein de la communauté",
+        description: "Définissez votre position sociale et vos responsabilités",
+        completed: false,
+        required: true
+      },
+      {
+        id: "totem",
+        label: "Votre animal totem et votre lien spirituel",
+        description: "Choisissez un animal qui représente votre esprit",
+        completed: false,
+        required: true
+      },
+      {
+        id: "oath",
+        label: "Le serment sacré qui guide votre quête",
+        description: "Formulez le serment qui motivera vos actions",
+        completed: false,
+        required: true
+      }
+    ]
+  });
+
+  const basicActions: BasicAction[] = [
+    {
+      id: 'face-danger',
+      label: 'Face Danger',
+      onClick: () => console.log('Face Danger clicked')
+    },
+    {
+      id: 'secure-advantage',
+      label: 'Secure an Advantage',
+      onClick: () => console.log('Secure Advantage clicked')
+    },
+    {
+      id: 'strike',
+      label: 'Strike',
+      onClick: () => console.log('Strike clicked')
+    },
+    {
+      id: 'gather-info',
+      label: 'Gather Information',
+      onClick: () => console.log('Gather Information clicked')
+    }
   ];
+
+  const toggleTask = (taskId: string) => {
+    setStartingTasks(prev => ({
+      ...prev,
+      tasks: prev.tasks.map(task => 
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    }));
+  };
+
+  const handleQuestAdd = (quest: Quest) => {
+    setCharacter(prev => ({
+      ...prev,
+      quests: [...prev.quests, quest]
+    }));
+  };
+
+  const handleQuestProgress = (questId: string, progress: number) => {
+    setCharacter(prev => ({
+      ...prev,
+      quests: prev.quests.map(quest => 
+        quest.id === questId 
+          ? { 
+              ...quest, 
+              progress: Math.min(10, quest.progress + progress) 
+            }
+          : quest
+      )
+    }));
+  };
+
+  const handleQuestFulfill = (questId: string, result: FulfillResult) => {
+    setCharacter(prev => ({
+      ...prev,
+      quests: prev.quests.map(quest => 
+        quest.id === questId 
+          ? { 
+              ...quest, 
+              status: result.outcome === 'miss' ? 'active' : 'fulfilled',
+              experience: (quest.experience || 0) + result.experience
+            }
+          : quest
+      )
+    }));
+  };
+
+  const handleQuestForsake = (questId: string) => {
+    setCharacter(prev => ({
+      ...prev,
+      quests: prev.quests.map(quest => 
+        quest.id === questId 
+          ? { 
+              ...quest, 
+              status: 'forsaken' as const
+            }
+          : quest
+      )
+    }));
+  };
 
   return (
     <div className="space-y-8">
@@ -23,73 +167,62 @@ export default function StartPage() {
       />
 
       <div className="container mx-auto space-y-12">
-        <Breadcrumbs items={breadcrumbItems} />
+        <Breadcrumbs items={[
+          { label: "Accueil", href: "/" },
+          { label: "Nativesworn", href: "/creations/nativesworn" },
+          { label: "Nouvelle Aventure" }
+        ]} />
 
         <div className="grid grid-cols-12 gap-8">
-          {/* Colonne de gauche - Aventure (8/12) */}
           <div className="col-span-12 lg:col-span-8 space-y-8">
-            <IronswornSoloSystem />
-          </div>
-
-          {/* Colonne de droite - Guide et actions (4/12) */}
-          <div className="col-span-12 lg:col-span-4 space-y-8">
             <Card>
               <CardHeader>
-                <CardTitle>Guide de Démarrage</CardTitle>
+                <CardTitle>Journal de Campagne</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Bienvenue dans votre nouvelle aventure Nativesworn. Avant de commencer, prenez le temps de définir :
+                  Commencez votre aventure en notant ici vos premières actions...
                 </p>
-                <ul className="list-disc pl-6 mt-4 space-y-2">
-                  <li>Votre tribu d'origine et ses traditions</li>
-                  <li>Votre rôle au sein de la communauté</li>
-                  <li>Votre animal totem et votre lien spirituel</li>
-                  <li>Le serment sacré qui guide votre quête</li>
-                </ul>
               </CardContent>
             </Card>
+          </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Feuille de Personnage</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="font-bold mb-2">Stats</h3>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>Edge: 1</div>
-                      <div>Heart: 2</div>
-                      <div>Iron: 2</div>
-                      <div>Shadow: 1</div>
-                      <div>Wits: 1</div>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2">Resources</h3>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>Health: 5</div>
-                      <div>Spirit: 5</div>
-                      <div>Supply: 5</div>
-                      <div>Momentum: 2</div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="col-span-12 lg:col-span-4 space-y-8">
+            <StartingGuide 
+              guide={startingTasks} 
+              onTaskToggle={toggleTask}
+            />
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <Button className="w-full">Face Danger</Button>
-                <Button className="w-full">Secure an Advantage</Button>
-                <Button className="w-full">Strike</Button>
-                <Button className="w-full">Gather Information</Button>
-              </CardContent>
-            </Card>
+            <CharacterSheetIronsworn 
+              character={character}
+              onNameChange={(name) => {
+                setCharacter(prev => ({ ...prev, name }));
+              }}
+              onStatChange={(statKey, value) => {
+                setCharacter(prev => ({
+                  ...prev,
+                  stats: {
+                    ...prev.stats,
+                    [statKey]: { ...prev.stats[statKey], value }
+                  }
+                }));
+              }}
+              onResourceChange={(resourceKey, value) => {
+                setCharacter(prev => ({
+                  ...prev,
+                  resources: {
+                    ...prev.resources,
+                    [resourceKey]: { ...prev.resources[resourceKey], current: value }
+                  }
+                }));
+              }}
+              onQuestAdd={handleQuestAdd}
+              onQuestProgress={handleQuestProgress}
+              onQuestFulfill={handleQuestFulfill}
+              onQuestForsake={handleQuestForsake}
+            />
+
+            <BasicActions actions={basicActions} />
           </div>
         </div>
       </div>
