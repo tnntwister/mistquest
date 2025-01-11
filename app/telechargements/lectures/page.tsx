@@ -18,7 +18,7 @@ export default function LecturesPage() {
       <HeroSection 
        imagePrefix="litm" 
        title="Lectures" 
-       description="J'écris parfois des histoires pour compléter le background des PJs que je maîtrise. Voici quelques extraits"
+       description="J'écris parfois des histoires pour compléter le background des PJs que je maîtrise. Voici quelques extraits."
       />
 
       <div className="container mx-auto space-y-12">

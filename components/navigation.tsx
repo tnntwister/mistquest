@@ -120,7 +120,7 @@ export function Navigation() {
     return (
       <div className="relative group">
         <Link
-          href={item.href}
+          href={item.submenu ? item.submenu[0].href : ""}
           className={cn(
             "flex items-center gap-1 px-4 py-2",
             pathname === item.href && "text-primary"
