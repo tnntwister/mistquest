@@ -22,35 +22,48 @@ interface AssetPickerProps {
 }
 
 export function AssetPicker({ onAssetAdd, availableAssets, maxAssets, currentAssetCount }: AssetPickerProps) {
+  const [open, setOpen] = useState(false);
   const [selectedType, setSelectedType] = useState<AssetType>('companion');
 
-  const createAssetFromTemplate = (template: AssetTemplate): Asset => ({
-    ...template,
-    experience: 0,
-    abilities: template.abilities.map((ability, index) => ({
-      ...ability,
-      enabled: index === 0 // Première capacité activée par défaut
-    }))
-  });
+  const handleAssetAdd = (asset: AssetTemplate) => {
+    const newAsset: Asset = {
+      ...asset,
+      id: `${asset.id}-${crypto.randomUUID()}`,
+      experience: 0,
+      abilities: asset.abilities.map((ability, index) => ({
+        ...ability,
+        enabled: index === 0, // Active seulement la première capacité
+        trackValue: 0
+      }))
+    };
+    
+    onAssetAdd(newAsset);
+    setOpen(false); // Ferme la dialog après l'ajout
+  };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button 
-          className="w-full" 
+          variant="outline" 
+          className="w-full"
           disabled={currentAssetCount >= maxAssets}
         >
-          Ajouter un Asset ({currentAssetCount}/{maxAssets})
+          Ajouter un Asset
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-3xl">
         <DialogHeader>
           <DialogTitle>Choisir un Asset</DialogTitle>
         </DialogHeader>
         <Tabs value={selectedType} onValueChange={(v) => setSelectedType(v as AssetType)}>
-          <TabsList className="grid grid-cols-4 w-full">
+          <TabsList className="grid w-full grid-cols-4">
             {ASSET_TYPES.map(type => (
-              <TabsTrigger key={type.value} value={type.value}>
+              <TabsTrigger 
+                key={type.value} 
+                value={type.value}
+                className="px-4"
+              >
                 {type.label}
               </TabsTrigger>
             ))}
@@ -89,9 +102,7 @@ export function AssetPicker({ onAssetAdd, availableAssets, maxAssets, currentAss
                           </div>
                           <Button
                             className="w-full"
-                            onClick={() => {
-                              onAssetAdd(createAssetFromTemplate(asset));
-                            }}
+                            onClick={() => handleAssetAdd(asset)}
                           >
                             Choisir
                           </Button>

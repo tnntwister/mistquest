@@ -14,6 +14,7 @@ import { BasicActions } from '@/components/game/basic-actions';
 import { DEFAULT_CHARACTER_VALIDATION } from '@/types/character';
 import type { Quest } from '@/types/quest';
 import type { FulfillResult } from '@/types/quest';
+import type { Asset } from '@/types/asset';
 
 export default function StartPage() {
   const [character, setCharacter] = useState<Character>({
@@ -136,8 +137,7 @@ export default function StartPage() {
         quest.id === questId 
           ? { 
               ...quest, 
-              status: result.outcome === 'miss' ? 'active' : 'fulfilled',
-              experience: (quest.experience || 0) + result.experience
+              status: result.outcome === 'miss' ? 'active' : 'fulfilled'
             }
           : quest
       )
@@ -155,6 +155,13 @@ export default function StartPage() {
             }
           : quest
       )
+    }));
+  };
+
+  const handleAssetAdd = (asset: Asset) => {
+    setCharacter(prev => ({
+      ...prev,
+      assets: [...prev.assets, asset]
     }));
   };
 
@@ -220,6 +227,7 @@ export default function StartPage() {
               onQuestProgress={handleQuestProgress}
               onQuestFulfill={handleQuestFulfill}
               onQuestForsake={handleQuestForsake}
+              onAssetAdd={handleAssetAdd}
             />
 
             <BasicActions actions={basicActions} />

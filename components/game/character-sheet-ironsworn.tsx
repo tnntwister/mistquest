@@ -12,6 +12,7 @@ import { QuestActions } from './quest-actions';
 import { Badge } from '@/components/ui/badge';
 import type { FulfillResult } from '@/types/quest';
 import { Button } from '@/components/ui/button';
+import { assets } from '@/data/assets';
 
 interface CharacterSheetProps {
   character: Character;
@@ -22,6 +23,7 @@ interface CharacterSheetProps {
   onQuestProgress?: (questId: string, progress: number) => void;
   onQuestFulfill?: (questId: string, result: FulfillResult) => void;
   onQuestForsake?: (questId: string) => void;
+  onAssetAdd?: (asset: Asset) => void;
 }
 
 export function CharacterSheetIronsworn({ 
@@ -32,7 +34,8 @@ export function CharacterSheetIronsworn({
   onQuestAdd,
   onQuestProgress,
   onQuestFulfill,
-  onQuestForsake 
+  onQuestForsake,
+  onAssetAdd
 }: CharacterSheetProps) {
   const activeQuestsCount = character.quests.filter(q => q.status === 'active').length;
   const assetsCount = character.assets.length;
@@ -206,10 +209,8 @@ export function CharacterSheetIronsworn({
               </Card>
             ))}
             <AssetPicker 
-              onAssetAdd={(asset) => {
-                // Handler pour ajouter un asset
-              }}
-              availableAssets={[]} // À remplir avec les assets disponibles
+              onAssetAdd={onAssetAdd}
+              availableAssets={assets}
               maxAssets={character.validation.maxStartingAssets}
               currentAssetCount={assetsCount}
             />
