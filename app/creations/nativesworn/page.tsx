@@ -60,7 +60,7 @@ export default function IronswornPage() {
               Les joueurs ont accès à dix voies distinctes (comme le Chaman, le Guerrier de la Tribu ou l'Éclaireur des Plaines) qui définissent leur rôle dans la communauté. Le système met l'accent sur l'harmonie avec la nature, le respect des traditions, et la nécessité de s'adapter face aux changements, tout en conservant la structure narrative et mécanique qui fait le succès d'Ironsworn.</p>
             `}
             imagePath="/images/sections/nativesworn-section.webp"
-            MoreLink="https://fxguillois.itch.io/archipels-d20"
+            MoreLink="/creations/nativesworn/start"
           />
         {/* Couverture des univers */}
         <section className="space-y-8">

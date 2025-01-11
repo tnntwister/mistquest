@@ -1,11 +1,5 @@
 import { HeroSection } from "@/components/ui/hero-section";
 import { CharacterDescription } from "@/components/character-description";
-import { CampaignLog } from "@/components/campaign-log";
-import { CharactersList } from "@/components/characters-list";
-import { Timeline } from "@/components/timeline";
-import { sessions, characters, timelineEvents, recentEvents } from "@/data/fael";
-import Link from "next/link";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { SITE_NAME } from '../../config';
 import type { Metadata } from 'next';
 

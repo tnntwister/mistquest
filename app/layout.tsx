@@ -7,6 +7,7 @@ import { Inter, Cinzel } from 'next/font/google';
 import { Footer } from "@/components/Footer"
 import { Providers } from './providers';
 import { SITE_NAME } from './config';
+import { AuthProvider } from "@/contexts/auth-context";
 
 const inter = Inter({ subsets: ['latin'] });
 const cinzel = Cinzel({
@@ -32,18 +33,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} ${cinzel.variable} font-sans antialiased`}>
-        <Providers>
-          <ThemeProvider attribute="class" defaultTheme="dark">
-            <div className={`min-h-screen bg-[#0a0a0f] flex flex-col`}>
-              <Navigation />
-              <main className="flex-1">
-                {children}
-              </main>
-              <Toaster />
-              <Footer />
-            </div>
-          </ThemeProvider>
-        </Providers>
+        <AuthProvider>
+          <Providers>
+            <ThemeProvider attribute="class" defaultTheme="dark">
+              <div className={`min-h-screen bg-[#0a0a0f] flex flex-col`}>
+                <Navigation />
+                <main className="flex-1">
+                  {children}
+                </main>
+                <Toaster />
+                <Footer />
+              </div>
+            </ThemeProvider>
+          </Providers>
+        </AuthProvider>
       </body>
     </html>
   );

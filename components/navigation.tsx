@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, User, ShoppingCart, ChevronDown } from "lucide-react";
+import { Menu, User, ShoppingCart, ChevronDown, UserCheck } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 
 // Définition des types
@@ -60,6 +61,7 @@ const navigation: NavigationItem[] = [
 ];
 
 export function Navigation() {
+  const { user } = useAuth();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeSubmenu, setActiveSubmenu] = React.useState<string | null>(null);
@@ -168,23 +170,43 @@ export function Navigation() {
           ))}
         </nav>
 
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-            >
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="pr-0">
-            <SheetTitle className="sr-only">
-              Menu de navigation
-            </SheetTitle>
-            <MobileNav />
-          </SheetContent>
-        </Sheet>
+        <div className="flex items-center space-x-4">
+          <Link href="/store" className="hover:text-primary">
+            <ShoppingCart className="h-5 w-5" />
+            <span className="sr-only">Panier</span>
+          </Link>
+          <Link 
+            href={user ? "/profile" : "/login"} 
+            className="hover:text-primary"
+          >
+            {user ? (
+              <UserCheck className="h-5 w-5" />
+            ) : (
+              <User className="h-5 w-5" />
+            )}
+            <span className="sr-only">
+              {user ? "Mon compte" : "Connexion"}
+            </span>
+          </Link>
+
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+              >
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="pr-0">
+              <SheetTitle className="sr-only">
+                Menu de navigation
+              </SheetTitle>
+              <MobileNav />
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
