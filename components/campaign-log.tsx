@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { nl2br } from "@/lib/utils";
+import { marked } from "marked";
 import {
   Accordion,
   AccordionContent,
@@ -24,6 +24,10 @@ interface CampaignLogProps {
 export function CampaignLog({ title = "Journal de Campagne", sessions }: CampaignLogProps) {
   const [selectedSession, setSelectedSession] = useState<string>(sessions[0]?.id || "");
 
+  const formatContent = (content: string) => {
+    return marked.parse(content || "", { async: false }) as string;
+  };
+
   return (
     <>
       {/* Vue mobile en accordéon */}
@@ -44,7 +48,10 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="mt-2 text-sm bg-secondary/30 p-4 rounded-lg" dangerouslySetInnerHTML={{ __html: nl2br(session.summary) }} />
+                <div 
+                  className="mt-2 text-sm bg-secondary/30 p-4 rounded-lg prose prose-invert prose-sm max-w-none" 
+                  dangerouslySetInnerHTML={{ __html: formatContent(session.summary) }} 
+                />
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -81,14 +88,13 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
           {/* Contenu de la session (colonne droite) */}
           <div className="bg-secondary/30 rounded-lg p-6">
             {selectedSession ? (
-              <div className="prose prose-invert prose-sm">
+              <div className="prose prose-invert prose-sm max-w-none">
                 <h3 className="text-xl font-semibold mb-4">
                   Détails de la session #{selectedSession} - {sessions.find(s => s.id === selectedSession)?.title}
                 </h3>
                 <div
-                  className="text-sm"
                   dangerouslySetInnerHTML={{
-                    __html: nl2br(sessions.find(s => s.id === selectedSession)?.summary || "")
+                    __html: formatContent(sessions.find(s => s.id === selectedSession)?.summary || "")
                   }}
                 />
               </div>

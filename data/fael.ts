@@ -3,7 +3,7 @@ export const sessions = [
     id: "16",
     title: "Deuils et nouveaux départs",
     date: "2024-12-12",
-    summary: `Aylon, zone désertiques.
+    summary: `**Aylon, zone désertiques.**
 
 2 équipes mixtes au RDC.
 
@@ -99,7 +99,7 @@ Nous partons pour le palais de ma grand mère, sur Aylon, une zone désertique.
     id: "14",
     title: "Tentacules autour du rocher",
     date: "2024-28-10",
-    summary: `Shaprut
+    summary: `**Shaprut**
 
 Nous avons emjambé deux gardes morts à l’entrée. 
 
@@ -162,9 +162,9 @@ Je dois poursuivre un mal, marcher sur les pas d'Izaïa.`
     id: "12",
     title: "Démélés avec notre histoire",
     date: "2024-10-09",
-    summary: `Shaprut
+    summary: `**Shaprut**
 
-**Dîner de la marquise.** 
+*Dîner de la marquise.* 
 
 corps central du batiment à l'étage, jardin en contrebas. 15x8m rideaux voilages. mosaïque. tableaux candélabres, 12aine serviteurs.
 
@@ -232,7 +232,7 @@ fael est reveillé et lui et théo ont froid et moi je suis envahi de chaleur.
     id: "11",
     title: "Autopsie d'une morte vivante",
     date: "2024-10-02",
-    summary: `Shaprut 
+    summary: `**Shaprut**
 
 *Notes : climat entre tempéré et chaud : vergers riches (croissant fertile de l'antiquité comme Liban et pays limitrophes)*
 
@@ -276,8 +276,7 @@ Je vais à la salle d'arme pour m'entrainer jusqu'au diner, je croise Isadora. E
     id: "10",
     title: "Quelqu'un a dormi dans mon vaisseau",
     date: "2024-09-11",
-    summary: `
-    Orbite de Shaprut. Colonie minière.
+    summary: `**Orbite de Shaprut. Colonie minière.**
 
 *Notes : cellule secrète sur Stygmata, un couple a déjà réussi à repousser les symbiotes il y a longtemps, Frère Bertold (ordre eskatonique) et dame Damania, une aurige qui maîtrisait les psions. En 5013, possiblement Theafana et Izaïa auraient reproduit le combo théurge + psions pour repousser les symbiotes. Un petit groupe part derrière les lignes et repousse les symbiotes.*  
 
@@ -319,7 +318,7 @@ Nous retournons sur Shaprut. Theodoros se signale pour atterrir et préviens la 
     id: "9",
     title: "Le jeu des bustes musicaux",
     date: "2024-08-07",
-    summary: `Byzantium Secundus. 
+    summary: `**Byzantium Secundus.** 
 
 Da'nedock nous interpelle sur le vaisseau, quelqu'un souhaiterait monter sur le Centurion, un associé magistrat il semble connaitre Theodoros. Ce dernier est convoqué au bureau des Auriges et je suis convoqué au siège des magistrats, nous avons 24h
 
@@ -399,7 +398,8 @@ Nous revenons au Centurion, Vanessa nous contacte.`
     id: "5",
     title: "Alliance avec Lilith",
     date: "2024-06-05",
-    summary: `Criticorum.  On a laissé prendre la cargaison car on savait que c'était des fruits (pouvoir de Yervani). 
+    summary: `**Criticorum.**
+On a laissé prendre la cargaison car on savait que c'était des fruits (pouvoir de Yervani). 
 
 Un magistrat vient pour annoncer le décès de mon grand père, il me remet un datastick et me demande de me rendre sur Aragon et Leagueheim pour la gestion du testament. 
 
@@ -434,7 +434,7 @@ Nous tentons de leur échapper mais le terrain est plus facile pour eux et nous 
     id: "4",
     title: "Qui a volé l'orange ?",
     date: "2024-05-15",
-    summary: `Espace. 
+    summary: `**Espace.**
 
 Nous entrons dans le vaisseau alien. 
 On descend d'un niveau : on arrive à l'entrepont et on se dirige vers le point d'arrimage, il y a les sas de 3 vaisseaux (le notre, celui eskatonique et celui des Avestis). 
@@ -481,7 +481,8 @@ De retour sur Shaprut, je fais le duel amical avec Ernestine, comme promis.`
     id: "3",
     title: "Retour sur les lieux du crime",
     date: "2024-05-01",
-    summary: `Shaprut. Lendemain de la fête d’anniversaire d’Ahmid. 
+    summary: `**Shaprut.**
+*Lendemain de la fête d’anniversaire d’Ahmid.*
 
 Au petit-déjuner, on croise Justine Hawkwood (qui s'occupait de la sécurité de Theafana Al-Malik), qui dort sur place. 
 
