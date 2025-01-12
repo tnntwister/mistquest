@@ -13,11 +13,12 @@ import { DEFAULT_CHARACTER_VALIDATION } from '@/types/character';
 import type { Quest,FulfillResult } from '@/types/quest';
 import type { Asset } from '@/types/asset';
 import type { Action, ActionLog } from '@/types/action';
-import { CampaignLogProvider } from '@/contexts/campaign-log-context';
 import { CampaignLog } from '@/components/game/campaign-log';
 import { Encounters } from '@/components/game/encounters';
+import { useCampaignLog } from '@/contexts/campaign-log-context';
 
 export default function StartPage() {
+  const { addLog } = useCampaignLog();
   const [character, setCharacter] = useState<Character>({
     id: crypto.randomUUID(),
     name: 'Nouveau Personnage',
@@ -78,17 +79,15 @@ export default function StartPage() {
     ]
   });
 
-  const [actionLogs, setActionLogs] = useState<ActionLog[]>([]);
-
   const handleActionClick = (action: Action) => {
     const results = ['strongHit', 'weakHit', 'miss'];
     const result = results[Math.floor(Math.random() * results.length)] as ActionLog['result'];
     
-    setActionLogs(prev => [...prev, {
+    addLog({
       action,
       timestamp: Date.now(),
       result
-    }]);
+    });
   };
 
   const toggleTask = (taskId: string) => {
@@ -181,75 +180,73 @@ export default function StartPage() {
   };
 
   return (
-    <CampaignLogProvider>
-      <div className="space-y-8">
-        <HeroSection 
-          imagePrefix="nativesworn" 
-          title="Nouvelle Aventure" 
-          description="Créez votre personnage et commencez votre voyage dans les terres amérindiennes." 
-        />
+    <div className="space-y-8">
+      <HeroSection 
+        imagePrefix="nativesworn" 
+        title="Nouvelle Aventure" 
+        description="Créez votre personnage et commencez votre voyage dans les terres amérindiennes." 
+      />
 
-        <div className="container mx-auto space-y-12">
-          <Breadcrumbs items={[
-            { label: "Accueil", href: "/" },
-            { label: "Nativesworn", href: "/creations/nativesworn" },
-            { label: "Nouvelle Aventure" }
-          ]} />
+      <div className="container mx-auto space-y-12">
+        <Breadcrumbs items={[
+          { label: "Accueil", href: "/" },
+          { label: "Nativesworn", href: "/creations/nativesworn" },
+          { label: "Nouvelle Aventure" }
+        ]} />
 
-          <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-8 space-y-8">
-              <CampaignLog />
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Actions</h2>
-                <BasicActions />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Rencontres</h2>
-                <Encounters />
-              </div>
+        <div className="grid grid-cols-12 gap-8">
+          <div className="col-span-12 lg:col-span-8 space-y-8">
+            <CampaignLog />
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Actions</h2>
+              <BasicActions />
             </div>
-
-            <div className="col-span-12 lg:col-span-4 space-y-8">              
-              <StartingGuide 
-                guide={startingTasks} 
-                onTaskToggle={toggleTask}
-              />
-
-              <CharacterSheetIronsworn 
-                character={character}
-                onNameChange={(name) => {
-                  setCharacter(prev => ({ ...prev, name }));
-                }}
-                onStatChange={(statKey, value) => {
-                  setCharacter(prev => ({
-                    ...prev,
-                    stats: {
-                      ...prev.stats,
-                      [statKey]: { ...prev.stats[statKey], value }
-                    }
-                  }));
-                }}
-                onResourceChange={(resourceKey, value) => {
-                  setCharacter(prev => ({
-                    ...prev,
-                    resources: {
-                      ...prev.resources,
-                      [resourceKey]: { ...prev.resources[resourceKey], current: value }
-                    }
-                  }));
-                }}
-                onQuestAdd={handleQuestAdd}
-                onQuestProgress={handleQuestProgress}
-                onQuestFulfill={handleQuestFulfill}
-                onQuestForsake={handleQuestForsake}
-                onAssetAdd={handleAssetAdd}
-                onAssetRemove={handleAssetRemove}
-              />
-
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Rencontres</h2>
+              <Encounters />
             </div>
+          </div>
+
+          <div className="col-span-12 lg:col-span-4 space-y-8">              
+            <StartingGuide 
+              guide={startingTasks} 
+              onTaskToggle={toggleTask}
+            />
+
+            <CharacterSheetIronsworn 
+              character={character}
+              onNameChange={(name) => {
+                setCharacter(prev => ({ ...prev, name }));
+              }}
+              onStatChange={(statKey, value) => {
+                setCharacter(prev => ({
+                  ...prev,
+                  stats: {
+                    ...prev.stats,
+                    [statKey]: { ...prev.stats[statKey], value }
+                  }
+                }));
+              }}
+              onResourceChange={(resourceKey, value) => {
+                setCharacter(prev => ({
+                  ...prev,
+                  resources: {
+                    ...prev.resources,
+                    [resourceKey]: { ...prev.resources[resourceKey], current: value }
+                  }
+                }));
+              }}
+              onQuestAdd={handleQuestAdd}
+              onQuestProgress={handleQuestProgress}
+              onQuestFulfill={handleQuestFulfill}
+              onQuestForsake={handleQuestForsake}
+              onAssetAdd={handleAssetAdd}
+              onAssetRemove={handleAssetRemove}
+            />
+
           </div>
         </div>
       </div>
-    </CampaignLogProvider>
+    </div>
   );
 }
