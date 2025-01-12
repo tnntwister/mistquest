@@ -15,6 +15,8 @@ import { DEFAULT_CHARACTER_VALIDATION } from '@/types/character';
 import type { Quest } from '@/types/quest';
 import type { FulfillResult } from '@/types/quest';
 import type { Asset } from '@/types/asset';
+import type { Action } from '@/types/action';
+import type { ActionLog } from '@/types/action';
 
 export default function StartPage() {
   const [character, setCharacter] = useState<Character>({
@@ -77,28 +79,20 @@ export default function StartPage() {
     ]
   });
 
-  const basicActions: BasicAction[] = [
-    {
-      id: 'face-danger',
-      label: 'Face Danger',
-      onClick: () => console.log('Face Danger clicked')
-    },
-    {
-      id: 'secure-advantage',
-      label: 'Secure an Advantage',
-      onClick: () => console.log('Secure Advantage clicked')
-    },
-    {
-      id: 'strike',
-      label: 'Strike',
-      onClick: () => console.log('Strike clicked')
-    },
-    {
-      id: 'gather-info',
-      label: 'Gather Information',
-      onClick: () => console.log('Gather Information clicked')
-    }
-  ];
+ 
+
+  const [actionLogs, setActionLogs] = useState<ActionLog[]>([]);
+
+  const handleActionClick = (action: Action) => {
+    const results = ['strongHit', 'weakHit', 'miss'];
+    const result = results[Math.floor(Math.random() * results.length)] as ActionLog['result'];
+    
+    setActionLogs(prev => [...prev, {
+      action,
+      timestamp: Date.now(),
+      result
+    }]);
+  };
 
   const toggleTask = (taskId: string) => {
     setStartingTasks(prev => ({
@@ -137,7 +131,9 @@ export default function StartPage() {
         quest.id === questId 
           ? { 
               ...quest, 
-              status: result.outcome === 'miss' ? 'active' : 'fulfilled'
+              status: result.outcome === 'miss' ? 'active' : 'fulfilled',
+              progress: result.outcome === 'miss' ? quest.progress : 10,
+              updatedAt: new Date()
             }
           : quest
       )
@@ -159,6 +155,10 @@ export default function StartPage() {
   };
 
   const handleAssetAdd = (assetTemplate: Asset) => {
+    if (character.assets.some(existing => existing.name === assetTemplate.name)) {
+      return;
+    }
+
     const newAsset: Character['assets'][number] = {
       ...assetTemplate,
       id: crypto.randomUUID(),
@@ -173,6 +173,13 @@ export default function StartPage() {
     setCharacter(prev => ({
       ...prev,
       assets: [...prev.assets, newAsset]
+    }));
+  };
+
+  const handleAssetRemove = (assetId: string) => {
+    setCharacter(prev => ({
+      ...prev,
+      assets: prev.assets.filter(asset => asset.id !== assetId)
     }));
   };
 
@@ -193,16 +200,7 @@ export default function StartPage() {
 
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-8 space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Journal de Campagne</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Commencez votre aventure en notant ici vos premières actions...
-                </p>
-              </CardContent>
-            </Card>
+            <BasicActions />
           </div>
 
           <div className="col-span-12 lg:col-span-4 space-y-8">
@@ -239,9 +237,10 @@ export default function StartPage() {
               onQuestFulfill={handleQuestFulfill}
               onQuestForsake={handleQuestForsake}
               onAssetAdd={handleAssetAdd}
+              onAssetRemove={handleAssetRemove}
             />
 
-            <BasicActions actions={basicActions} />
+
           </div>
         </div>
       </div>

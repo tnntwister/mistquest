@@ -7,21 +7,22 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Checkbox } from '@/components/ui/checkbox';
 import type { Asset, AssetType, AssetTemplate } from '@/types/asset';
 
-const ASSET_TYPES: { value: AssetType; label: string }[] = [
+const ASSET_TYPES = [
   { value: 'companion', label: 'Compagnon' },
   { value: 'combat', label: 'Combat' },
   { value: 'ritual', label: 'Rituel' },
   { value: 'path', label: 'Voie' }
-];
+] as const;
 
 interface AssetPickerProps {
   onAssetAdd: (asset: Asset) => void;
-  availableAssets: AssetTemplate[];
+  availableAssets: Asset[];
   maxAssets: number;
   currentAssetCount: number;
+  existingAssets: Asset[];
 }
 
-export function AssetPicker({ onAssetAdd, availableAssets, maxAssets, currentAssetCount }: AssetPickerProps) {
+export function AssetPicker({ onAssetAdd, availableAssets, maxAssets, currentAssetCount, existingAssets }: AssetPickerProps) {
   const [open, setOpen] = useState(false);
   const [selectedType, setSelectedType] = useState<AssetType>('companion');
 
@@ -103,6 +104,7 @@ export function AssetPicker({ onAssetAdd, availableAssets, maxAssets, currentAss
                           <Button
                             className="w-full"
                             onClick={() => handleAssetAdd(asset)}
+                            disabled={currentAssetCount >= maxAssets || existingAssets.some(existing => existing.name === asset.name)}
                           >
                             Choisir
                           </Button>

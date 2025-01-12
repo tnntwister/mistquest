@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { QuestRank, QUEST_RANKS, calculateProgress, type Quest, type RollResult, calculateFulfillResult, type FulfillResult } from '@/types/quest';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import type { Action } from '@/types/action';
+import { actions } from '@/data/actions';
+import type { Quest, FulfillResult } from '@/types/quest';
 
 interface QuestActionsProps {
   quest: Quest;
@@ -12,180 +13,72 @@ interface QuestActionsProps {
   onForsakeVow: (questId: string) => void;
 }
 
+const ACTION_CATEGORIES = [
+  { value: 'aventure', label: 'Aventure' },
+  { value: 'combat', label: 'Combat' },
+  { value: 'relation', label: 'Relation' },
+] as const;
+
 export function QuestActions({ quest, onMakeProgress, onFulfillVow, onForsakeVow }: QuestActionsProps) {
-  const [selectedTaskRank, setSelectedTaskRank] = useState<QuestRank>('dangerous');
-  const [showProgressResult, setShowProgressResult] = useState(false);
-  const [lastRollResult, setLastRollResult] = useState<RollResult | null>(null);
+  const [open, setOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<typeof ACTION_CATEGORIES[number]['value']>('aventure');
 
   const progressBonus = Math.floor(quest.progress / 10);
-  const canFulfill = quest.progress >= 4; // Minimum recommandé pour tenter
-
-  const handleMakeProgress = (result: RollResult) => {
-    const progress = calculateProgress(quest.rank, selectedTaskRank, result);
-    setLastRollResult(result);
-    setShowProgressResult(true);
-    onMakeProgress(quest.id, progress);
-  };
-
-  const handleFulfillVow = (result: RollResult) => {
-    const fulfillResult = calculateFulfillResult(quest.progress, result);
-    onFulfillVow(quest.id, fulfillResult);
-  };
 
   return (
-    <div className="flex flex-wrap gap-2">
-      <Dialog>
+    <div className="flex gap-2">
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="secondary" size="sm">
-            Make Progress
-          </Button>
+          <Button>Actions</Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle>Make Progress</DialogTitle>
+            <DialogTitle>Choisir une Action</DialogTitle>
           </DialogHeader>
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Rang de la tâche accomplie</label>
-              <Select
-                value={selectedTaskRank}
-                onValueChange={(value: QuestRank) => {
-                  setSelectedTaskRank(value);
-                  setShowProgressResult(false);
-                }}
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {QUEST_RANKS.map((rank) => (
-                    <SelectItem key={rank.value} value={rank.value}>
-                      {rank.label}
-                    </SelectItem>
+          <Tabs value={selectedCategory} onValueChange={(v) => setSelectedCategory(v as typeof selectedCategory)}>
+            <TabsList className="grid w-full grid-cols-3">
+              {ACTION_CATEGORIES.map(category => (
+                <TabsTrigger key={category.value} value={category.value}>
+                  {category.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            {ACTION_CATEGORIES.map(category => (
+              <TabsContent key={category.value} value={category.value} className="space-y-4">
+                {actions
+                  .filter(action => action?.category === category.value)
+                  .map(action => action && (
+                    <div key={action.id} className="p-4 border rounded-lg space-y-2">
+                      <h3 className="font-bold">{action.label}</h3>
+                      <p className="text-sm text-muted-foreground">{action.description}</p>
+                      <div className="flex gap-2">
+                        <Button onClick={() => {
+                          // TODO: Implémenter la logique de résolution
+                          setOpen(false);
+                        }}>
+                          Fort
+                        </Button>
+                        <Button onClick={() => {
+                          setOpen(false);
+                        }}>
+                          Faible
+                        </Button>
+                        <Button onClick={() => {
+                          setOpen(false);
+                        }}>
+                          Échec
+                        </Button>
+                      </div>
+                    </div>
                   ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {!showProgressResult ? (
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  Lancez les dés et sélectionnez le résultat :
-                </p>
-                <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
-                    onClick={() => handleMakeProgress('strong')}
-                  >
-                    Strong Hit
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    onClick={() => handleMakeProgress('weak')}
-                  >
-                    Weak Hit
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    onClick={() => handleMakeProgress('miss')}
-                  >
-                    Miss
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-2">
-                <p className="text-sm">
-                  {lastRollResult === 'miss' ? (
-                    "Pas de progression cette fois-ci."
-                  ) : (
-                    `Vous progressez de ${calculateProgress(quest.rank, selectedTaskRank, lastRollResult!)} cases.`
-                  )}
-                </p>
-                <Button 
-                  variant="outline" 
-                  onClick={() => setShowProgressResult(false)}
-                >
-                  Nouveau jet
-                </Button>
-              </div>
-            )}
-          </div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </DialogContent>
       </Dialog>
-
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button 
-            variant="default" 
-            size="sm"
-            disabled={!canFulfill}
-          >
-            Fulfill Your Vow (+{progressBonus})
-          </Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Fulfill Your Vow</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Lancez les dés et ajoutez +{progressBonus} (progrès actuel : {quest.progress}/10).
-              {!canFulfill && " Il est recommandé d'avoir au moins 4 points de progrès."}
-            </p>
-            <div className="flex gap-2">
-              <Button 
-                variant="outline" 
-                onClick={() => handleFulfillVow('strong')}
-              >
-                Strong Hit (+{progressBonus})
-              </Button>
-              <Button 
-                variant="outline" 
-                onClick={() => handleFulfillVow('weak')}
-              >
-                Weak Hit (+{progressBonus})
-              </Button>
-              <Button 
-                variant="outline" 
-                onClick={() => handleFulfillVow('miss')}
-              >
-                Miss (+{progressBonus})
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button 
-            variant="destructive" 
-            size="sm"
-          >
-            Forsake Your Vow
-          </Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Forsake Your Vow</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Êtes-vous sûr de vouloir abandonner cette quête ? 
-              Cela aura des conséquences sur votre personnage.
-            </p>
-            <div className="flex justify-end gap-2">
-              <Button 
-                variant="destructive" 
-                onClick={() => onForsakeVow(quest.id)}
-              >
-                Abandonner la quête
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <Button variant="destructive" onClick={() => onForsakeVow?.(quest.id)}>
+        Abandonner
+      </Button>
     </div>
   );
 } 

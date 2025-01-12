@@ -16,6 +16,11 @@ interface QuestMakerProps {
   currentQuestCount: number;
 }
 
+interface QuestRankOption {
+  value: QuestRank;
+  label: string;
+}
+
 export function QuestMaker({ 
   onQuestAdd, 
   recommendedMin, 
@@ -32,6 +37,8 @@ export function QuestMaker({
     progress: 0
   });
 
+  const [open, setOpen] = useState(false);
+
   const handleSubmit = () => {
     if (!newQuest.title || !newQuest.description || !newQuest.rank) return;
 
@@ -44,10 +51,11 @@ export function QuestMaker({
     };
 
     onQuestAdd(quest);
+    setOpen(false);
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button className="w-full">
           Ajouter un Serment de Fer 
@@ -64,7 +72,7 @@ export function QuestMaker({
             <Label>Titre du serment</Label>
             <Input
               value={newQuest.title}
-              onChange={(e) => setNewQuest(prev => ({ ...prev, title: e.target.value }))}
+              onChange={(e) => setNewQuest((prev: Partial<Quest>) => ({ ...prev, title: e.target.value }))}
               placeholder="Je jure de..."
             />
           </div>
@@ -74,11 +82,11 @@ export function QuestMaker({
             <RadioGroup
               value={newQuest.rank}
               onValueChange={(value: QuestRank) => 
-                setNewQuest(prev => ({ ...prev, rank: value }))
+                setNewQuest((prev: Partial<Quest>) => ({ ...prev, rank: value }))
               }
               className="grid grid-cols-2 gap-2"
             >
-              {QUEST_RANKS.map((rank) => (
+              {QUEST_RANKS.map((rank: QuestRankOption) => (
                 <div key={rank.value} className="flex items-center space-x-2">
                   <RadioGroupItem value={rank.value} id={rank.value} />
                   <Label htmlFor={rank.value}>{rank.label}</Label>
@@ -91,7 +99,7 @@ export function QuestMaker({
             <Label>Envers qui faites-vous ce serment ?</Label>
             <Input
               value={newQuest.swornTo}
-              onChange={(e) => setNewQuest(prev => ({ ...prev, swornTo: e.target.value }))}
+              onChange={(e) => setNewQuest((prev: Partial<Quest>) => ({ ...prev, swornTo: e.target.value }))}
               placeholder="Une personne, une communauté, une entité..."
             />
           </div>
@@ -100,7 +108,7 @@ export function QuestMaker({
             <Label>Description détaillée</Label>
             <Textarea
               value={newQuest.description}
-              onChange={(e) => setNewQuest(prev => ({ ...prev, description: e.target.value }))}
+              onChange={(e) => setNewQuest((prev: Partial<Quest>) => ({ ...prev, description: e.target.value }))}
               placeholder="Décrivez les circonstances et la nature exacte de votre serment..."
             />
           </div>
@@ -109,7 +117,7 @@ export function QuestMaker({
             <Label>Conditions de résolution</Label>
             <Textarea
               value={newQuest.resolutionConditions}
-              onChange={(e) => setNewQuest(prev => ({ ...prev, resolutionConditions: e.target.value }))}
+              onChange={(e) => setNewQuest((prev: Partial<Quest>) => ({ ...prev, resolutionConditions: e.target.value }))}
               placeholder="Que devez-vous accomplir précisément pour considérer ce serment comme rempli ?"
             />
           </div>

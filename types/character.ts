@@ -1,4 +1,5 @@
 import type { Quest as GameQuest } from './quest';
+import { AssetType } from '@/types/asset';
 
 // Types de base
 export type Stat = {
@@ -17,7 +18,7 @@ export type Resource = {
 export interface Asset {
   id: string;
   name: string;
-  type: string;
+  type: AssetType;
   description: string;
   abilities: {
     id: string;

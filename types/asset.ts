@@ -11,7 +11,7 @@ export type AssetAbility = {
   trackMax?: number;
 };
 
-export type Asset = {
+export interface Asset {
   id: string;
   name: string;
   type: AssetType;
@@ -19,7 +19,7 @@ export type Asset = {
   experience: number;
   abilities: AssetAbility[];
   moves?: string[];
-};
+}
 
 export type AssetTemplate = Omit<Asset, 'experience' | 'abilities'> & {
   abilities: Omit<AssetAbility, 'enabled'>[];
