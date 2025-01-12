@@ -1,4 +1,4 @@
-type Stat = 'vigueur' | 'coeur' | 'fer' | 'ombre' | 'astuce';
+type Stat = 'vigueur' | 'coeur' | 'fer' | 'ombre' | 'astuce' | 'sante' | 'esprit' | 'sante_compagnon';
 
 type ActionRank = 'pénible' | 'dangereux' | 'redoutable' | 'extrême' | 'épique';
 
@@ -7,13 +7,12 @@ export type Action = {
   label: string;
   description: string;
   category: string;
-  stat?: Stat;
-  stats?: Partial<Record<string, string>>;
+  stats?: Partial<Record<Stat, string>>;
   rank?: ActionRank | Record<ActionRank, string>;
   trigger: string;
-  outcomes: {
-    strongHit?: string[];
-    weakHit?: string[];
+  outcomes?: {
+    strongHit?: (string | { name: string; description: string })[];
+    weakHit?: (string | { name: string; description: string })[];
     miss?: string[];
     effect?: string[];
   };

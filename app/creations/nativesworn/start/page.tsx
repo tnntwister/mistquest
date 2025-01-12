@@ -4,19 +4,15 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { HeroSection } from '@/components/ui/hero-section';
-import { Button } from '@/components/ui/button';
 import { StartingGuide } from '@/components/game/starting-guide';
 import { CharacterSheetIronsworn } from '@/components/game/character-sheet-ironsworn';
 import type { Character } from '@/types/character';
 import type { StartingGuide as StartingGuideType } from '@/types/task';
-import type { BasicAction } from '@/types/action';
 import { BasicActions } from '@/components/game/basic-actions';
 import { DEFAULT_CHARACTER_VALIDATION } from '@/types/character';
-import type { Quest } from '@/types/quest';
-import type { FulfillResult } from '@/types/quest';
+import type { Quest,FulfillResult } from '@/types/quest';
 import type { Asset } from '@/types/asset';
-import type { Action } from '@/types/action';
-import type { ActionLog } from '@/types/action';
+import type { Action, ActionLog } from '@/types/action';
 
 export default function StartPage() {
   const [character, setCharacter] = useState<Character>({

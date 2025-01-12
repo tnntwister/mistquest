@@ -52,8 +52,10 @@ export const actions = [
       label: "Récolter des Informations",
       description: "Lorsque vous fouillez une zone, posez des questions, menez une investigation ou remontez une piste",
       category: "aventure",
-      stat: "astuce",
       trigger: "Lorsque vous fouillez une zone, posez des questions, menez une investigation ou remontez une piste",
+      stats: {
+        astuce: "Utilisez votre astuce pour récolter des informations"
+      },
       outcomes: {
         strongHit: [
           "Vous découvrez quelque-chose d'utile et de spécifique. Le chemin que vous devez suivre ou votre prochaine action vous apparaissent clairement. Vous gagnez +2 élan"
@@ -74,8 +76,10 @@ export const actions = [
       label: "Guérir",
       description: "Lorsque vous tentez de traiter une blessure ou une maladie",
       category: "aventure",
-      stat: "astuce",
       trigger: "Lorsque vous tentez de traiter une blessure ou une maladie",
+      stats: {
+        astuce: "Utilisez votre astuce pour soigner"
+      },
       outcomes: {
         strongHit: [
           "Vos soins sont utiles. Si vous (ou l'allié que vous soignez) souffre de l'état blessé, vous pouvez l'effacer. Puis, gagnez ou donnez +2 santé"
@@ -93,8 +97,10 @@ export const actions = [
       label: "Ravitaillement",
       description: "Lorsque vous chassez, que vous cueillez ou que vous fouillez",
       category: "aventure",
-      stat: "astuce",
       trigger: "Lorsque vous chassez, que vous cueillez ou que vous fouillez",
+      stats: {
+        astuce: "Utilisez votre astuce pour trouver des ressources"
+      },
       outcomes: {
         strongHit: ["Vous augmentez vos provisions de +2"],
         weakHit: [
@@ -123,11 +129,26 @@ export const actions = [
         ]
       },
       options: [
-        "Récupérer : Vous gagnez +1 santé pour vous-même et pour chacun de vos compagnons",
-        "Festoyer : Vous subissez -1 provisions et gagnez +1 santé pour vous-même et pour chacun de vos compagnons",
-        "Se Relaxer : Vous gagnez +1 esprit",
-        "Se Concentrer : Vous gagnez +1 élan",
-        "Se Préparer : Lorsque vous levez le camp, ajoutez +1 si vous Entreprenez un Voyage"
+        {
+          name: "Récupérer",
+          description: "Vous gagnez +1 santé pour vous-même et pour chacun de vos compagnons"
+        },
+        {
+          name: "Festoyer",
+          description: "Vous subissez -1 provisions et gagnez +1 santé pour vous-même et pour chacun de vos compagnons"
+        },
+        {
+          name: "Se Relaxer",
+          description: "Vous gagnez +1 esprit"
+        },
+        {
+          name: "Se Concentrer",
+          description: "Vous gagnez +1 élan"
+        },
+        {
+          name: "Se Préparer",
+          description: "Lorsque vous levez le camp, ajoutez +1 si vous Entreprenez un Voyage"
+        }
       ]
     },
     {
@@ -135,7 +156,9 @@ export const actions = [
       label: "Entreprendre un Voyage",
       description: "Lorsque vous voyagez en territoire hostile ou inconnu",
       category: "aventure",
-      stat: "astuce",
+      stats: {
+        astuce: "Jet +astuce"
+      },
       trigger: "Lorsque vous voyagez en territoire hostile ou inconnu",
       rank: {
         pénible: "Cochez entièrement trois cases de progrès à chaque escale",
@@ -292,8 +315,14 @@ export const actions = [
         ],
         weakHit: [
           "Comme ci-dessus, mais vous devez aussi retenir l'une de ces options:",
-          "C'est pire que vous ne le pensiez : Vous Subissez des Dégâts",
-          "Vous êtes dépassé : Vous Subissez un Stress",
+          {
+            name: "C'est pire que vous ne le pensiez",
+            description: "Vous Subissez des Dégâts"
+          },
+          {
+            name: "Vous êtes dépassé",
+            description: "Vous Subissez un Stress"
+          },
           "Votre victoire est de courte durée : Un nouveau danger ou un nouvel ennemi apparaît, ou un danger existant empire",
           "Vous subissez des dégâts collatéraux : Un objet de valeur est perdu ou brisé, ou quelqu'un d'important vous en payer le prix",
           "Vous allez le payer : L'un de vos objectifs est désormais hors d'atteinte",
@@ -336,7 +365,9 @@ export const actions = [
       label: "Tracer le Cercle",
       description: "Lorsque vous défiez quelqu'un en duel cérémoniel ou que vous acceptez un défi",
       category: "relation",
-      stat: "coeur",
+      stats: {
+        coeur: "Jet +coeur"
+      },
       trigger: "Lorsque vous défiez quelqu'un en duel cérémoniel ou que vous acceptez un défi",
       outcomes: {
         strongHit: [
@@ -353,11 +384,26 @@ export const actions = [
       additionalEffects: {
         withBond: "Si vous partagez un lien avec cette communauté, ajoutez +1",
         vantardises: [
-          "Accorder le premier coup : Votre ennemi a l'initiative",
-          "À découvert : Vous ne bénéficiez d'aucune armure ou bouclier ; les dégâts de votre adversaire sont à +1",
-          "Renier le fer : Vous ne bénéficiez d'aucune arme ; vos dégâts sont de 1",
-          "Scarification : Vous Subissez des Dégâts (1 dégât)",
-          "À la mort : D'une façon ou d'une autre, ce combat doit se conclure par la mort"
+          {
+            name: "Accorder le premier coup",
+            description: "Votre ennemi a l'initiative"
+          },
+          {
+            name: "À découvert",
+            description: "Vous ne bénéficiez d'aucune armure ou bouclier ; les dégâts de votre adversaire sont à +1"
+          },
+          {
+            name: "Renier le fer",
+            description: "Vous ne bénéficiez d'aucune arme ; vos dégâts sont de 1"
+          },
+          {
+            name: "Scarification",
+            description: "Vous Subissez des Dégâts (1 dégât)"
+          },
+          {
+            name: "À la mort",
+            description: "D'une façon ou d'une autre, ce combat doit se conclure par la mort"
+          }
         ]
       }
     },
@@ -366,7 +412,9 @@ export const actions = [
       label: "Séjourner",
       description: "Lorsque vous passez du temps dans une communauté à demander assistance",
       category: "relation",
-      stat: "coeur",
+      stats: {
+        coeur: "Jet +coeur"
+      },
       trigger: "Lorsque vous passez du temps dans une communauté à demander assistance",
       outcomes: {
         strongHit: [
@@ -383,18 +431,42 @@ export const actions = [
         withBond: "Si vous partagez un lien avec cette communauté, alors vous pouvez retenir une option supplémentaire",
         options: {
           eliminer_un_etat: [
-            "Soigner : Vous éliminez le handicap blessé et gagnez +1 santé",
-            "Encourager : Vous éliminez le handicap secoué et gagnez +1 esprit",
-            "Équiper : Vous éliminez le handicap mal préparé et gagnez +1 provisions"
+            {
+              name: "Soigner",
+              description: "Vous éliminez le handicap blessé et gagnez +1 santé"
+            },
+            {
+              name: "Encourager",
+              description: "Vous éliminez le handicap secoué et gagnez +1 esprit"
+            },
+            {
+              name: "Équiper",
+              description: "Vous éliminez le handicap mal préparé et gagnez +1 provisions"
+            }
           ],
           recuperer: [
-            "Rétablir : Vous gagnez +2 santé pour vous-même ou pour n'importe lequel de vos compagnons",
-            "Fréquenter : Vous gagnez +2 esprit",
-            "Approvisionner : Vous gagnez +2 provisions",
-            "Planifier : Vous gagnez +2 élan"
+            {
+              name: "Rétablir",
+              description: "Vous gagnez +2 santé pour vous-même ou pour n'importe lequel de vos compagnons"
+            },
+            {
+              name: "Fréquenter",
+              description: "Vous gagnez +2 esprit"
+            },
+            {
+              name: "Approvisionner",
+              description: "Vous gagnez +2 provisions"
+            },
+            {
+              name: "Planifier",
+              description: "Vous gagnez +2 élan"
+            }
           ],
           venir_en_aide: [
-            "Accepter une quête : Visualisez ce dont cette communauté a besoin, ou à quel problème ils sont confrontés. Si vous choisissez de les aider, Jurez un Vœu de Fer et ajoutez +1"
+            {
+              name: "Accepter une quête",
+              description: "Visualisez ce dont cette communauté a besoin, ou à quel problème ils sont confrontés. Si vous choisissez de les aider, Jurez un Vœu de Fer et ajoutez +1"
+            }
           ]
         }
       }
@@ -418,7 +490,9 @@ export const actions = [
       label: "Forger un Lien",
       description: "Lorsque vous avez passé un certain temps en compagnie d'une personne ou au sein d'une communauté",
       category: "relation",
-      stat: "coeur",
+      stats: {
+        coeur: "Jet +coeur"
+      },
       trigger: "Lorsque vous avez passé un certain temps en compagnie d'une personne ou au sein d'une communauté, que vous avez fait face ensemble aux mêmes épreuves, ou que vous avez consenti à des sacrifices pour faire avancer leur cause",
       outcomes: {
         strongHit: [
@@ -442,7 +516,9 @@ export const actions = [
       label: "Tester votre Lien",
       description: "Lorsque votre lien est mis à l'épreuve par un conflit, une trahison ou les circonstances",
       category: "relation",
-      stat: "coeur",
+      stats: {
+        coeur: "Jet +coeur"
+      },
       trigger: "Lorsque votre lien est mis à l'épreuve par un conflit, une trahison ou les circonstances",
       outcomes: {
         strongHit: [
@@ -465,7 +541,7 @@ export const actions = [
       description: "Lorsque vous devez faire face à des dégâts physiques",
       category: "souffrance",
       stats: {
-        sante: "Jet +santé",
+        sante: "Jet +sante",
         fer: "Jet +fer"
       },
       trigger: "Lorsque vous devez faire face à des dégâts physiques",
@@ -486,13 +562,28 @@ export const actions = [
       additionalEffects: {
         degatsInitiaux: "Vous subissez une pénalité de santé égale au rang de votre adversaire ou appropriée à la situation",
         sante0: "Si votre santé tombe à 0, vous subissez une pénalité d'élan égale au reliquat des dégâts subis",
-        tableauBlessuresGraves: {
-          "1-10": "Les dégâts sont mortels. Faites Face à la Mort",
-          "11-20": "Vous êtes mourant. Vous devrez parvenir à Guérir dans les deux heures qui suivent, pour ne pas Faire Face à la Mort",
-          "21-35": "Vous tombez inconscient et êtes hors-jeu",
-          "36-50": "Vous êtes sous le choc et vous luttez pour garder conscience",
-          "51-100": "Vous êtes tuméfié mais toujours debout"
-        }
+        tableauBlessuresGraves: [
+          {
+            name: "1-10",
+            description: "Les dégâts sont mortels. Faites Face à la Mort"
+          },
+          {
+            name: "11-20",
+            description: "Vous êtes mourant. Vous devrez parvenir à Guérir dans les deux heures qui suivent, pour ne pas Faire Face à la Mort"
+          },
+          {
+            name: "21-35",
+            description: "Vous tombez inconscient et êtes hors-jeu"
+          },
+          {
+            name: "36-50",
+            description: "Vous êtes sous le choc et vous luttez pour garder conscience"
+          },
+          {
+            name: "51-100",
+            description: "Vous êtes tuméfié mais toujours debout"
+          }
+        ]
       }
     },
     {
@@ -500,8 +591,10 @@ export const actions = [
       label: "Faire Face à la Mort",
       description: "Lorsque vous êtes à l'article de la mort et que vous avez un aperçu de l'au-delà",
       category: "souffrance",
-      stat: "coeur",
       trigger: "Lorsque vous êtes à l'article de la mort et que vous avez un aperçu de l'au-delà",
+      stats: {
+        coeur: "Jet +coeur"
+      },
       outcomes: {
         strongHit: [
           "La mort vous rejette. Vous revenez dans le monde des vivants"
@@ -522,8 +615,8 @@ export const actions = [
       description: "Lorsque l'un de vos compagnons subit des dégâts physiques",
       category: "souffrance",
       stats: {
-        coeur: "Jet +cœur",
-        sante_compagnon: "Jet +santé du compagnon"
+        coeur: "Jet +coeur",
+        sante_compagnon: "Jet +sante du compagnon"
       },
       trigger: "Lorsque l'un de vos compagnons subit des dégâts physiques",
       outcomes: {
@@ -548,7 +641,7 @@ export const actions = [
       description: "Lorsque vous faites face à un choc émotionnel ou au désespoir",
       category: "souffrance",
       stats: {
-        coeur: "Jet +cœur",
+        coeur: "Jet +coeur",
         esprit: "Jet +esprit"
       },
       trigger: "Lorsque vous faites face à un choc émotionnel ou au désespoir",
@@ -567,12 +660,24 @@ export const actions = [
         ]
       },
       additionalEffects: {
-        tableauDesespoir: {
-          "1-10": "Le désespoir vous submerge. Faites Face à la Désolation",
-          "11-25": "Vous renoncez : Abandonnez votre Vœu (si possible, celui en lien avec votre crise actuelle)",
-          "26-50": "Vous cédez à la peur ou à vos pulsions et agissez à l'encontre de vos propres intérêts",
-          "51-100": "Vous persévérez"
-        }
+        tableauDesespoir: [
+          {
+            name: "1-10",
+            description: "Le désespoir vous submerge. Faites Face à la Désolation"
+          },
+          {
+            name: "11-25",
+            description: "Vous renoncez : Abandonnez votre Vœu (si possible, celui en lien avec votre crise actuelle)"
+          },
+          {
+            name: "26-50",
+            description: "Vous cédez à la peur ou à vos pulsions et agissez à l'encontre de vos propres intérêts"
+          },
+          {
+            name: "51-100",
+            description: "Vous persévérez"
+          }
+        ]
       }
     },
     {
@@ -580,7 +685,6 @@ export const actions = [
       label: "Faire Face à la Désolation",
       description: "Lorsque vous êtes amené au seuil de la désolation",
       category: "souffrance",
-      stat: "coeur",
       trigger: "Lorsque vous êtes amené au seuil de la désolation",
       outcomes: {
         strongHit: [
@@ -614,7 +718,6 @@ export const actions = [
       label: "Jurer un Vœu de Fer",
       description: "Lorsque vous jurez sur le fer d'accomplir une quête",
       category: "quete",
-      stat: "coeur",
       trigger: "Lorsque vous jurez sur le fer d'accomplir une quête",
       outcomes: {
         strongHit: [
@@ -778,5 +881,23 @@ export const actions = [
           "99-100": "Refaites un jet dans ce tableau. Les deux résultats s'appliquent"
         }
       }
+    },
+    {
+      id: "soigner_un_compagnon",
+      label: "Soigner un Compagnon",
+      description: "Lorsque vous souhaitez soigner un compagnon",
+      category: "relation",
+      trigger: "Lorsque vous souhaitez soigner un compagnon",
+      options: [
+        {
+          name: "Soigner",
+          description: "Vous pouvez effacer l'état blessé de votre compagnon"
+        },
+        {
+          name: "Stabiliser",
+          description: "Donnez +2 santé à votre compagnon"
+        }
+      ]
     }
   ];
+
