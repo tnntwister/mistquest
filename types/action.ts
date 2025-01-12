@@ -30,6 +30,7 @@ export type Action = {
 };
 
 export interface ActionLog {
+  id: string;
   action: Action;
   timestamp: number;
   result: 'strongHit' | 'weakHit' | 'miss' | 'encounter';

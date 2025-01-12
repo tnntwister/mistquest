@@ -2,11 +2,13 @@
 
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ActionLog } from '@/types/action';
+import { nanoid } from 'nanoid';
 
 interface CampaignLogContextType {
   logs: ActionLog[];
-  addLog: (log: Omit<ActionLog, 'chapter'> & { text?: string }) => void;
+  addLog: (log: Omit<ActionLog, 'chapter' | 'id'>) => void;
   clearLogs: () => void;
+  removeLog: (id: string) => void;
   currentChapter: number;
   setCurrentChapter: (value: number | ((prev: number) => number)) => void;
 }
@@ -17,6 +19,7 @@ export const CampaignLogContext = createContext<CampaignLogContextType>({
   clearLogs: () => {},
   currentChapter: 1,
   setCurrentChapter: () => {},
+  removeLog: () => {},
 });
 
 export function CampaignLogProvider({ children }: { children: React.ReactNode }) {
@@ -46,12 +49,20 @@ export function CampaignLogProvider({ children }: { children: React.ReactNode })
     localStorage.setItem('currentChapter', String(currentChapter));
   }, [currentChapter]);
 
-  const addLog = (log: Omit<ActionLog, 'chapter'> & { text?: string }) => {
-    setLogs(prev => [...prev, { ...log, chapter: currentChapter }]);
+  const addLog = (log: Omit<ActionLog, 'chapter' | 'id'>) => {
+    setLogs(prev => [...prev, { 
+      ...log, 
+      id: nanoid(),
+      chapter: currentChapter 
+    }]);
   };
 
   const clearLogs = () => {
     setLogs([]);
+  };
+
+  const removeLog = (id: string) => {
+    setLogs(prev => prev.filter(log => log.id !== id));
   };
 
   return (
@@ -59,6 +70,7 @@ export function CampaignLogProvider({ children }: { children: React.ReactNode })
       logs, 
       addLog, 
       clearLogs,
+      removeLog,
       currentChapter, 
       setCurrentChapter 
     }}>

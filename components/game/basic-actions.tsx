@@ -24,6 +24,12 @@ export function BasicActions() {
   }, {});
 
   const handleActionClick = (action: Action) => {
+    const trimmedText = actionText.trim();
+    
+    if (trimmedText.length < 2 && !window.confirm('Déclencher l\'action sans description ?')) {
+      return;
+    }
+
     const results = ['strongHit', 'weakHit', 'miss'];
     const result = results[Math.floor(Math.random() * results.length)] as ActionLog['result'];
     
@@ -31,10 +37,10 @@ export function BasicActions() {
       action,
       timestamp: Date.now(),
       result,
-      text: actionText.trim() || undefined
+      text: trimmedText || undefined
     });
 
-    setActionText(""); // Reset le texte après l'action
+    setActionText("");
   };
 
   return (

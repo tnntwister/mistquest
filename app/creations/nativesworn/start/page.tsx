@@ -207,7 +207,7 @@ export default function StartPage() {
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-4 space-y-8">              
+          <div className="col-span-12 lg:col-span-4 space-y-8 pt-16">              
             <StartingGuide 
               guide={startingTasks} 
               onTaskToggle={toggleTask}

@@ -15,6 +15,12 @@ export function Encounters() {
   const { addLog } = useCampaignLog();
 
   const handleEncounter = (encounter: Encounter) => {
+    const trimmedText = encounterText.trim();
+    
+    if (trimmedText.length < 2 && !window.confirm('Déclencher la rencontre sans description ?')) {
+      return;
+    }
+
     addLog({
       action: {
         id: encounter.id,
@@ -25,8 +31,10 @@ export function Encounters() {
       },
       timestamp: Date.now(),
       result: 'encounter',
-      text: encounterText.trim() || undefined
+      text: trimmedText || undefined
     });
+
+    setEncounterText("");
   };
 
   const handleAddEncounter = (newEncounter: Encounter) => {
@@ -38,7 +46,7 @@ export function Encounters() {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 rounded-lg bg-card text-card-foreground shadow-sm border p-4">
         <textarea
           value={encounterText}
           onChange={(e) => setEncounterText(e.target.value)}
@@ -53,9 +61,9 @@ export function Encounters() {
         </TabsList>
 
         <TabsContent value={activeTab}>
-          <div className="grid gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-12  gap-4">
             {filteredEncounters.map(encounter => (
-              <Card key={encounter.id}>
+              <Card key={encounter.id} border={false} className="col-span-12 md:col-span-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-lg">{encounter.label}</CardTitle>

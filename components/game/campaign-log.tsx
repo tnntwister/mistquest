@@ -1,13 +1,12 @@
 import { useCampaignLog } from '@/contexts/campaign-log-context';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useRef, useEffect } from 'react';
+import { XIcon } from 'lucide-react';
 
 export function CampaignLog() {
-  const { logs, currentChapter, setCurrentChapter } = useCampaignLog();
+  const { logs, currentChapter, setCurrentChapter, removeLog } = useCampaignLog();
   const scrollRef = useRef<HTMLDivElement>(null);
   
   // Scroll to top when logs change
@@ -114,7 +113,7 @@ export function CampaignLog() {
                 {currentLogs
                   .sort((a, b) => b.timestamp - a.timestamp)
                   .map((log, index, array) => (
-                    <div key={log.timestamp} className="px-2 pb-4 border-b border-muted-foreground">
+                    <div key={log.id} className="px-2 pb-4 border-b border-muted-foreground">
                       <div className="flex justify-between items-start">
                         <p className="font-medium">{log.action.label}</p>
                         <p>
@@ -122,6 +121,13 @@ export function CampaignLog() {
                           <span className="text-xs text-muted-foreground">
                             #{array.length - index}
                           </span>
+                          <button
+                            onClick={() => removeLog(log.id)}
+                            className="text-muted-foreground hover:text-destructive ml-2"
+                            title="Supprimer"
+                          >
+                            <XIcon className="h-3 w-3" />
+                          </button>
                         </p>
                       </div>
                       {log.text && (
@@ -129,6 +135,7 @@ export function CampaignLog() {
                           {log.text}
                         </p>
                       )}
+                     
                     </div>
                   ))}
               </div>
