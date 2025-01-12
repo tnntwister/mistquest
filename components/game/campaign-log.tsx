@@ -4,9 +4,19 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useRef, useEffect } from 'react';
 
 export function CampaignLog() {
   const { logs, currentChapter, setCurrentChapter } = useCampaignLog();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  
+  // Scroll to top when logs change
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = 0;
+    }
+  }, [logs]);
+
   const CHAPTERS_PER_PAGE = 5;
 
   // Grouper les logs par chapitre
@@ -94,7 +104,7 @@ export function CampaignLog() {
             </div>
           </div>
 
-          <ScrollArea className="h-[400px]">
+          <ScrollArea ref={scrollRef} className="h-[400px]">
             {!hasLogsInCurrentChapter ? (
               <div className="text-center text-muted-foreground p-8">
                 L'aventure vous attend, faites une action ou une rencontre

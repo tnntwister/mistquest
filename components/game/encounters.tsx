@@ -11,6 +11,7 @@ import { EncounterForm } from '@/components/forms/encounter-form';
 export function Encounters() {
   const [encounters, setEncounters] = useState(initialEncounters);
   const [activeTab, setActiveTab] = useState<EncounterType>('combat');
+  const [encounterText, setEncounterText] = useState("");
   const { addLog } = useCampaignLog();
 
   const handleEncounter = (encounter: Encounter) => {
@@ -20,10 +21,11 @@ export function Encounters() {
         label: encounter.label,
         description: encounter.description,
         category: 'rencontre',
-        trigger: encounter.description
+        trigger: encounter.description,
       },
       timestamp: Date.now(),
-      result: 'encounter'
+      result: 'encounter',
+      text: encounterText.trim() || undefined
     });
   };
 
@@ -37,6 +39,12 @@ export function Encounters() {
 
   return (
     <div className="space-y-4">
+        <textarea
+          value={encounterText}
+          onChange={(e) => setEncounterText(e.target.value)}
+          placeholder="Décrivez votre rencontre"
+          className="w-full h-20 p-2 text-sm bg-background border rounded-md resize-none"
+        />
       <Tabs defaultValue="combat" onValueChange={(value) => setActiveTab(value as EncounterType)}>
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="combat">Combat</TabsTrigger>

@@ -14,6 +14,10 @@ import type { FulfillResult } from '@/types/quest';
 import { Button } from '@/components/ui/button';
 import { assets as assetTemplates } from '@/data/assets';
 import { AssetType } from '@/types/asset';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useCampaignLog } from '@/contexts/campaign-log-context';
+import { Trash as TrashIcon, Save as SaveIcon, Plus as PlusIcon } from 'lucide-react';
 
 interface CharacterSheetProps {
   character: Character;
@@ -28,6 +32,13 @@ interface CharacterSheetProps {
   onAssetRemove?: (assetId: string) => void;
 }
 
+interface ConnectionStatus {
+  connected: boolean;
+  authenticated: boolean;
+  hasSavedCampaign: boolean;
+  message: string;
+}
+
 export function CharacterSheetIronsworn({ 
   character,
   onNameChange,
@@ -40,21 +51,124 @@ export function CharacterSheetIronsworn({
   onAssetAdd,
   onAssetRemove
 }: CharacterSheetProps) {
+  const [status, setStatus] = useState<ConnectionStatus>({
+    connected: false,
+    authenticated: false,
+    hasSavedCampaign: false,
+    message: 'Vérification de la connexion...'
+  });
+  const { logs, clearLogs } = useCampaignLog();
+  const campaignId = crypto.randomUUID(); // À stocker dans un context
+
+  useEffect(() => {
+    async function checkConnection() {
+      try {
+        // Vérifier la connexion à Supabase
+        const { data, error } = await supabase.from('health_check').select('*').limit(1);
+        if (error) throw error;
+        setStatus(prev => ({ ...prev, connected: true, message: 'Vérification de l\'authentification...' }));
+
+        // Vérifier l'authentification
+        const { data: session } = await supabase.auth.getSession();
+        if (!session.session) {
+          setStatus(prev => ({ ...prev, message: 'Non connecté' }));
+          return;
+        }
+        setStatus(prev => ({ ...prev, authenticated: true, message: 'Recherche d\'une sauvegarde...' }));
+
+        // Vérifier les sauvegardes existantes
+        const { data: savedCampaign } = await supabase
+          .from('campaigns')
+          .select('*')
+          .eq('user_id', session.session.user.id)
+          .single();
+
+        setStatus(prev => ({
+          ...prev,
+          hasSavedCampaign: !!savedCampaign,
+          message: savedCampaign ? 'Campagne trouvée' : 'Prêt pour une nouvelle campagne'
+        }));
+      } catch (error) {
+        setStatus(prev => ({ ...prev, message: 'Erreur de connexion' }));
+      }
+    }
+
+    checkConnection();
+  }, []);
+
+  const handleSave = async () => {
+    if (!status.authenticated) {
+      setStatus(prev => ({ ...prev, message: 'Connexion requise' }));
+      return;
+    }
+
+    try {
+      setStatus(prev => ({ ...prev, message: 'Sauvegarde en cours...' }));
+      const { error } = await supabase.from('campaigns').upsert({
+        id: campaignId,
+        character,
+        logs
+      });
+      if (error) throw error;
+      setStatus(prev => ({ ...prev, message: 'Sauvegarde réussie' }));
+    } catch (error) {
+      setStatus(prev => ({ ...prev, message: 'Erreur de sauvegarde' }));
+    }
+  };
+
+  const handleNewCampaign = () => {
+    if (window.confirm('Créer une nouvelle campagne ? Les données non sauvegardées seront perdues.')) {
+      clearLogs();
+      // Réinitialiser le personnage
+      // ...
+      setStatus(prev => ({ ...prev, message: 'Nouvelle campagne créée' }));
+    }
+  };
 
   const activeQuestsCount = character.quests.filter(q => q.status === 'active').length;
   const assetsCount = character.assets.length;
 
   return (
     <div className="space-y-6">
-      {/* En-tête avec nom éditable */}
       <Card>
         <CardHeader>
-          <Input
-            value={character.name}
-            onChange={(e) => onNameChange?.(e.target.value)}
-            className="text-xl font-bold"
-            placeholder="Nom du personnage"
-          />
+          <div className="space-y-4">
+            <Input
+              value={character.name}
+              onChange={(e) => onNameChange?.(e.target.value)}
+              className="text-xl font-bold"
+              placeholder="Nom du personnage"
+            />
+            <div className="flex items-start flex-col gap-4 text-sm text-muted-foreground">
+              <span >Campagne {campaignId}</span>
+              <span className="text-xs bg-red-100 text-red-700 px-2 py-1 w-full block">{status.message}</span>
+            </div>
+            <div className="flex gap-2">
+              <Button 
+                variant="outline" 
+                onClick={() => clearLogs()}
+                disabled={!logs.length}
+                title="Vider le journal"
+              >
+                <TrashIcon className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={handleSave}
+                disabled={!status.authenticated}
+                title="Sauvegarder"
+              >
+                <SaveIcon className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={handleNewCampaign}
+                title="Nouvelle campagne"
+              >
+                <PlusIcon className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">{character.background}</p>

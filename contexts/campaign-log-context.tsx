@@ -6,6 +6,7 @@ import type { ActionLog } from '@/types/action';
 interface CampaignLogContextType {
   logs: ActionLog[];
   addLog: (log: Omit<ActionLog, 'chapter'> & { text?: string }) => void;
+  clearLogs: () => void;
   currentChapter: number;
   setCurrentChapter: (value: number | ((prev: number) => number)) => void;
 }
@@ -13,6 +14,7 @@ interface CampaignLogContextType {
 export const CampaignLogContext = createContext<CampaignLogContextType>({
   logs: [],
   addLog: () => {},
+  clearLogs: () => {},
   currentChapter: 1,
   setCurrentChapter: () => {},
 });
@@ -48,10 +50,15 @@ export function CampaignLogProvider({ children }: { children: React.ReactNode })
     setLogs(prev => [...prev, { ...log, chapter: currentChapter }]);
   };
 
+  const clearLogs = () => {
+    setLogs([]);
+  };
+
   return (
     <CampaignLogContext.Provider value={{ 
       logs, 
       addLog, 
+      clearLogs,
       currentChapter, 
       setCurrentChapter 
     }}>

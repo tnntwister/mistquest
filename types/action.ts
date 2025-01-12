@@ -26,6 +26,7 @@ export type Action = {
     tableauProbabilites?: Record<string, string>;
     tableauResultats?: Record<string, string>;
   };
+  text?: string;
 };
 
 export interface ActionLog {
