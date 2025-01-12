@@ -31,5 +31,5 @@ export type Action = {
 export interface ActionLog {
   action: Action;
   timestamp: number;
-  result?: 'strongHit' | 'weakHit' | 'miss';
+  result?: 'strongHit' | 'weakHit' | 'miss' | 'encounter';
 }

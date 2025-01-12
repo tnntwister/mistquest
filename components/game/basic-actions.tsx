@@ -5,8 +5,10 @@ import { Action, ActionLog } from '@/types/action';
 import { actions } from '@/data/actions';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useCampaignLog } from '@/contexts/campaign-log-context';
 
 export function BasicActions() {
+  const { addLog } = useCampaignLog();
   const [actionLogs, setActionLogs] = useState<ActionLog[]>([]);
   const actionsList = actions || [];
 
@@ -25,11 +27,11 @@ export function BasicActions() {
     const results = ['strongHit', 'weakHit', 'miss'];
     const result = results[Math.floor(Math.random() * results.length)] as ActionLog['result'];
     
-    setActionLogs(prev => [...prev, {
+    addLog({
       action,
       timestamp: Date.now(),
       result
-    }]);
+    });
   };
 
   return (
