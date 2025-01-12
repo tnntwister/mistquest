@@ -37,8 +37,8 @@ export function MomentumTrack({ current, max, onValueChange }: MomentumTrackProp
   };
 
   return (
-    <Card>
-      <CardHeader>
+    <Card border={false}>
+      <CardHeader className="px-0">
         <CardTitle className="flex justify-between items-center">
           <span>Élan</span>
           <span className={`text-2xl font-bold ${current < 0 ? 'text-red-500' : ''}`}>
@@ -46,7 +46,7 @@ export function MomentumTrack({ current, max, onValueChange }: MomentumTrackProp
           </span>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 px-0">
         <div className="flex justify-between items-center gap-2">
           <Button 
             variant="outline" 

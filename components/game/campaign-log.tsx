@@ -48,7 +48,7 @@ export function CampaignLog() {
       <h2 className="text-2xl font-bold mb-4">Journal de Campagne</h2>
       <Card>
         <CardContent className="space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mt-4">
             <h3 className="text-lg font-bold">Chapitre {currentChapter}</h3>
             
             <div className="flex items-center gap-4">
@@ -104,21 +104,21 @@ export function CampaignLog() {
                 {currentLogs
                   .sort((a, b) => b.timestamp - a.timestamp)
                   .map((log, index, array) => (
-                    <div key={log.timestamp} className="p-2 border rounded">
+                    <div key={log.timestamp} className="px-2 pb-4 border-b border-muted-foreground">
                       <div className="flex justify-between items-start">
                         <p className="font-medium">{log.action.label}</p>
-                        <span className="text-xs text-muted-foreground">
-                          #{array.length - index}
-                        </span>
+                        <p>
+                          <span  className="text-xs pr-2">{log.result}</span>
+                          <span className="text-xs text-muted-foreground">
+                            #{array.length - index}
+                          </span>
+                        </p>
                       </div>
-                      {log.action.description && (
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {log.action.description}
+                      {log.text && (
+                        <p className="text-sm mt-1 italic text-muted-foreground">
+                          {log.text}
                         </p>
                       )}
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Résultat: {log.result}
-                      </p>
                     </div>
                   ))}
               </div>

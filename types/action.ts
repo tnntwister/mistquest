@@ -33,4 +33,5 @@ export interface ActionLog {
   timestamp: number;
   result: 'strongHit' | 'weakHit' | 'miss' | 'encounter';
   chapter: number;
+  text?: string;
 }

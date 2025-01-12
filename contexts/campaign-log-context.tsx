@@ -5,7 +5,7 @@ import type { ActionLog } from '@/types/action';
 
 interface CampaignLogContextType {
   logs: ActionLog[];
-  addLog: (log: Omit<ActionLog, 'chapter'>) => void;
+  addLog: (log: Omit<ActionLog, 'chapter'> & { text?: string }) => void;
   currentChapter: number;
   setCurrentChapter: (value: number | ((prev: number) => number)) => void;
 }
@@ -44,7 +44,7 @@ export function CampaignLogProvider({ children }: { children: React.ReactNode })
     localStorage.setItem('currentChapter', String(currentChapter));
   }, [currentChapter]);
 
-  const addLog = (log: Omit<ActionLog, 'chapter'>) => {
+  const addLog = (log: Omit<ActionLog, 'chapter'> & { text?: string }) => {
     setLogs(prev => [...prev, { ...log, chapter: currentChapter }]);
   };
 

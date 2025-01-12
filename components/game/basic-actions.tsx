@@ -1,14 +1,16 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Action, ActionLog } from '@/types/action';
 import { actions } from '@/data/actions';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useCampaignLog } from '@/contexts/campaign-log-context';
+import { useState } from 'react';
 
 export function BasicActions() {
   const { addLog } = useCampaignLog();
   const actionsList = actions || [];
+  const [actionText, setActionText] = useState("");
 
   // Grouper les actions par catégorie
   const actionsByCategory = (actionsList || []).reduce<Record<string, Action[]>>((acc, action) => {
@@ -28,16 +30,22 @@ export function BasicActions() {
     addLog({
       action,
       timestamp: Date.now(),
-      result
+      result,
+      text: actionText.trim() || undefined
     });
+
+    setActionText(""); // Reset le texte après l'action
   };
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Actions</CardTitle>
-      </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4 mt-4">
+        <textarea
+          value={actionText}
+          onChange={(e) => setActionText(e.target.value)}
+          placeholder="Décrivez votre action"
+          className="w-full h-20 p-2 text-sm bg-background border rounded-md resize-none"
+        />
         <Tabs defaultValue={Object.keys(actionsByCategory)[0]}>
           <TabsList className="w-full">
             {Object.keys(actionsByCategory).map(category => (
