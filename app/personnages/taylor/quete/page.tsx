@@ -4,6 +4,8 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SITE_NAME } from '@/app/config';
 import type { Metadata } from 'next';
 import { quete } from "@/data/taylor";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `La Quête de la Pureté - ${SITE_NAME}`,
@@ -43,6 +45,14 @@ export default function TaylorQuestPage() {
               </CardContent>
             </Card>
           ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 pb-8">
+        <div className="flex justify-center">
+          <Button variant="outline" size="lg" asChild>
+            <Link href="/personnages/taylor">Retour</Link>
+          </Button>
         </div>
       </div>
     </div>

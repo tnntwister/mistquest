@@ -4,10 +4,12 @@ import { caracteristiques, predation, objectifs } from "@/data/taylor";
 import { Metadata } from 'next';
 import { SITE_NAME } from '@/app/config';
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `Fiche de Jerome Sarrac - ${SITE_NAME}`,
-  description: "Caractéristiques et capacités de Jerome Sarrac, vampire Malkavien."
+  description: "Caractéristiques et capacités de Jerome Sarrac, ancillae Malkavien"
 };
 
 export default function TaylorSheetPage() {
@@ -17,7 +19,7 @@ export default function TaylorSheetPage() {
         <HeroSection 
           imagePrefix="taylor" 
           title="Fiche de Personnage" 
-          description="Caractéristiques et capacités d'un Malkavien pas comme les autres."
+          description="Caractéristiques et capacités de Jerome Sarrac, ancillae Malkavien"
         />
       </div>
       
@@ -154,6 +156,14 @@ export default function TaylorSheetPage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 pb-8">
+        <div className="flex justify-center">
+          <Button variant="outline" size="lg" asChild>
+            <Link href="/personnages/taylor">Retour</Link>
+          </Button>
         </div>
       </div>
     </div>

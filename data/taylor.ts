@@ -258,8 +258,7 @@ export const identites = [
     periode: "1886-1946",
     nom: "Geoffrey Taylor",
     description: `
-      <p>Né dans une famille de la classe moyenne de Camden, Geoffrey Taylor a toujours été fasciné par les sciences atmosphériques. Brillant étudiant à Trinity College, Cambridge, il rejoint le Met Office où son obsession pour la pureté de l'air commence à se développer. Son mariage avec Grace Stephanie Ravenhill en 1915 marque le début d'une période de bonheur, brutalement interrompue par son Étreinte l'année suivante.</p>
-      <p>Pendant la Grande Guerre, il utilise ses connaissances en météorologie pour servir la Couronne, tout en s'adaptant à sa nouvelle condition de vampire. La perte apparente de Grace pendant le Blitz de Londres en 1941 le pousse à abandonner cette identité, qu'il ne reprendra que brièvement lors de leurs retrouvailles en 1977.</p>
+      <p>Né dans une famille de la classe moyenne de Camden, Geoffrey Taylor a toujours été fasciné par les sciences atmosphériques. Brillant étudiant à Trinity College, Cambridge, il rejoint le Met Office où son obsession pour la pureté de l'air commence à se développer. Son mariage avec Grace Stephanie Ravenhill en 1915 marque le début d'une période de bonheur, brutalement interrompue par son Étreinte l'année suivante.</p><p>Pendant la Grande Guerre, il utilise ses connaissances en météorologie pour servir la Couronne, tout en s'adaptant à sa nouvelle condition de vampire. Il échange avec son sire et va de nouveau se préparer à combattre les allemands dans les années 80, jusqu’à être envoyé dans la Résistance Française et rencontrer des vampires alliés. La mort de son épouse le fera brutalement quitter la bataille.</p>
     `,
     image: "/images/sections/geoffrey1.jpeg"
   },
@@ -268,9 +267,7 @@ export const identites = [
     periode: "1946-2010",
     nom: "Gottfried Scheiner",
     description: `
-      <p>Après la "mort" de Grace, Taylor adopte l'identité de Gottfried Scheiner, un prétendu scientifique autrichien ayant fui le régime nazi. Cette période est marquée par sa quête de Golconda, influencée par les écrits mystiques d'Europe centrale.</p>
-      <p>Sous cette identité, il poursuit ses recherches sur la pureté, mais cette fois-ci dans une perspective plus spirituelle. Il voyage à travers l'Europe, étudiant les textes anciens et les traditions vampiriques. C'est durant cette période qu'il développe sa théorie sur la corrélation entre la pureté de l'air et l'élévation spirituelle.</p>
-      <p>Cette identité prend fin avec les retrouvailles inattendues avec Grace en 1977, devenue elle-même une vampire de clan Salubri. Leur réunion le pousse à abandonner le personnage de Scheiner pour retrouver temporairement son identité d'origine.</p>
+      <p>Après la seconde guerre mondiale, Taylor adopte l'identité de Gottfried Scheiner, un scientifique autrichien ayant fui le régime nazi. Il se passionne pour le réseau ferroviaire, pour lequel il est ingénieur. Inconsolable de la mort de son épouse, il délaisse les affaires vampiriques et se consacre à étudier l’état de Golconde, qui rejoint ses édudes sur la pureté, mais cette fois-ci dans une perspective plus spirituelle. Il voyage à travers l'Europe, étudiant les textes anciens et discutant avec des vampires plus anciens. C'est durant cette période qu'il développe sa théorie sur la corrélation entre la pureté de l'air et l'élévation spirituelle.</p><p>Cette quête prend un nouveau tournant avec les retrouvailles inattendues avec Grace en 1977, qui lui avoue être une Descendante du clan Salubri, et d’avoir guidé ses recherches. Ils entament une vie commune, et se rendent à Prague, où ils vont mettre la main sur un Tarot mystérieux qui permet d’aider à repousser la Bête. </p>
     `,
     image: "/images/sections/scheiner.webp"
   },
@@ -279,9 +276,7 @@ export const identites = [
     periode: "2010-présent",
     nom: "Jerome Sarrac",
     description: `
-      <p>Sa plus récente incarnation, Jerome Sarrac se présente comme le petit-fils d'un héros de la Résistance française. Cette identité soigneusement construite lui permet de justifier sa présence à Turin et ses excentricités, qu'on attribue volontiers à ses origines françaises.</p>
-      <p>Professeur d'aérodynamique urbaine contemporaine, il adapte ses théories des fluides aux problématiques modernes de pollution atmosphérique. Cette couverture lui permet de poursuivre ses recherches tout en maintenant une position influente au sein de la société vampirique de Turin.</p>
-      <p>Le nom "Sarrac" lui-même vient d'un village abandonné des Cévennes, un lieu où, selon lui, "même l'air semble figé dans le temps". Cette identité reflète sa capacité à s'adapter aux temps modernes tout en maintenant ses obsessions séculaires.</p>
+      <p>Jerome Sarrac se présente comme le petit-fils d'un héros de la Résistance française, qui a étudié en Angleterre avant de devenir agent du Special Operations Executive et d’être parachuté dans les Cévennes. Par cette histoire, il justifie qu’il ne parle pas italien. Le nom "Sarrac" lui-même vient d'un village abandonné des Cévennes, un lieu où, selon lui, "même l'air semble figé dans le temps".</p><p>Professeur d'aérodynamique urbaine contemporaine, il adapte sa fameuse théories des fluides aux problématiques modernes de pollution atmosphérique. Il possède un appartement et une vie presque humaine, même s’il est le bras droit du Prince de la ville et assiste à de nombreuses assemblées politiques vampiriques.</p><p>Il fait également partie des “Chauves-Souris”, un groupe de chasseurs de nuage qui aime également, sous son impulsion, faire du base jump.</p>
     `,
     image: "/images/sections/sarrac.webp"
   }
