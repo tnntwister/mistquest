@@ -61,7 +61,7 @@ export default function TaylorIdentitesPage() {
       <div className="container mx-auto px-4 pb-8">
         <div className="flex justify-center">
           <Button variant="outline" size="lg" asChild>
-            <Link href="/personnages/taylor">Retour</Link>
+            <Link href="/personnages/taylor">Retour à la page de Jerome Sarrac</Link>
           </Button>
         </div>
       </div>

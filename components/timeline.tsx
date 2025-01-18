@@ -25,11 +25,23 @@ export function Timeline({ title = "Chronologie", events }: TimelineProps) {
 
           <div className="space-y-4">
             {events.map((event) => (
-              <div key={event.id} className="relative flex">
-                <time className="w-[80px] text-lg font-bold text-primary shrink-0 text-right pr-6">
-                  {event.date}
-                </time>
-                <p className="flex-1 pl-8 text-muted-foreground">{event.description}</p>
+              <div key={event.id} className="relative flex items-center justify-between">
+                <div className="w-[120px] shrink-0 text-right pr-6">
+                  {event.date.includes('-') ? (
+                    <div className="flex flex-col items-center text-primary font-bold gap-1">
+                      <time className="text-lg">{event.date.split('-')[0].trim()}</time>
+                      <div className="flex flex-col items-center gap-1 py-1 text-muted-foreground">
+                        <div className="w-1 h-1 bg-muted-foreground rounded-full" />
+                        <div className="w-1 h-1 bg-muted-foreground rounded-full" />
+                        <div className="w-1 h-1 bg-muted-foreground rounded-full" />
+                      </div>
+                      <time className="text-lg">{event.date.split('-')[1].trim()}</time>
+                    </div>
+                  ) : (
+                    <time className="text-lg font-bold text-primary flex justify-center gap-1">{event.date}</time>
+                  )}
+                </div>
+                <p className="flex-1 text-muted-foreground">{event.description}</p>
               </div>
             ))}
           </div>

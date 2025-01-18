@@ -88,6 +88,7 @@ export const characters = {
       name: "Grace Stephanie Ravenhill",
       title: "Épouse et Salubri",
       description: "Experte en santé publique devenue vampire Salubri, elle a guidé Taylor vers la recherche de Golconda avant sa disparition tragique.",
+      imagePath: "/images/characters/grace2.webp",
       tags: ["Disparue", "Salubri", "Mentor spirituel"]
     },
     {
@@ -102,7 +103,6 @@ export const characters = {
       name: "William Taylor",
       title: "Petit-neveu fidèle",
       description: "Petit-neveu fidèle de Geoffrey Taylor, il dépose régulièrement ses lettres au caveau familial de Camden, ignorant la véritable nature de son grand-oncle.",
-      image: "/images/characters/william.webp",
       tags: ["mortel", "famille"]
     },
     {
@@ -110,7 +110,7 @@ export const characters = {
       name: "Jessica Leone",
       title: "Détective privée",
       description: "Détective privée chargée de surveiller Jerome Sarrac, elle entretient avec lui d'étranges dialogues nocturnes qui lui rappellent parfois Grace.",
-      image: "/images/characters/jessica.webp",
+      imagePath: "/images/characters/jessica.webp",
       tags: ["mortel", "enquêteur"]
     },
     {
@@ -118,7 +118,6 @@ export const characters = {
       name: "Les Chauves-souris",
       title: "Chasseurs d'orages",
       description: "Groupe de chasseurs d'orages initiés au base jump urbain par Jerome, ils ignorent à quel point leur surnom est approprié.",
-      image: "/images/characters/chauvesouris.webp",
       tags: ["mortel", "groupe"]
     }
   ],
@@ -128,7 +127,7 @@ export const characters = {
       name: "Merle",
       title: "Infant de Grace",
       description: "Ancien Salubri devenu Sang Clair, responsable de la disparition de Grace.",
-      tags: ["Anarchs", "Diablerie", "Vengance"]
+      tags: ["Adversaire", "Anarchs", "Diablerie", "Vengance"]
     }
   ],
   allies: [
@@ -137,14 +136,14 @@ export const characters = {
       name: "Vladimir Korda",
       title: "Prince de Prague",
       description: "Toréador et créateur du tarot mystique, ancien allié devenu distant.",
-      tags: ["Toréador", "Prince", "Artiste"]
+      tags: ["Distant", "Toréador", "Prince", "Artiste"]
     },
     {
       id: "prince_turin",
       name: "Prince de Turin",
       title: "Employeur actuel",
       description: "Un Prince réformateur cherchant à maintenir une forme de justice dans le monde vampirique.",
-      tags: ["Camarilla", "Justice", "Mentor"]
+      tags: ["Allié","Camarilla", "Justice", "Mentor"]
     }
   ]
 };
