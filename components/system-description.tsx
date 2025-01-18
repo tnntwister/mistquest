@@ -20,8 +20,8 @@ export function SystemDescription({ name, description, imagePath, MoreLink }: Sy
         <div className="prose prose-invert font-sans">
           <div dangerouslySetInnerHTML={{ __html: description }} />
           {MoreLink && (
-            <Button asChild className="mt-4">
-              <Link href={MoreLink}>En savoir plus</Link>
+            <Button variant="outline" size="lg" asChild className="w-full sm:w-auto mt-4">
+              <Link href={MoreLink} className="no-underline">En savoir plus</Link>
             </Button>
           )}
         </div>

@@ -65,12 +65,11 @@ export function BasicActions() {
               <ScrollArea className="min-h-[200px] px-2">
                 <div className="space-y-2 grid grid-cols-2 gap-4">
                   {actions.map(action => (
-                    <div>
+                    <div key={action.id}>
                       <div className="flex flex-col justify-between items-center">
                         <h3>{action.label}</h3>
                         <p className="text-xs text-gray-600 min-h-16 pt-2 pb-6">{action.description}</p>
                         <Button 
-                            key={action.id}
                           variant="outline"
                           className="w-full justify-center"
                           onClick={() => handleActionClick(action)}

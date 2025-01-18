@@ -18,7 +18,7 @@ export function Timeline({ title = "Chronologie", events }: TimelineProps) {
       <CardHeader>
         <h4 className="text-xl font-semibold">{title}</h4>
       </CardHeader>
-      <CardContent>
+      <CardContent className="prose dark:prose-invert">
         <div className="relative">
           {/* Ligne verticale */}
           <div className="absolute left-[100px] top-0 bottom-0 w-px bg-border" />
