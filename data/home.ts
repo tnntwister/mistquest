@@ -69,11 +69,11 @@ export const features: Feature[] = [
     "image": "/images/hero/archipels-hero.webp"
   },
   {
-    "title": "LNS",
-    "description": "Entrez dans les pas des aventures de Gene Wolfe et de ses cycles de romans.",
-    "iconName": "📖",
-    "href": "/univers/lns",
-    "image": "/images/features/lns-hero.webp"
+    title: "Jerome Sarrac",
+    description: "Archonte de la Camarilla, obsédé par la pureté de l'air et les patterns atmosphériques.",
+    iconName: "🌪️",
+    href: "/personnages/taylor",
+    image: "/images/features/taylor-hero.webp"
   },
   {
     "title": "Tokyo:Otherscape",

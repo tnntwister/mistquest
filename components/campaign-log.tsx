@@ -88,7 +88,7 @@ export function CampaignLog({ title = "Journal de Campagne", sessions }: Campaig
           {/* Contenu de la session (colonne droite) */}
           <div className="bg-secondary/30 rounded-lg p-6">
             {selectedSession ? (
-              <div className="prose prose-invert prose-sm max-w-none">
+              <div className="prose dark:prose-invert prose-sm max-w-none">
                 <h3 className="text-xl font-semibold mb-4">
                   Détails de la session #{selectedSession} - {sessions.find(s => s.id === selectedSession)?.title}
                 </h3>

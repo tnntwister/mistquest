@@ -31,7 +31,7 @@ export function HeroSection({
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/50" />
         
         <div className="relative space-y-6 p-8 md:p-12">
           <div className="flex items-center space-x-4">
@@ -41,16 +41,16 @@ export function HeroSection({
                 <Moon className="absolute left-0 top-0 h-8 w-8 text-slate-400" />
               </div>
             )}
-            <h1 className="bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
               {title}
             </h1>
           </div>
 
-          <p className="max-w-2xl text-lg text-muted-foreground">
+          <p className="max-w-2xl text-lg text-foreground/80">
             {description}
           </p>
 
-          <div className="h-px w-full bg-gradient-to-r from-slate-700 via-slate-500 to-transparent" />
+          <div className="h-px w-full bg-gradient-to-r from-border via-border/50 to-transparent" />
         </div>
       </Card>
     </section>

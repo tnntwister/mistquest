@@ -80,7 +80,7 @@ export function ItemsLog({ title = "Journal de Campagne", items }: ItemsLogProps
           {/* Contenu de la session (colonne droite) */}
           <div className="bg-secondary/30 rounded-lg p-6">
             {selectedItem ? (
-              <div className="prose prose-invert prose-sm">
+              <div className="prose dark:prose-invert prose-sm">
                 <h3 className="text-xl font-semibold mb-4">
                   {selectedItem} - {items.find(s => s.id === selectedItem)?.title}
                 </h3>

@@ -9,6 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu, User, ShoppingCart, ChevronDown, UserCheck } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 
 // Définition des types
@@ -29,7 +30,7 @@ const navigation: NavigationItem[] = [
     href: "/personnages",
     submenu: [
       { title: "Fael Bursandra des Hazat", href: "/personnages/fael" },
-      { title: "Archonte", href: "/personnages/vampire" },
+      { title: "Jerome Sarrac", href: "/personnages/taylor" },
       { title: "Nicole", href: "/personnages/nicole" }
     ]
   },
@@ -38,8 +39,7 @@ const navigation: NavigationItem[] = [
     href: "/univers",
     submenu: [
       { title: "Tokyo:Otherscape", href: "/univers/otherscape" },
-      { title: "Obojima", href: "/univers/obojima" },
-      { title: "LNS", href: "/univers/lns" }
+      { title: "Obojima", href: "/univers/obojima" }
     ]
   },
   {
@@ -89,7 +89,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <span
             className={cn(
-              "block px-2 py-1 text-sm",
+              "block px-2 py-1 text-sm text-foreground",
               pathname === item.href && "text-primary"
             )}
           >
@@ -103,7 +103,7 @@ export function Navigation() {
                 key={subItem.href}
                 href={subItem.href}
                 className={cn(
-                  "block px-2 py-1 text-sm",
+                  "block px-2 py-1 text-sm text-foreground",
                   pathname === subItem.href && "text-primary"
                 )}
                 onClick={() => setIsOpen(false)}
@@ -124,7 +124,7 @@ export function Navigation() {
         <Link
           href={item.submenu ? item.submenu[0].href : ""}
           className={cn(
-            "flex items-center gap-1 px-4 py-2",
+            "flex items-center gap-1 px-4 py-2 text-foreground",
             pathname === item.href && "text-primary"
           )}
         >
@@ -142,7 +142,7 @@ export function Navigation() {
                     key={subItem.href}
                     href={subItem.href}
                     className={cn(
-                      "block px-4 py-2 text-sm hover:bg-muted",
+                      "block px-4 py-2 text-sm text-foreground hover:bg-muted",
                       pathname === subItem.href && "text-primary"
                     )}
                   >
@@ -160,7 +160,7 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto container flex h-14 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 text-foreground">
           <span className="font-bold">MIST.QUEST</span>
         </Link>
 
@@ -171,13 +171,14 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Link href="/store" className="hover:text-primary">
+          <ThemeToggle />
+          <Link href="/store" className="text-foreground hover:text-primary">
             <ShoppingCart className="h-5 w-5" />
             <span className="sr-only">Panier</span>
           </Link>
           <Link 
             href={user ? "/profile" : "/login"} 
-            className="hover:text-primary"
+            className="text-foreground hover:text-primary"
           >
             {user ? (
               <UserCheck className="h-5 w-5" />

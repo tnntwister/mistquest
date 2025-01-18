@@ -17,10 +17,10 @@ export function CharacterDescription({ name, description, imagePath, characterSh
         <CardTitle>Description du Personnage</CardTitle>
       </CardHeader>
       <CardContent className="grid md:grid-cols-2 gap-6">
-        <div className="prose prose-invert font-sans">
+        <div className="prose dark:prose-invert font-sans">
           <div dangerouslySetInnerHTML={{ __html: description }} />
-          <Button asChild className="mt-4">
-            <Link href={characterSheetLink}>Voir la Fiche Complète</Link>
+          <Button variant="outline" size="lg" asChild className="w-full sm:w-auto mt-4">
+            <Link href={characterSheetLink} className="no-underline">Voir la Fiche Complète</Link>
           </Button>
         </div>
         <Link 

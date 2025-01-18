@@ -31,12 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className={`${inter.className} ${cinzel.variable} font-sans antialiased`}>
         <AuthProvider>
           <Providers>
             <ThemeProvider attribute="class" defaultTheme="dark">
-              <div className={`min-h-screen bg-[#0a0a0f] flex flex-col`}>
+              <div className="min-h-screen bg-background flex flex-col">
                 <Navigation />
                 <main className="flex-1">
                   {children}
