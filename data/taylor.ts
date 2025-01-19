@@ -244,7 +244,7 @@ export const objectifs = {
 export const sessions = [{
   id: "1",
   title: "Lettre à Grace Stephanie Ravenhill",
-  date: "17 janvier 2025",
+  date: "background",
   severity: "info",
   summary: `Turin, le 17 janvier de l'an 2025  
 À l'attention de Madame Stephanie Ravenhill,  
