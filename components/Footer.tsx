@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { developmentZones } from "@/data/footer-menu"
+import { developmentZones, latestUpdates } from "@/data/footer-menu"
 
 export function Footer() {
   return (
@@ -47,18 +47,11 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-foreground">Dernières mises à jour</h4>
             <ul className="space-y-2 text-sm">
-              <li className="text-muted-foreground">
-                <span className="text-foreground">18/01/2025</span> - Fiche de Jérome Sarrac
-              </li>
-              <li className="text-muted-foreground">
-                <span className="text-foreground">10/01/2025</span> - Fiche de Nicole
-              </li>
-              <li className="text-muted-foreground">
-                <span className="text-foreground">04/01/2025</span> - Création de Nativesworn
-              </li>
-              <li className="text-muted-foreground">
-                <span className="text-foreground">30/12/2024</span> - Description de Fael
-              </li>
+              {latestUpdates.map((update, index) => (
+                <li key={index} className="text-muted-foreground">
+                  <span className="text-foreground">{update.date}</span> - {update.description}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

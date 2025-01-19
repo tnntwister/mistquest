@@ -8,11 +8,22 @@ interface FooterMenuItem {
   role: string
 }
 
+interface Update {
+  date: string
+  description: string
+}
+
 export const developmentZones: FooterMenuItem[] = [
   {
     title: "Fading Suns",
     href: "/personnages/fael",
     icon: Sword,
+    role: "PJ"
+  },
+  {
+    title: "Vampire V5",
+    href: "/personnages/taylor",
+    icon: Compass,
     role: "PJ"
   },
   {
@@ -28,12 +39,6 @@ export const developmentZones: FooterMenuItem[] = [
     role: "PJ/MJ"
   },
   {
-    title: "Légendes du Nouveau Soleil",
-    href: "/univers/lns",
-    icon: BookOpen,
-    role: "MJ"
-  },
-  {
     title: "Archipels",
     href: "/creations/archipels",
     icon: Compass,
@@ -42,7 +47,26 @@ export const developmentZones: FooterMenuItem[] = [
   {
     title: "Obojima",
     href: "/univers/obojima",
-    icon: Compass,
+    icon: BookOpen,
     role: "MJ"
+  }
+]
+
+export const latestUpdates: Update[] = [
+  {
+    date: "18/01/2025",
+    description: "Fiche de Jérome Sarrac"
+  },
+  {
+    date: "10/01/2025", 
+    description: "Fiche de Nicole"
+  },
+  {
+    date: "04/01/2025",
+    description: "Création de Nativesworn"
+  },
+  {
+    date: "30/12/2024",
+    description: "Description de Fael"
   }
 ] 
