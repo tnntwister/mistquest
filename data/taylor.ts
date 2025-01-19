@@ -92,13 +92,13 @@ export const timelineEvents = [
     id: "109",
     date: "2009",
     title: "Mort de Grace",
-    description: "Merle ne supporte pas son statut de sang clair. Il commet la diablerie sur Grace, et rejoint les Anarchs. Taylor brûle ses recherches sur Golconda et quitte le service du Prince."
+    description: "Merle ne supporte pas son statut de sang clair. Il commet la diablerie sur Grace, et rejoint les Anarchs. Taylor brûle ses recherches sur Golconda et quitte le service du Prince de Prague."
   },
   {
     id: "110",
     date: "2010-2024",
-    title: "Découverte de la Trahison",
-    description: "Installation à Turin comme professeur d'aérodynamique urbaine contemporaine et conseiller du Prince."
+    title: "Bras droit du Prince de Turin",
+    description: "Identité de Jerome Sarrac. Installation à Turin comme professeur d'aérodynamique urbaine contemporaine et conseiller du Prince."
   },
   {
     id: "125",
