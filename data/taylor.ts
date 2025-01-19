@@ -11,71 +11,100 @@ export const timelineEvents = [
   {
     id: "1",
     date: "1886",
-    description: "Naissance à Camden, Londres",
-  },
-  {
-    id: "2",
-    date: "1904-1908",
-    description: "Études à Trinity College, Cambridge",
-  },
-  {
-    id: "3",
-    date: "1908-1914",
-    description: "Travail au Met Office, début de son obsession pour la pureté de l'air",
+    description: "Naissance à Camden, Londres.. Issu d'une famille modeste mais éduquée, il montre très tôt des capacités exceptionnelles en mathématiques et sciences naturelles.",
   },
   {
     id: "4",
-    date: "1915",
-    description: "Mariage avec Grace Stephanie Ravenhill",
-  },
-  {
-    id: "5",
-    date: "1916",
-    description: "Étreinte par Juliet Parr lors d'une mission secrète",
-  },
-  {
-    id: "6",
-    date: "1941",
-    description: "Mort apparente de Grace pendant le Blitz",
-  },
-  {
-    id: "7",
-    date: "1946-1977",
-    description: "Période Gottfried Scheiner, recherches sur Golconda",
+    date: "1904-1908",
+    description: "Études à Trinity College, Cambridge, grâce à une bourse d'études. Développement de son intérêt pour la météorologie et les mouvements de l'air.",
   },
   {
     id: "8",
+    date: "1908-1914",
+    description: "Après son doctorat, Taylor rejoint le Met Office.",
+  },
+  {
+    id: "14",
+    date: "1914-1918",
+    description: " Durant la Grande Guerre, Taylor est mobilisé au sein du Met Office pour l'analyse des conditions de vol des dirigeables. Parallèlement, il devient rooftop spotter dans Camden.",    
+  },
+  {
+    id: "15",
+    date: "1915",
+    description: " Mariage avec Grace Stephanie Ravenhill, experte en santé publique.",
+  },
+  {
+    id: "16",
+    date: "1916",
+    description: " Gravement blessé, il reçoit l'Étreinte d'urgence de Juliet Parr. Il doit faire passer un message vital à travers les lignes ennemies en récupérant un Zeppelin abattu.",
+  },
+  {
+    id: "17",
+    date: "1917",
+    description: "Mission secrète à Turin. Revient à Londres ensuite.",
+  },
+  {
+    id: "18",
+    date: "1918-1939",
+    description: "Théorise sur la nature morale de sa condition, développant des théories complexes liant science, moralité et vampirisme. Taylor poursuit sa carrière scientifique tout en s'adaptant à sa condition de vampire."
+  },
+  {
+    id: "41",
+    date: "1941",
+    description: "Grace contracte la tuberculose, probablement en travaillant dans les abris surpeuplés. Elle meurt de la tuberculose pendant un raid aérien, alors que Taylor est sur les toits à observer les bombardiers.",
+  },
+  {
+    id: "42",
+    date: "1942",
+    description: "Taylor utilise ses contacts scientifiques et sa compréhension des patterns atmosphériques pour tenter d'infiltrer les opérations allemandes.",
+  },
+  {
+    id: "43",
+    date: "1943",
+    description: "Il participe à plusieurs missions secrètes en France occupée, mais son manque d'expérience en combat et en espionnage le dessert. "
+  },
+  {
+    id: "44",
+    date: "1944",
+    description: "Il reçoit un entraînement intensif de la part d'autres vampires plus expérimentés dans l'art de la guerre",
+  },
+  {
+    id: "45",
+    date: "1945",
+    description: "Ses dernières missions sont plus réussies, mais jamais à la hauteur de ses ambitions initiales. Il rencontre Paul Sarrette, qui lui inspirera son identité à Turin 75 ans plus tard.",
+  },
+  {
+    id: "50",
+    date: "1946-1977",
+    description: "Sous l'indentité de Gottfried Scheiner, il devient ingénieur du rail, et sillonne l’europe pour accumuler des recherches sur Golconda",
+  },
+  {
+    id: "77",
     date: "1977",
     description: "Retrouvailles avec Grace, devenue une Salubri",
   },
   {
-    id: "9",
+    id: "80",
     date: "1980",
-    description: "Découverte du tarot mystique à Prague",
+    description: "Découverte du tarot mystique à Prague, et rencontre de Vladimir Korda, qui le prend sous sa coupe.",
   },
   {
-    id: "2010",
-    date: "2010",
-    title: "Retour à Londres",
-    description: "Retour à Londres après des années d'errance. Début de la surveillance de Merle."
+    id: "110",
+    date: "2009",
+    title: "Mort de Grace",
+    description: "Merle ne supporte pas son statut de sang clair. Il commet la diablerie sur Grace, et rejoint les Anarchs. Taylor brûle ses recherches sur Golconda et quitte le service du Prince."
   },
   {
-    id: "2015",
-    date: "2015",
+    id: "115",
+    date: "2010-2024",
     title: "Découverte de la Trahison",
-    description: "Découverte des activités de Merle et de son implication dans la mort de Grace."
+    description: "Installation à Turin comme professeur d'aérodynamique urbaine contemporaine et conseiller du Prince."
   },
   {
-    id: "2020",
+    id: "120",
     date: "2020",
     title: "Nomination comme Archonte",
-    description: "Nommé archonte par la Camarilla, utilisant cette position pour poursuivre ses recherches sur Merle."
-  },
-  {
-    id: "2024",
-    date: "2024",
-    title: "Installation à Turin",
-    description: "Installation à Turin comme professeur d'aérodynamique urbaine contemporaine et conseiller du Prince."
+    description: "Nommé archonte par la Camarilla"
   }
 ];
 
@@ -214,14 +243,14 @@ export const objectifs = {
 
 export const sessions = [{
   id: "1",
-  title: "Lettre à Grace Loiseau",
+  title: "Lettre à Grace Stephanie Ravenhill",
   date: "17 janvier 2025",
   severity: "info",
-  summary: `Turin, le 17 janvier de l'an 2025
-À l'attention de Madame Grace Loiseau,
-En sa dernière demeure de Camden.
+  summary: `Turin, le 17 janvier de l'an 2025  
+À l'attention de Madame Stephanie Ravenhill,  
+En sa dernière demeure de Camden.  
 
-Mon bel oiseau,
+*Mon bel oiseau,*
 
 Le foehn, ce vent capricieux des Alpes, descend sur la ville telle une main invisible, transportant dans son étreinte les exhalaisons délétères de la vallée du Pô. Les particules en suspension racontent une histoire troublante - les analyses récentes y ont décelé des traces de cocaïne, d'excréments et de particules fines, témoignage de la corruption moderne qui s'infiltre jusque dans l'air que nous ne respirons plus. Turin demeure, hélas, l'une des métropoles les plus polluées d'Europe, prisonnière de sa géographie et de ses péchés industriels.
 
@@ -246,7 +275,7 @@ Vous auriez souri, mon bel oiseau, en apprenant que je m’offre les services d'
 Cette missive rejoindra les autres par les bons soins de mon petit-neveu William. Il continuera fidèlement sa tâche, m’a-t-il assuré, déposant mes lettres dans le caveau familial de Camden aux premières lueurs de l'aube. Il ignore que la sépulture est vide, tout comme il ignore ma véritable nature. Son dévouement à perpétuer cette correspondance me touche - cette fidélité fait écho à votre bonté naturelle qui s’exprimait sans rien exiger en retour.
 Le temps n'atténue en rien la douleur de vous avoir perdue deux fois. D'abord à la tuberculose, puis à la diablerie - comme si le destin s'acharnait à nous séparer. Les nuits se suivent, mais aucune ne vous ramène à moi. Je continue pourtant, porté par la certitude que justice sera faite. Non pas pour la rédemption que vous cherchiez à m'offrir, mon bel oiseau, mais pour que votre sacrifice ne reste pas impuni.
 
-Votre éternel mari. 
+**Votre éternel mari**  
 
 *Post-scriptum* : L'air de cette nuit me rappelle celui de notre première rencontre à Trinity College. Peut-être est-ce là un signe que je devrais coucher sur le papier les souvenirs de cette époque lors de ma prochaine missive.`
 }];
