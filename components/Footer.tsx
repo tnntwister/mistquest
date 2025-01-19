@@ -48,6 +48,9 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-foreground">Dernières mises à jour</h4>
             <ul className="space-y-2 text-sm">
               <li className="text-muted-foreground">
+                <span className="text-foreground">18/01/2025</span> - Fiche de Jérome Sarrac
+              </li>
+              <li className="text-muted-foreground">
                 <span className="text-foreground">10/01/2025</span> - Fiche de Nicole
               </li>
               <li className="text-muted-foreground">
