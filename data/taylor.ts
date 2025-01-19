@@ -89,20 +89,20 @@ export const timelineEvents = [
     description: "Découverte du tarot mystique à Prague, et rencontre de Vladimir Korda, qui le prend sous sa coupe.",
   },
   {
-    id: "110",
+    id: "109",
     date: "2009",
     title: "Mort de Grace",
     description: "Merle ne supporte pas son statut de sang clair. Il commet la diablerie sur Grace, et rejoint les Anarchs. Taylor brûle ses recherches sur Golconda et quitte le service du Prince."
   },
   {
-    id: "115",
+    id: "110",
     date: "2010-2024",
     title: "Découverte de la Trahison",
     description: "Installation à Turin comme professeur d'aérodynamique urbaine contemporaine et conseiller du Prince."
   },
   {
-    id: "120",
-    date: "2020",
+    id: "125",
+    date: "2025",
     title: "Nomination comme Archonte",
     description: "Nommé archonte par la Camarilla"
   }
